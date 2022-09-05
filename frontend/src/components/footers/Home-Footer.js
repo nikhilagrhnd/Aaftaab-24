@@ -39,17 +39,17 @@ export default () => {
             <LogoText>Aaftaab</LogoText>
           </LogoContainer>
           <LinksContainer>
-            <Link href="#">Home</Link>
-            <Link href="#">About</Link>
-            <Link href="#">Contact Us</Link>
-            <Link href="#">Team</Link>
-            <Link href="#">IIT Jodhpur</Link>
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="mailto:aaftaab@iitj.ac.in">Contact Us</Link>
+            <Link href="/team">Team</Link>
+            <Link href="https://www.iitj.ac.in/">IIT Jodhpur</Link>
           </LinksContainer>
           <SocialLinksContainer>
-            <SocialLink href="https://facebook.com">
+            <SocialLink href="https://instagram.com">
               <InstagramIcon />
             </SocialLink>
-            <SocialLink href="https://twitter.com">
+            <SocialLink href="https://facebook.com">
               <FacebookIcon />
             </SocialLink>
             <SocialLink href="https://youtube.com">
