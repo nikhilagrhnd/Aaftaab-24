@@ -109,6 +109,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "website/homepage";
 import About from "website/about";
 import Schedule from "website/schedule";
+import Events from "website/events";
+import Sponsors from "website/sponsors";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -118,10 +120,10 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path = "/">
+        <Route exact path = "/">
           <Home></Home>
         </Route>
-        <Route path = "/about">
+       <Route path = "/about">
           <About></About>
         </Route>
         <Route path = "/events">

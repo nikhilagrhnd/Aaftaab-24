@@ -1,4 +1,4 @@
-import react from "react";
+import React, { Component } from 'react';
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 
 function About() {

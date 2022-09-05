@@ -1,5 +1,6 @@
 import AnimationRevealPage from 'helpers/AnimationRevealPage';
-import react from 'react';
+import React, { Component } from 'react';
+
 
 function Events() {
     return (
