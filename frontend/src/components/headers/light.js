@@ -73,11 +73,11 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   const defaultLinks = [
     <NavLinks key={1}>
       <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Events</NavLink>
+      <NavLink href="/events">Events</NavLink>
       <NavLink href="/#">Sponsors</NavLink>
       <NavLink href="/#">Schedule</NavLink>
       
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Register Now</PrimaryLink>
+      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Login</PrimaryLink>
     </NavLinks>
   ];
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
