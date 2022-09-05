@@ -65,32 +65,32 @@ export default ({
       {
         imageSrc:
           "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1888&q=80",
-        title: "Event 1",
-        timing: "lorem ipsum",
+        title: "Kavi Sammelan",
+        timing: "XX:XX AM - XX:XX PM",
         // price: "₹50",
         url: "#"
       },
       {
         imageSrc:
           "https://images.unsplash.com/photo-1569315618680-3d673b5e1514?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        title: "Event 2",
-        timing: "lorem ipsum",
+        title: "Stand up Comedy",
+        timing: "XX:XX AM - XX:XX PM",
         // price: "₹50",
         url: "#"
       },
       {
         imageSrc:
           "https://images.unsplash.com/photo-1610659606489-77967e40fa35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-        title: "Event 3",
-        timing: "lorem ipsum",
+        title: "Debate",
+        timing: "XX:XX AM - XX:XX PM",
         // price: "₹50",
         url: "#"
       },
       {
         imageSrc:
           "https://images.unsplash.com/photo-1520483691742-bada60a1edd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-        title: "Event 4",
-        timing: "lorem ipsum",
+        title: "XYZ Concert",
+        timing: "XX:XX AM - XX:XX PM",
         // price: "₹50",
         url: "#"
       }
@@ -337,15 +337,23 @@ const getDay3Cards = () => {
     {
       imageSrc:
         "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      title: "Public Speaking Workshop",
-      timing: "10:00 AM - 11:30 AM",
+      title: "In Pursuit Of Dispute (English Debate)",
+      timing: "09:30 AM - 11:30 AM",
       price: "₹50",
       url: "#"
     },
     {
       imageSrc:
         "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      title: "Verse Come Verse Serve (Prompt Poetry)",
+      title: "Nautanki Saala (Acting Workshop)",
+      timing: "10:00 AM - 11:30 AM",
+      // price: "₹50",
+      url: "#"
+    },
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      title: "What If They Met (Prompt based character re-enactment)",
       timing: "11:30 AM - 01:00 PM",
       // price: "₹50",
       url: "#"
@@ -353,7 +361,7 @@ const getDay3Cards = () => {
     {
       imageSrc:
         "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      title: "Noob Quiz",
+      title: "Netflix and Quiz",
       timing: "11:30 AM - 01:00 PM",
       // price: "₹50",
       url: "#"
@@ -361,7 +369,7 @@ const getDay3Cards = () => {
     {
       imageSrc:
         "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      title: "Are Your Words-Worth?(Word Games)",
+      title: "Theatre Performance",
       timing: "02:30 PM - 04:00 PM",
       // price: "₹50",
       url: "#"
@@ -369,15 +377,7 @@ const getDay3Cards = () => {
     {
       imageSrc:
         "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      title: "Regional Author Book Signing",
-      timing: "02:30 PM - 04:00 PM",
-      // price: "₹50",
-      url: "#"
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      title: "Interview with Director",
+      title: "English Author Book Signing ",
       timing: "04:00 PM - 05:30 PM",
       // price: "₹50",
       url: "#"
@@ -385,16 +385,8 @@ const getDay3Cards = () => {
     {
       imageSrc:
         "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      title: "Clueminati (Treasure Hunt)",
-      timing: "06:00 PM - 08:00 PM",
-      // price: "₹50",
-      url: "#"
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      title: "Comedy Central (Standup/Satirical Comedy)",
-      timing: "09:00 PM - 11:00 PM",
+      title: "Let's Get Quizzical (MELA Quiz)",
+      timing: "04:00 PM - 05:00 PM",
       // price: "₹50",
       url: "#"
     }
