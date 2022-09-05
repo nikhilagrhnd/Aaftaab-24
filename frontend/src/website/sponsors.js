@@ -1,11 +1,12 @@
 import AnimationRevealPage from 'helpers/AnimationRevealPage';
 import React  from 'react';
-
-
+import Features from "components/features/SponsersCard";
+import Header from "components/headers/light"
 function Sponsors() {
     return (
         <AnimationRevealPage>
-            <h1>Sponsors</h1>
+            <Header />
+            <Features />
         </AnimationRevealPage>
     );
 }
