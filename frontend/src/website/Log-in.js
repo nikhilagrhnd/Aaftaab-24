@@ -3,7 +3,12 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
+<<<<<<< HEAD
 import { css } from "styled-components/macro"; //eslint-disable-line
+=======
+import {css} from "styled-components/macro"; //eslint-disable-line
+
+>>>>>>> 328f79feb736cf2a243096d666912b4bc85524d6
 import illustration from "images/login-illustration.svg";
 import logo from "images/old-logo-symbol.png";
 import googleIconImageSrc from "images/google-icon.png";

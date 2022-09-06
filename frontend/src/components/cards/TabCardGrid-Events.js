@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -90,7 +91,7 @@ export default ({
         imageSrc:
           "https://images.unsplash.com/photo-1520483691742-bada60a1edd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         title: "XYZ Concert",
-        timing: "XX:XX AM - XX:XX PM",
+        timing: "XX:XX AM - XX:XX PM ",
         // price: "₹50",
         url: "#"
       }
@@ -142,43 +143,50 @@ export default ({
             animate={activeTab === tabKey ? "current" : "hidden"}
           >
             {tabs[tabKey].map((card, index) => (
-              <CardContainer key={index}>
-                <Card className="group" href={card.url} initial="rest" whileHover="hover" animate="rest">
-                  <CardImageContainer imageSrc={card.imageSrc}>
-                    {/* <CardRatingContainer>
-                      <CardRating>
-                        <StarIcon />
-                        {card.rating}
-                      </CardRating>
-                      <CardReview>({card.reviews})</CardReview>
-                    </CardRatingContainer> */}
-                    {
-                      card.price ?
-                      <CardHoverOverlay
-                        variants={{
-                          hover: {
-                            opacity: 1,
-                            height: "auto"
-                          },
-                          rest: {
-                            opacity: 0,
-                            height: 0
-                          }
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <CardButton>Register Now!</CardButton>
-                      </CardHoverOverlay>
-                      : null
-                    }
-                  </CardImageContainer>
-                  <CardText>
-                    <CardTitle>{card.title}</CardTitle>
-                    <CardContent>{card.timing}</CardContent>
-                    {card.price ? <CardPrice>{card.price}</CardPrice> : null}
-                  </CardText>
-                </Card>
-              </CardContainer>
+                <CardContainer key={index}>
+                 {/* <Link to="/eventDetails" state={card}> */}
+                 <Link to={{
+                  pathname: "/eventDetails",
+                  search: `?name=${card.title}`,
+                  state: card
+                 }}>
+                  <Card className="group" href={card.url} initial="rest" whileHover="hover" animate="rest">
+                    <CardImageContainer imageSrc={card.imageSrc}>
+                      {/* <CardRatingContainer>
+                        <CardRating>
+                          <StarIcon />
+                          {card.rating}
+                        </CardRating>
+                        <CardReview>({card.reviews})</CardReview>
+                      </CardRatingContainer> */}
+                      {
+                        card.price ?
+                        <CardHoverOverlay
+                          variants={{
+                            hover: {
+                              opacity: 1,
+                              height: "auto"
+                            },
+                            rest: {
+                              opacity: 0,
+                              height: 0
+                            }
+                          }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <CardButton>Register Now!</CardButton>
+                        </CardHoverOverlay>
+                        : null
+                      }
+                    </CardImageContainer>
+                    <CardText>
+                      <CardTitle>{card.title}</CardTitle>
+                      <CardContent>{card.timing}</CardContent>
+                      {card.price ? <CardPrice>{card.price}</CardPrice> : null}
+                    </CardText>
+                  </Card>
+                 </Link>
+                </CardContainer>
             ))}
           </TabContent>
         ))}
