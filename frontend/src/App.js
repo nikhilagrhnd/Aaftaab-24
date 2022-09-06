@@ -92,7 +92,6 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 // import HostingCloudLandingPage from "demos/HostingCloudLandingPage.js";
 
 /* Inner Pages */
-// import SignupPage from "pages/Signup.js";
 // import PricingPage from "pages/Pricing.js";
 // import AboutUsPage from "pages/AboutUs.js";
 // import ContactUsPage from "pages/ContactUs.js";
@@ -101,6 +100,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 // import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 
 import LoginPage from "website/Log-in.js";
+import SignupPage from "website/Sign-up";
 import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "MainLandingPage.js";
 import ThankYouPage from "ThankYouPage.js";
@@ -141,6 +141,9 @@ export default function App() {
         </Route>
         <Route path = "/eventDetails">
           <EventDetails />
+        </Route>
+        <Route path = "/signup">
+          <SignupPage/>
         </Route>
       </Switch>
     </Router>
