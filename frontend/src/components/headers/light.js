@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-
+import { Link } from "react-router-dom";
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 
 import logo from "../../images/old-logo-symbol.png";
@@ -56,7 +56,13 @@ export const DesktopNavLinks = tw.nav`
   hidden lg:flex flex-1 justify-between items-center
 `;
 
-export default ({ roundedHeaderButton = false, logoLink, links, className, collapseBreakpointClass = "lg" }) => {
+export default ({
+  roundedHeaderButton = false,
+  logoLink,
+  links,
+  className,
+  collapseBreakpointClass = "lg"
+}) => {
   /*
    * This header component accepts an optionals "links" prop that specifies the links to render in the navbar.
    * This links props should be an array of "NavLinks" components which is exported from this file.
@@ -72,23 +78,37 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    */
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href="/about">About</NavLink>
-      <NavLink href="/events">Events</NavLink>
-      <NavLink href="/sponsors">Sponsors</NavLink>
-      <NavLink href="/#">Schedule</NavLink>
-      <NavLink href="/team">Team</NavLink>
-      
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/login">Login</PrimaryLink>
+      <Link to="/about">
+        <NavLink>About</NavLink>
+      </Link>
+      <Link to="/events">
+        <NavLink>Events</NavLink>
+      </Link>
+      <Link to="/sponsors">
+        <NavLink>Sponsors</NavLink>
+      </Link>
+      <Link to="/team">
+        <NavLink>Team</NavLink>
+      </Link>
+
+      <Link to="/login">
+        <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}>
+          Login
+        </PrimaryLink>
+      </Link>
     </NavLinks>
   ];
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
-  const collapseBreakpointCss = collapseBreakPointCssMap[collapseBreakpointClass];
+  const collapseBreakpointCss =
+    collapseBreakPointCssMap[collapseBreakpointClass];
 
   const defaultLogoLink = (
-    <LogoLink href="/">
-      <img src={logo} alt="logo" />
-      Aaftaab
-    </LogoLink>
+    <Link to="/">
+      <LogoLink>
+        <img src={logo} alt="logo" />
+        Aaftaab
+      </LogoLink>
+    </Link>
   );
 
   logoLink = logoLink || defaultLogoLink;
@@ -101,13 +121,26 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
         {links}
       </DesktopNavLinks>
 
-      <MobileNavLinksContainer css={collapseBreakpointCss.mobileNavLinksContainer}>
+      <MobileNavLinksContainer
+        css={collapseBreakpointCss.mobileNavLinksContainer}
+      >
         {logoLink}
-        <MobileNavLinks initial={{ x: "150%", display: "none" }} animate={animation} css={collapseBreakpointCss.mobileNavLinks}>
+        <MobileNavLinks
+          initial={{ x: "150%", display: "none" }}
+          animate={animation}
+          css={collapseBreakpointCss.mobileNavLinks}
+        >
           {links}
         </MobileNavLinks>
-        <NavToggle onClick={toggleNavbar} className={showNavLinks ? "open" : "closed"}>
-          {showNavLinks ? <CloseIcon tw="w-6 h-6" /> : <MenuIcon tw="w-6 h-6" />}
+        <NavToggle
+          onClick={toggleNavbar}
+          className={showNavLinks ? "open" : "closed"}
+        >
+          {showNavLinks ? (
+            <CloseIcon tw="w-6 h-6" />
+          ) : (
+            <MenuIcon tw="w-6 h-6" />
+          )}
         </NavToggle>
       </MobileNavLinksContainer>
     </Header>
