@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -90,7 +91,7 @@ export default ({
         imageSrc:
           "https://images.unsplash.com/photo-1520483691742-bada60a1edd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         title: "XYZ Concert",
-        timing: "XX:XX AM - XX:XX PM",
+        timing: "XX:XX AM - XX:XX PM ",
         // price: "₹50",
         url: "#"
       }

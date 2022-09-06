@@ -4,6 +4,7 @@ import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
 import {css} from "styled-components/macro"; //eslint-disable-line
+
 import illustration from "images/login-illustration.svg";
 import logo from "images/old-logo-symbol.png";
 import googleIconImageSrc from "images/google-icon.png";
@@ -80,7 +81,7 @@ export default ({
     <Container>
       <Content>
         <MainContainer>
-          <LogoLink href={logoLinkUrl}>
+          <LogoLink href="/">
             <LogoImage src={logo} />
           </LogoLink>
           <MainContent>
