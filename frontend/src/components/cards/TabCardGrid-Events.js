@@ -145,43 +145,50 @@ export default ({
             animate={activeTab === tabKey ? "current" : "hidden"}
           >
             {tabs[tabKey].map((card, index) => (
-              <CardContainer key={index}>
-                <Card className="group" href={card.url} initial="rest" whileHover="hover" animate="rest">
-                  <CardImageContainer imageSrc={card.imageSrc}>
-                    {/* <CardRatingContainer>
-                      <CardRating>
-                        <StarIcon />
-                        {card.rating}
-                      </CardRating>
-                      <CardReview>({card.reviews})</CardReview>
-                    </CardRatingContainer> */}
-                    {
-                      card.price ?
-                      <CardHoverOverlay
-                        variants={{
-                          hover: {
-                            opacity: 1,
-                            height: "auto"
-                          },
-                          rest: {
-                            opacity: 0,
-                            height: 0
-                          }
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <CardButton>Register Now!</CardButton>
-                      </CardHoverOverlay>
-                      : null
-                    }
-                  </CardImageContainer>
-                  <CardText>
-                    <CardTitle>{card.title}</CardTitle>
-                    <CardContent>{card.timing}</CardContent>
-                    {card.price ? <CardPrice>{card.price}</CardPrice> : null}
-                  </CardText>
-                </Card>
-              </CardContainer>
+                <CardContainer key={index}>
+                 {/* <Link to="/eventDetails" state={card}> */}
+                 <Link to={{
+                  pathname: "/eventDetails",
+                  search: `?name=${card.title}`,
+                  state: card
+                 }}>
+                  <Card className="group" href={card.url} initial="rest" whileHover="hover" animate="rest">
+                    <CardImageContainer imageSrc={card.imageSrc}>
+                      {/* <CardRatingContainer>
+                        <CardRating>
+                          <StarIcon />
+                          {card.rating}
+                        </CardRating>
+                        <CardReview>({card.reviews})</CardReview>
+                      </CardRatingContainer> */}
+                      {
+                        card.price ?
+                        <CardHoverOverlay
+                          variants={{
+                            hover: {
+                              opacity: 1,
+                              height: "auto"
+                            },
+                            rest: {
+                              opacity: 0,
+                              height: 0
+                            }
+                          }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <CardButton>Register Now!</CardButton>
+                        </CardHoverOverlay>
+                        : null
+                      }
+                    </CardImageContainer>
+                    <CardText>
+                      <CardTitle>{card.title}</CardTitle>
+                      <CardContent>{card.timing}</CardContent>
+                      {card.price ? <CardPrice>{card.price}</CardPrice> : null}
+                    </CardText>
+                  </Card>
+                 </Link>
+                </CardContainer>
             ))}
           </TabContent>
         ))}

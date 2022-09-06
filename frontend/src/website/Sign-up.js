@@ -9,6 +9,8 @@ import logo from "images/old-logo-symbol.png";
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
+import {Link} from "react-router-dom";
+import Footer from "components/footers/Home-Footer";
 
 const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
@@ -54,7 +56,7 @@ const IllustrationImage = styled.div`
 `;
 
 export default ({
-  logoLinkUrl = "#",
+  logoLinkUrl = "/",
   illustrationImageSrc = illustration,
   headingText = "Sign Up For Aaftaab",
   socialButtons = [
@@ -79,9 +81,11 @@ export default ({
     <Container>
       <Content>
         <MainContainer>
-          <LogoLink href={logoLinkUrl}>
-            <LogoImage src={logo} />
-          </LogoLink>
+        <Link to="/">
+            <LogoLink>
+              <LogoImage src={logo} />
+            </LogoLink>
+          </Link>
           <MainContent>
             <Heading>{headingText}</Heading>
             <FormContainer>
@@ -118,9 +122,9 @@ export default ({
 
                 <p tw="mt-8 text-sm text-gray-600 text-center">
                   Already have an account?{" "}
-                  <a href={signInUrl} tw="border-b border-gray-500 border-dotted">
+                  <Link to={signInUrl} tw="border-b border-gray-500 border-dotted">
                     Log In
-                  </a>
+                  </Link>
                 </p>
               </Form>
             </FormContainer>
@@ -131,5 +135,6 @@ export default ({
         </IllustrationContainer>
       </Content>
     </Container>
+    <Footer />
   </AnimationRevealPage>
 );
