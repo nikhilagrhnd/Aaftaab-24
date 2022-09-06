@@ -13,5 +13,4 @@ function Sponsors() {
         </AnimationRevealPage>
     );
 }
-
 export default Sponsors;

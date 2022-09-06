@@ -18,7 +18,7 @@ const LogoImg = tw.img`w-8`;
 const LogoText = tw.h5`ml-2 text-2xl font-black tracking-wider`;
 
 const LinksContainer = tw.div`mt-8 font-medium flex flex-wrap justify-center items-center flex-col sm:flex-row`
-// const linktw = "border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4";
+ const Linktw = tw.div`border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4`;
 
 const SocialLinksContainer = tw.div`mt-10`;
 const SocialLink = styled.a`
@@ -39,11 +39,11 @@ export default () => {
             <LogoText>Aaftaab</LogoText>
           </LogoContainer>
           <LinksContainer>
-            <Link to="/" tw="border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4">Home</Link>
-            <Link to="/about" tw="border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4">About</Link>
-            <a href="mailto:aaftaab@iitj.ac.in" tw="border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4">Contact Us</a>
-            <Link to="/team" tw="border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4">Team</Link>
-            <a href="https://www.iitj.ac.in/" tw="border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4">IIT Jodhpur</a>
+            <Link to="/" ><Linktw>Home</Linktw></Link>
+            <Link to="/about"><Linktw>About</Linktw></Link>
+            <a href="mailto:aaftaab@iitj.ac.in" ><Linktw>Contact Us</Linktw></a>
+            <Link to="/team"><Linktw>Team</Linktw></Link>
+            <a href="https://www.iitj.ac.in/"><Linktw>IIT Jodhpur</Linktw></a>
           </LinksContainer>
           <SocialLinksContainer>
             <SocialLink href="https://instagram.com">
