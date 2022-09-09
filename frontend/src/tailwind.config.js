@@ -3,6 +3,11 @@ module.exports = {
   important: false,
   separator: ':',
   theme: {
+    extend:{
+      backgroundImage:{
+        'img2': "url('https://i.postimg.cc/8c1CgGwX/bg-img2.jpg')",
+      },
+    },
     screens: {
       sm: '640px',
       md: '768px',
@@ -17,15 +22,15 @@ module.exports = {
       white: '#fff',
 
       primary: {
-        100: '#fff5f5',
-        200: '#fed7d7',
-        300: '#feb2b2',
-        400: '#fc8181',
-        500: '#f56565',
-        600: '#e53e3e',
-        700: '#c53030',
-        800: '#9b2c2c',
-        900: '#742a2a',
+        100: '#fff5f7',
+        200: '#fed7e2',
+        300: '#fbb6ce',
+        400: '#f687b3',
+        500: '#ed64a6',
+        600: '#d53f8c',
+        700: '#b83280',
+        800: '#97266d',
+        900: '#702459',
       },
 
       secondary: {
