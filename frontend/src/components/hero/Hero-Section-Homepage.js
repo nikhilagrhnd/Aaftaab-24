@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 //eslint-disable-next-line
+import "./Hero-Section-Homepage.css"
 import { css } from "styled-components/macro";
 
 import Header from "../headers/light.js";
@@ -15,13 +16,19 @@ import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/dot-pattern.svg";
 import DesignIllustration from "../../images/design-illustration.svg";
 
+import heroImgTitle from '../../images/old-logo-text.png'
+import heroImgTL from '../../images/logo-top-left.png'
+import heroImgTR from '../../images/logo-top-right.png'
+import heroImgBL from '../../images/logo-bottom-left.png'
+import heroImgBR from '../../images/logo-bottom-right.png'
+
 const Container = tw.div`relative`;
-const TwoColumn = tw.div`flex flex-col lg:flex-row md:items-center max-w-screen-xl mx-auto py-20 md:py-24`;
+const TwoColumn = tw.div`flex flex-col-reverse lg:flex-row md:items-center max-w-screen-xl mx-auto py-5 lg:py-10 md:py-24`;
 const LeftColumn = tw.div`relative lg:w-6/12 lg:pr-12 flex-shrink-0 text-center lg:text-left`;
 const RightColumn = tw.div`relative mt-12 lg:mt-0 flex flex-col justify-center`;
 
 const Heading = tw.h1`font-black text-3xl md:text-5xl leading-snug max-w-3xl`;
-const Paragraph = tw.p`my-5 lg:my-8 text-sm lg:text-base font-medium text-gray-600 max-w-lg mx-auto lg:mx-0`;
+const Paragraph = tw.p`my-5 lg:my-8 text-sm lg:text-base font-semibold text-secondary-600 max-w-lg mx-auto lg:mx-0`;
 
 const Actions = tw.div`flex flex-col items-center sm:flex-row justify-center lg:justify-start mt-8`;
 const PrimaryButton = tw.button`font-bold px-8 lg:px-10 py-3 rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 focus:shadow-outline focus:outline-none transition duration-300`;
@@ -93,12 +100,27 @@ export default ({
           </LeftColumn>
           <RightColumn>
             <IllustrationContainer>
-              <img
-                css={imageCss}
-                src={imageSrc}
-                alt="Hero"
-              />
-              {imageDecoratorBlob && <DecoratorBlob2 />}
+				{/* <img
+					css={imageCss}
+					src={imageSrc}
+					alt="Hero"
+				/> */}
+				<div className="heroLogo">
+					<div className="container">
+						<div className="part row1">
+							<img className="logo2 logo" src={heroImgTL} />
+							<img className="logo1 logo" src={heroImgTR} />
+						</div>
+						<div className="part row2">
+							<img className="logo3 logo" src={heroImgBL} />
+							<img className="logo4 logo" src={heroImgBR} />
+						</div>
+					</div>
+					<div className="heroTitle">
+						<img className="heroTitleImg" css={imageCss} src={heroImgTitle} />
+					</div>
+				</div>
+              	{imageDecoratorBlob && <DecoratorBlob2 />}
             </IllustrationContainer>
           </RightColumn>
         </TwoColumn>
