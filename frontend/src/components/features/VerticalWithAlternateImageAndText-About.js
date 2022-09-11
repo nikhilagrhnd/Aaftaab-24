@@ -47,30 +47,31 @@ export default () => {
     {
       imageSrc: 
         "https://scontent-del1-2.xx.fbcdn.net/v/t39.30808-6/300373576_385935390367338_7562714050720498645_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=tcTXreyb4xcAX9Cvrqa&_nc_ht=scontent-del1-2.xx&oh=00_AT-66hu-ve4uCKKW6GRV2WE8CHGYApXSeNQ8x2Da5TtSog&oe=631B7F11",
-      subtitle: "Paid",
-      title: "Loachella, NYC",
+      subtitle: "Basic Intro",
+      title: "Brief Introduction",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Aaftaab, the annual literary festival conducted by IIT Jodhpur, is back, after two long years. It is a celebration of the splendour, diversity, and inclusiveness of literature. It provides for a melting pot of students from different colleges, cultures, and backgrounds and ensures that they will be left spellbound by the mesmerising poets, inspiring authors, enthralling literary discussions, and fun-filled activities, including open mics, book launches, quizzes, and live music performances.",
       url: "https://timerse.com"
     },
 
     {
       imageSrc:
         "https://scontent-del1-2.xx.fbcdn.net/v/t39.30808-6/300373576_385935390367338_7562714050720498645_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=tcTXreyb4xcAX9Cvrqa&_nc_ht=scontent-del1-2.xx&oh=00_AT-66hu-ve4uCKKW6GRV2WE8CHGYApXSeNQ8x2Da5TtSog&oe=631B7F11",
-      subtitle: "Free",
-      title: "Rock In Rio, Upstate",
+      subtitle: "what it's all about?",
+      title: "Theme",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "The theme of this year’s Aaftaab is Kaleidoscopes: Limitless Iridescence Telestic.It is a marvellous representation of the limitless reach of the festival, which brings together brilliant minds from all around the country and allows them to express themselves, explore the diverse genres and partake in the magnificent celebration of literature.", 
+      
       url: "https://timerse.com"
     },
 
     {
       imageSrc:
         "https://scontent-del1-2.xx.fbcdn.net/v/t39.30808-6/300373576_385935390367338_7562714050720498645_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=tcTXreyb4xcAX9Cvrqa&_nc_ht=scontent-del1-2.xx&oh=00_AT-66hu-ve4uCKKW6GRV2WE8CHGYApXSeNQ8x2Da5TtSog&oe=631B7F11",
-      subtitle: "Exclusive",
-      title: "Lollapalooza, Manhattan",
+      subtitle: "Lit is Hit",
+      title: "Why Lit?",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Margaret Atwood once said, “ In the end, we’ll all become stories.”, therefore the team at Aaftaab invites you to be a co-writer for the story of Aaftaab 2022. The enthusiasm and passion you bring, akin to a glorious sunrise, will help radiate our love for literature throughout the country.",
       url: "https://timerse.com"
     }
   ];
@@ -79,9 +80,9 @@ export default () => {
     <Container>
       <SingleColumn>
         <HeadingInfoContainer>
-          <HeadingTitle>About</HeadingTitle>
+          <HeadingTitle>About Aaftaab</HeadingTitle>
           <HeadingDescription>
-            Here are some of the most popular events in New York City curated by professionals.
+            Let's dive into the details of aaftaab 2022.
           </HeadingDescription>
         </HeadingInfoContainer>
 
