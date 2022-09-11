@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {Container as ContainerBase } from "components/misc/Layouts.js"
 import logo from "../../images/old-logo-symbol.png";
 import { ReactComponent as FacebookIcon } from "../../images/facebook-icon.svg";
-import { ReactComponent as InstagramIcon } from "../../images/icons8-instagram.svg";
+import { ReactComponent as InstagramIcon } from "../../images/instagram-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
 import { Link } from "react-router-dom";
 
@@ -46,7 +46,7 @@ export default () => {
             <a href="https://www.iitj.ac.in/"><Linktw>IIT Jodhpur</Linktw></a>
           </LinksContainer>
           <SocialLinksContainer>
-            <SocialLink href="https://instagram.com">
+            <SocialLink href="https://www.instagram.com/aaftaab_iitj/">
               <InstagramIcon />
             </SocialLink>
             <SocialLink href="https://facebook.com">
@@ -57,7 +57,7 @@ export default () => {
             </SocialLink>
           </SocialLinksContainer>
           <CopyrightText>
-            &copy; Copyright 2020, Devlup Labs, IITJ. All Rights Reserved.
+            &copy; Copyright 2022, Devlup Labs, IITJ. All Rights Reserved.
           </CopyrightText>
         </Row>
       </Content>
