@@ -112,6 +112,7 @@ import Events from "website/events";
 import Sponsors from "website/sponsors";
 import Team from "website/team";
 import EventDetails from "website/eventDetails";
+import Register from "website/register"
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -131,10 +132,10 @@ export default function App() {
           <Events></Events>
         </Route>
         <Route path = "/sponsors">
-          <Sponsors/>
+          <Sponsors />
         </Route>
         <Route path = "/login">
-          <LoginPage/>
+          <LoginPage />
         </Route>
         <Route path = "/team">
           <Team/>
@@ -143,7 +144,10 @@ export default function App() {
           <EventDetails />
         </Route>
         <Route path = "/signup">
-          <SignupPage/>
+          <SignupPage />
+        </Route>
+        <Route path = "/register">
+          <Register />
         </Route>
       </Switch>
     </Router>
