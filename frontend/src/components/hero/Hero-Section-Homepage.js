@@ -4,6 +4,7 @@ import tw from "twin.macro";
 //eslint-disable-next-line
 import "./Hero-Section-Homepage.css"
 import { css } from "styled-components/macro";
+import { Link } from 'react-router-dom';
 
 import Header from "../headers/light.js";
 
@@ -67,7 +68,7 @@ const CloseModalButton = tw.button`absolute top-0 right-0 mt-8 mr-8 hocus:text-p
 
 export default ({
   heading = "Header Text",
- description="Small description lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
+  description="Small description lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
   primaryButtonText="Register Now",
   primaryButtonUrl="#",
   watchVideoButtonText="Watch Video",
@@ -89,7 +90,9 @@ export default ({
             <Heading>{heading}</Heading>
             <Paragraph>{description}</Paragraph>
             <Actions>
-              <PrimaryButton as="a" href={primaryButtonUrl}>{primaryButtonText}</PrimaryButton>
+              <Link to="/register">
+                <PrimaryButton as="a">{primaryButtonText}</PrimaryButton>
+              </Link>
               <WatchVideoButton onClick={toggleModal}>
                 <span className="playIconContainer">
                   <PlayIcon className="playIcon" />
