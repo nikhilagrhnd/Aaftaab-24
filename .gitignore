@@ -4,3 +4,5 @@ db.sqlite3
 
 #add venv folder
 venv
+migrations
+usermanagement/__pycache__

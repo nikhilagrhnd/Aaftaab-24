@@ -1,3 +1,7 @@
 from django.urls import path,include
-urlpatterns=[
+from .views import create_participant,create_team
+
+urlpatterns = [
+    path('create_participant/', create_participant),
+    path('create_team/', create_team),
 ]

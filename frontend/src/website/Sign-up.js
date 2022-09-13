@@ -11,7 +11,6 @@ import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
 import {Link} from "react-router-dom";
 import Footer from "components/footers/Home-Footer";
-
 const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
@@ -54,6 +53,22 @@ const IllustrationImage = styled.div`
   ${props => `background-image: url("${props.imageSrc}");`}
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
+const handleSubmit = e => {
+    e.preventDefault();
+    formData = new FormData(e.target);
+    fetch("http://localhost:5000/api/users", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+          //save token to localstorage
+          localStorage.setItem("token", data.token);
+          //redirect to home page
+          window.location.href = "/";
+        }
+        );
+}
 
 export default ({
   logoLinkUrl = "/",
@@ -102,9 +117,10 @@ export default ({
               <DividerTextContainer>
                 <DividerText>Or Sign up with your e-mail</DividerText>
               </DividerTextContainer>
-              <Form>
-                <Input type="email" placeholder="Email" />
-                <Input type="password" placeholder="Password" />
+              <Form onSubmit={handleSubmit}>
+                <Input type="email" placeholder="Email" name="email" />
+                <Input type="password" placeholder="Password" name="password" />
+                <Input type="phone" placeholder="Phone Number"  name="phone_number"/>
                 <SubmitButton type="submit">
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{submitButtonText}</span>
