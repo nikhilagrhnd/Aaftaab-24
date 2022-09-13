@@ -62,14 +62,14 @@ export default () => {
 
   const cards = [
     {
-      imageSrc: "https://img.icons8.com/ios-filled/344/x-men.png",
+      imageSrc: "https://us.123rf.com/450wm/aquir/aquir1508/aquir150801163/44345291-sponsor-3d-silver-badge-with-blue-ribbon.jpg?ver=6",
       title: "Trilogy Innovations",
     },
-    { imageSrc: "https://img.icons8.com/color/344/amazon.png", title: "Amazon Web" },
-    { imageSrc: "https://img.icons8.com/color/344/google-logo.png", title: "Google Inc." },
-    { imageSrc: "https://media.glassdoor.com/sqll/29290/d-e-shaw-and-co-investment-firm-squarelogo-1539197542813.png", title: "DE Shaw Pvt. Ltd." },
-    { imageSrc: "https://plsadaptive.s3.amazonaws.com/eco/images/partners/EpSD3HMt6lKzFJEYWaCMldQZJbYDk3GRk9t335OL.png", title: "Arcesium Pvt. Ltd." },
-    { imageSrc: "https://media-exp1.licdn.com/dms/image/C560BAQFi7rLWGjxVlA/company-logo_200_200/0/1625129514229?e=2147483647&v=beta&t=2xs_3SKMiimW1ZZcBm9IMNXAa8jCrwb23nDbzJip8qk", title: "Media.net Pvt. Ltd" }
+    { imageSrc: "https://us.123rf.com/450wm/aquir/aquir1508/aquir150801163/44345291-sponsor-3d-silver-badge-with-blue-ribbon.jpg?ver=6", title: "Dummy Sponser 1" },
+    { imageSrc: "https://us.123rf.com/450wm/aquir/aquir1508/aquir150801163/44345291-sponsor-3d-silver-badge-with-blue-ribbon.jpg?ver=6", title: "Dummy Sponser 2" },
+    { imageSrc: "https://us.123rf.com/450wm/aquir/aquir1508/aquir150801163/44345291-sponsor-3d-silver-badge-with-blue-ribbon.jpg?ver=6", title: "Dummy Sponser 3" },
+    { imageSrc: "https://us.123rf.com/450wm/aquir/aquir1508/aquir150801163/44345291-sponsor-3d-silver-badge-with-blue-ribbon.jpg?ver=6", title: "Dummy Sponser 4" },
+    { imageSrc: "https://us.123rf.com/450wm/aquir/aquir1508/aquir150801163/44345291-sponsor-3d-silver-badge-with-blue-ribbon.jpg?ver=6", title: "Dummy Sponser 5" }
   ];
 
   return (
