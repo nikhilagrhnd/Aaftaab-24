@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import styled from "styled-components";
 import tw from "twin.macro";
 import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
 import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
-
 import imgLogo from "../../images/old-logo.png"
 
 const Container = tw.div`relative`;
@@ -27,7 +27,7 @@ const Details = tw.div`mt-4 md:mt-0 md:max-w-md mx-4 sm:mx-8 md:mx-4 lg:mx-8`;
 const Subtitle = tw.div`font-bold tracking-wide text-secondary-100`;
 const Title = tw.h4`text-3xl font-bold text-gray-900`;
 const Description = tw.p`mt-2 text-sm leading-loose`;
-const Link = tw.a`inline-block mt-4 text-sm text-primary-500 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-primary-500`;
+const LinkAbout = tw.a`inline-block mt-4 text-sm text-primary-500 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-primary-500`;
 
 const SvgDotPattern1 = tw(
   SvgDotPatternIcon
@@ -45,33 +45,31 @@ const SvgDotPattern4 = tw(
 export default () => {
   const cards = [
     {
-      imageSrc: 
-        "https://scontent-del1-2.xx.fbcdn.net/v/t39.30808-6/300373576_385935390367338_7562714050720498645_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=tcTXreyb4xcAX9Cvrqa&_nc_ht=scontent-del1-2.xx&oh=00_AT-66hu-ve4uCKKW6GRV2WE8CHGYApXSeNQ8x2Da5TtSog&oe=631B7F11",
-      subtitle: "Paid",
-      title: "Loachella, NYC",
+      imageSrc: "https://images.pexels.com/photos/448835/pexels-photo-448835.jpeg?cs=srgb&dl=pexels-victor-448835.jpg&fm=jpg",
+      // subtitle: "Basic Intro",
+      // title: "Brief Introduction",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com"
+      "Aaftaab, the annual literary festival conducted by IIT Jodhpur, is back, after two long years. It is a celebration of the splendour, diversity, and inclusiveness of literature. It provides for a melting pot of students from different colleges, cultures, and backgrounds and ensures that they will be left spellbound by the mesmerising poets, inspiring authors, enthralling literary discussions, and fun-filled activities, including open mics, book launches, quizzes, and live music performances.",
+      // url: "https://timerse.com"
     },
 
     {
-      imageSrc:
-        "https://scontent-del1-2.xx.fbcdn.net/v/t39.30808-6/300373576_385935390367338_7562714050720498645_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=tcTXreyb4xcAX9Cvrqa&_nc_ht=scontent-del1-2.xx&oh=00_AT-66hu-ve4uCKKW6GRV2WE8CHGYApXSeNQ8x2Da5TtSog&oe=631B7F11",
-      subtitle: "Free",
-      title: "Rock In Rio, Upstate",
+      imageSrc: "https://www.luikerwaal.com/bewegend/db_chroma03.gif",
+      // subtitle: "what it's all about?",
+      // title: "Theme",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com"
+      "The theme of this year’s Aaftaab is Kaleidoscopes: Limitless Iridescence Telestic.It is a marvellous representation of the limitless reach of the festival, which brings together brilliant minds from all around the country and allows them to express themselves, explore the diverse genres and partake in the magnificent celebration of literature.", 
+      
+      // url: "https://timerse.com"
     },
 
     {
-      imageSrc:
-        "https://scontent-del1-2.xx.fbcdn.net/v/t39.30808-6/300373576_385935390367338_7562714050720498645_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=tcTXreyb4xcAX9Cvrqa&_nc_ht=scontent-del1-2.xx&oh=00_AT-66hu-ve4uCKKW6GRV2WE8CHGYApXSeNQ8x2Da5TtSog&oe=631B7F11",
-      subtitle: "Exclusive",
-      title: "Lollapalooza, Manhattan",
+      imageSrc: "https://us.123rf.com/450wm/tomertu/tomertu2010/tomertu201000252/157378249-old-feather-quill-ink-pen-with-inkwell-and-old-books-over-wooden-desk-in-front-of-black-wall-backgro.jpg?ver=6",
+      // subtitle: "Lit is Hit",
+      // title: "Why Lit?",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com"
+      "Margaret Atwood once said, “ In the end, we’ll all become stories.”, therefore the team at Aaftaab invites you to be a co-writer for the story of Aaftaab 2022. The enthusiasm and passion you bring, akin to a glorious sunrise, will help radiate our love for literature throughout the country.",
+      // url: "https://timerse.com"
     }
   ];
 
@@ -79,9 +77,9 @@ export default () => {
     <Container>
       <SingleColumn>
         <HeadingInfoContainer>
-          <HeadingTitle>About</HeadingTitle>
+          <HeadingTitle>About Aaftaab</HeadingTitle>
           <HeadingDescription>
-            Here are some of the most popular events in New York City curated by professionals.
+            Let's dive into the details of aaftaab 2022.
           </HeadingDescription>
         </HeadingInfoContainer>
 
@@ -93,7 +91,9 @@ export default () => {
                 <Subtitle>{card.subtitle}</Subtitle>
                 <Title>{card.title}</Title>
                 <Description>{card.description}</Description>
-                <Link href={card.url}>See Event Details</Link>
+                <Link to="/events">
+                  <LinkAbout>See Event Details</LinkAbout>
+                </Link>
               </Details>
             </Card>
           ))}
