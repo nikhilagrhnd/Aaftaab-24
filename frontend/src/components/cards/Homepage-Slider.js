@@ -11,6 +11,14 @@ import { ReactComponent as DateIcon} from "feather-icons/dist/icons/calendar.svg
 import { ReactComponent as StarIcon } from "feather-icons/dist/icons/star.svg";
 import { ReactComponent as ChevronLeftIcon } from "feather-icons/dist/icons/chevron-left.svg";
 import { ReactComponent as ChevronRightIcon } from "feather-icons/dist/icons/chevron-right.svg";
+import kaviSammelanImg from "../../images/flagship_events/Kavi samelan.png";
+import djImg from "../../images/flagship_events/DJ Night.jpg";
+import musicshowImg from "../../images/flagship_events/Folk Music + Puppet show.jpg";
+import BookImg from "../../images/flagship_events/Book Signings.jpg";
+import InterviewImg from "../../images/flagship_events/Interview with Director.jpg";
+import StandupIMG from "../../images/flagship_events/Standup.jpg";
+import TreasurehuntImg from "../../images/flagship_events/Treasure Hunt.jpg";
+import WorkshopIMG from "../../images/flagship_events/Workshops.jpg";
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-16 lg:py-20`;
@@ -95,31 +103,43 @@ export default () => {
   /* Change this according to your needs */
   const cards = [
     {
-      imageSrc: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-      title: "XYZ consert",
-      description: "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
-      locationText: "Open Air Theater",
-      dateText: "29/09/22",
-    },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1473186505569-9c61870c11f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+      imageSrc: kaviSammelanImg,
       title: "Kavi sammelan",
-      description: "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
-      locationText: "Open Air Theater",
       dateText: "29/09/22",
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1610964199131-5e29387e6267?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80",
+      imageSrc: StandupIMG,
       title: "Stand up comedy",
-      description: "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
-      locationText: "LHC 110",
       dateText: "29/09/22",
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1547656834-630c4efa3c19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      title: "Debate",
-      description: "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
-      locationText: "Open Air Theater",
+      imageSrc: musicshowImg,
+      title: "Folk Music + Puppet Show",
+      dateText: "29/09/22",
+    },
+    {
+      imageSrc: djImg,
+      title: "DJ Night",
+      dateText: "29/09/22",
+    },
+    {
+      imageSrc: BookImg,
+      title: "Book Signings",
+      dateText: "29/09/22",
+    },
+    {
+      imageSrc: InterviewImg,
+      title: "Interview with Director",
+      dateText: "29/09/22",
+    },
+    {
+      imageSrc: TreasurehuntImg,
+      title: "Treasure Hunt",
+      dateText: "29/09/22",
+    },
+    {
+      imageSrc: WorkshopIMG,
+      title: "Workshops",
       dateText: "29/09/22",
     },
   ]

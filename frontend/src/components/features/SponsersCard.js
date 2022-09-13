@@ -64,7 +64,7 @@ export default () => {
 
   const cards = [
     [
-      { imageSrc: ShieldIconImage, title: "Ads Management" },
+      { imageSrc: "https://us.123rf.com/450wm/aquir/aquir1508/aquir150801163/44345291-sponsor-3d-silver-badge-with-blue-ribbon.jpg?ver=6", title: "dummy sponser 1" },
       { imageSrc: SupportIconImage, title: "Video Marketing" },
       { imageSrc: CustomizeIconImage, title: "Customer Relation" }
     ],
