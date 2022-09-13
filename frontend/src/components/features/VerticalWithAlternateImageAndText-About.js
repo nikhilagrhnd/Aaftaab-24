@@ -21,7 +21,7 @@ const Card = styled.div(props => [
 ]);
 const Image = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-80 md:h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`
+  tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-80 bg-no-repeat md:bg-contain bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`
 ]);
 const Details = tw.div`mt-4 md:mt-0 md:max-w-md mx-4 sm:mx-8 md:mx-4 lg:mx-8`;
 const Subtitle = tw.div`font-bold tracking-wide text-secondary-100`;
@@ -45,7 +45,7 @@ const SvgDotPattern4 = tw(
 export default () => {
   const cards = [
     {
-      imageSrc: "https://images.pexels.com/photos/448835/pexels-photo-448835.jpeg?cs=srgb&dl=pexels-victor-448835.jpg&fm=jpg",
+      imageSrc: "https://www.neh.gov/sites/default/files/styles/medium/public/2020-06/Open-Book.jpg?itok=wMg1EBM-",
       // subtitle: "Basic Intro",
       // title: "Brief Introduction",
       description:
@@ -54,7 +54,7 @@ export default () => {
     },
 
     {
-      imageSrc: "https://www.luikerwaal.com/bewegend/db_chroma03.gif",
+      imageSrc: "https://i.pinimg.com/originals/ea/59/2c/ea592c610178fde4900757153581fe2e.jpg",
       // subtitle: "what it's all about?",
       // title: "Theme",
       description:
