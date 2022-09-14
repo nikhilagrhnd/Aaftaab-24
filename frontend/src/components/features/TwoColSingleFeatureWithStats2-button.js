@@ -56,7 +56,9 @@ export default ({
   imageDecoratorBlobCss = null,
   imageInsideDiv = true,
   statistics = null,
-  textOnLeft = false
+  textOnLeft = false,
+  event_registered="",
+
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
   //Change the statistics variable as you like, add or delete objects
@@ -76,6 +78,10 @@ export default ({
   ];
 
   if (!statistics) statistics = defaultStatistics;
+
+  const handleEventRegistration = () => {
+    
+  };
 
   return (
     <Container>
@@ -97,7 +103,7 @@ export default ({
                 </Statistic>
               ))}
             </Statistics> */}
-          {primaryButtonText!=""?  <PrimaryButton as="a" href={primaryButtonUrl}>
+          {primaryButtonText!=""?  <PrimaryButton onClick={handleEventRegistration}>
               {primaryButtonText}
             </PrimaryButton>:null}
           </TextContent>
