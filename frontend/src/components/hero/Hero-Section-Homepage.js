@@ -90,9 +90,9 @@ export default ({
             <Heading>{heading}</Heading>
             <Paragraph>{description}</Paragraph>
             <Actions>
-              <Link to="/register">
+              {/* <Link to="/register">
                 <PrimaryButton as="a">{primaryButtonText}</PrimaryButton>
-              </Link>
+              </Link> */}
               <WatchVideoButton onClick={()=>{
                 //redirect to youtube
                 window.open(watchVideoYoutubeUrl, '_blank');
