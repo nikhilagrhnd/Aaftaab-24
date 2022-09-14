@@ -113,6 +113,7 @@ import Sponsors from "website/sponsors";
 import Team from "website/team";
 import EventDetails from "website/eventDetails";
 import Register from "website/register"
+import Dashboard from "website/dashboard";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -122,9 +123,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path = "/">
-          <Home></Home>
-        </Route>
+        
        <Route path = "/about">
           <About></About>
         </Route>
@@ -148,6 +147,12 @@ export default function App() {
         </Route>
         <Route path = "/register">
           <Register />
+        </Route>
+        <Route exact path = "/dashboard">
+          <Dashboard></Dashboard>
+        </Route>
+        <Route exact path = "/">
+          <Home></Home>
         </Route>
       </Switch>
     </Router>
