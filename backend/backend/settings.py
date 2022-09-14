@@ -58,6 +58,7 @@ CORS_ORIGIN_WHITELIST = [
 ]
 
 
+
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [

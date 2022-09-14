@@ -73,7 +73,6 @@ const handleSubmit = (e) => {
     .then((response) => {
       if (response.status === 200) {
         const data = response.json();
-        console.log(data);
         const token = data.token;
         localStorage.setItem("token", token);
         window.location.href = "/";

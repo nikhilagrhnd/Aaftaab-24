@@ -8,15 +8,20 @@ import string
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+import requests
+from rest_framework.permissions import IsAuthenticated
+import jwt
+import datetime
 
+SECRET_KEY='secret'
 #generate token
-def generate_token(email,password):
-    token = ''.join(random.choice(string.ascii_uppercase +
-                     string.digits) for _ in range(6))
-    if Participant.objects.filter(token=token).exists():
-        generate_token(email,password)
-    else:
-        return token
+def generate_token(email):
+    payload={
+        'email':email,
+        'exp':datetime.datetime.utcnow()+datetime.timedelta(minutes=60)
+    }
+    token=jwt.encode(payload,SECRET_KEY,algorithm='HS256')
+    return token
 
 # generate random teamid
 def generate_teamid():
@@ -45,6 +50,7 @@ def validate_email(emailid):
         return True
 # create participant view will recieve all the details
 
+
 @api_view(['POST'])
 def create_participant(request):
     if request.method == 'POST':
@@ -59,13 +65,17 @@ def create_participant(request):
         return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
+
+
 @api_view(['POST'])
 def login_participant(request):
     if request.method == 'POST':
         email = request.data.get('email')
         password = request.data.get('password')
+        print(email, password)
         if Participant.objects.filter( password=password, email=email).exists():
-            return Response({"token":"abcd"},status=status.HTTP_200_OK)
+            token = generate_token(email)
+            return Response({'token':token},status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
     return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
