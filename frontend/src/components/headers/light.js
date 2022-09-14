@@ -90,6 +90,9 @@ export default ({
       <Link to="/team">
         <NavLink>Team</NavLink>
       </Link>
+      <Link to="/register">
+        <NavLink>Register</NavLink>
+      </Link>
 
       <Link to="/login">
         <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}>
