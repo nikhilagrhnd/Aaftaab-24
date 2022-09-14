@@ -8,6 +8,7 @@ import {SectionDescription} from "components/misc/Typography";
 import { ReactComponent as TwitterIcon} from "images/twitter-icon.svg";
 import { ReactComponent as LinkedinIcon} from "images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "images/github-icon.svg";
+import './Team-Teams-Card.css'
 
 const HeadingContainer = tw.div``
 const Heading = tw(SectionHeading)``
@@ -18,7 +19,7 @@ const Cards = tw.div`flex flex-wrap flex-row justify-center sm:max-w-2xl lg:max-
 const Card = tw.div`mt-24 w-full sm:w-1/2 lg:w-1/3 flex flex-col items-center`
 const CardImage = styled.div`
   ${props => css`background-image: url("${props.imageSrc}");`}
-  ${tw`w-64 h-64 bg-contain bg-center rounded`}
+  ${tw`bg-no-repeat w-64 h-64 bg-contain bg-center rounded `}
 `
 const CardContent = styled.div`
   ${tw`flex flex-col items-center mt-6`}
@@ -44,65 +45,66 @@ export default ({
   heading = "Meet These Fine Folks.",
   subheading = "Our Team",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  cards = [
-    {
-      imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Founder",
-      name: "Adam Cuppy",
-      links: [
-        {
-          url: "https://twitter.com",
-          icon: TwitterIcon,
-        },
-        {
-          url: "https://linkedin.com",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com",
-          icon: GithubIcon,
-        },
-      ],
-    },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Sr. Designer",
-      name: "Charlotte Hale",
-      links: [
-        {
-          url: "https://twitter.com",
-          icon: TwitterIcon,
-        },
-        {
-          url: "https://linkedin.com",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com",
-          icon: GithubIcon,
-        },
-      ],
-    },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Jr. Designer",
-      name: "Silvester Wize",
-      links: [
-        {
-          url: "https://twitter.com",
-          icon: TwitterIcon,
-        },
-        {
-          url: "https://linkedin.com",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com",
-          icon: GithubIcon,
-        },
-      ],
-    },
-  ]
+  cards=[]
+  // cards = [
+  //   {
+  //     imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+  //     position: "Founder",
+  //     name: "Adam Cuppy",
+  //     links: [
+  //       {
+  //         url: "https://twitter.com",
+  //         icon: TwitterIcon,
+  //       },
+  //       {
+  //         url: "https://linkedin.com",
+  //         icon: LinkedinIcon,
+  //       },
+  //       {
+  //         url: "https://github.com",
+  //         icon: GithubIcon,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     imageSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+  //     position: "Sr. Designer",
+  //     name: "Charlotte Hale",
+  //     links: [
+  //       {
+  //         url: "https://twitter.com",
+  //         icon: TwitterIcon,
+  //       },
+  //       {
+  //         url: "https://linkedin.com",
+  //         icon: LinkedinIcon,
+  //       },
+  //       {
+  //         url: "https://github.com",
+  //         icon: GithubIcon,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     imageSrc: "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+  //     position: "Jr. Designer",
+  //     name: "Silvester Wize",
+  //     links: [
+  //       {
+  //         url: "https://twitter.com",
+  //         icon: TwitterIcon,
+  //       },
+  //       {
+  //         url: "https://linkedin.com",
+  //         icon: LinkedinIcon,
+  //       },
+  //       {
+  //         url: "https://github.com",
+  //         icon: GithubIcon,
+  //       },
+  //     ],
+  //   },
+  // ]
 }) => {
   return (
     <Container>
@@ -113,13 +115,16 @@ export default ({
         <Cards>
           {cards.map((card, index) => (
             <Card key={index}>
-              <CardImage imageSrc={card.imageSrc} />
+              <div className="card-image-background">
+                <CardImage imageSrc={card.imageSrc} />
+              </div>
+              
               <CardContent>
                 <span className="position">{card.position}</span>
                 <span className="name">{card.name}</span>
                 <CardLinks>
                   {card.links.map((link, linkIndex) => (
-                    <a key={linkIndex} className="link" href={link.url}>
+                    <a key={linkIndex} className="link" href={link.mail?`mailto:${link.mail}`:link.url}>
                       <link.icon className="icon" />
                     </a>
                   ))}
