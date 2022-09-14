@@ -20,6 +20,8 @@ import StandupIMG from "../../images/flagship_events/Standup.jpg";
 import TreasurehuntImg from "../../images/flagship_events/Treasure Hunt.jpg";
 import WorkshopIMG from "../../images/flagship_events/Workshops.jpg";
 
+import "./Homepage-Slider.css"
+
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-16 lg:py-20`;
 
@@ -60,10 +62,12 @@ const RatingsInfo = styled.div`
     ${tw`w-6 h-6 text-yellow-500 fill-current`}
   }
 `;
-const Rating = tw.span`ml-2 font-bold`;
+
 
 const Description = tw.p`text-sm leading-loose mt-2 sm:mt-4`;
 
+const Rating = tw.span`ml-2 font-bold`;
+//const Description = tw.p`text-sm leading-loose mt-2 sm:mt-4`;
 const SecondaryInfoContainer = tw.div`flex flex-col sm:flex-row mt-2 sm:mt-4`;
 const IconWithText = tw.div`flex items-center mr-6 my-2 sm:my-0`;
 const IconContainer = styled.div`
@@ -156,19 +160,23 @@ export default () => {
         </HeadingWithControl>
         <CardSlider ref={setSliderRef} {...sliderSettings}>
           {cards.map((card, index) => (
-            <Card key={index}>
+            <div className="Card" key={index}>
+            {/* <Card key={index}> */}
               <CardImage imageSrc={card.imageSrc} />
               <TextInfo>
-                <TitleReviewContainer>
+                <TitleReviewContainer className="CardTitle">
                   <Title>{card.title}</Title>
                 </TitleReviewContainer>
                 <SecondaryInfoContainer>
-                  <IconWithText>
-                    <IconContainer>
-                      <LocationIcon />
-                    </IconContainer>
-                    <Text>{card.locationText}</Text>
-                  </IconWithText>
+                  { card.locationText ?
+                    <IconWithText>
+                      <IconContainer>
+                        <LocationIcon />
+                      </IconContainer>
+                      <Text>{card.locationText}</Text>
+                    </IconWithText>
+                    :null
+                  }
                   <IconWithText>
                     <IconContainer>
                       <DateIcon />
@@ -185,7 +193,8 @@ export default () => {
               }}>
                 <PrimaryButton>Check out now</PrimaryButton>
               </Link>
-            </Card>
+            {/* </Card> */}
+            </div>
           ))}
         </CardSlider>
       </Content>

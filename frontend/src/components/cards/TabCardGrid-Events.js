@@ -243,7 +243,7 @@ const getDay1Cards = () => {
         "https://images.unsplash.com/photo-1598594661945-d7e693e4522c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
       title: "Lamp Lighting and Kick Off",
       // timing: "5 PM - 6 PM",
-      price: "₹50",
+      // price: "₹50",
       description: `With each passing minute we are getting closer to the magical world of literature. Join us and witness the grand fire start. Ready to roll?? Lets go...."Aagaz!" As the wick of the lamp catches a spark and unflurs it into a luminous flame that's when we mark the onset of Aaftaab 2022 and its Fame.   -- A formal start of the fest "Aaftaab" with a lamp lighting ceremony.`,
       url: "#"
     },
@@ -252,7 +252,7 @@ const getDay1Cards = () => {
         "https://images.unsplash.com/photo-1528143358888-6d3c7f67bd5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=441&q=80",
       title: "Folk Music",
       // timing: "6 PM - 7 PM",
-      price: "₹50",
+      // price: "₹50",
       description: `The term folk music and its equivalents in other languages denote many different kinds of music; the meaning of the term varies according to the part of the world, social class, and period of history. Doing justice to this year’s theme, Kaleidoscopes, Aaftaab will organise a Folk Music and Puppet Show, that will host regional folk musicians to celebrate the beauty and soulfulness of Rajasthani Folk Music. Join us as we immerse ourselves in resonating sounds of traditional instruments and the stories told by these musical storytellers.`,
       url: "#"
     },
@@ -261,7 +261,7 @@ const getDay1Cards = () => {
         "https://images.unsplash.com/photo-1432639020363-5632f7f04e0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1236&q=80",
       title: "Puppet Show",
       // timing: "6 PM - 7 PM",
-      price: "₹50",
+      // price: "₹50",
       description: `The term folk music and its equivalents in other languages denote many different kinds of music; the meaning of the term varies according to the part of the world, social class, and period of history. Doing justice to this year’s theme, Kaleidoscopes, Aaftaab will organise a Folk Music and Puppet Show, that will host regional folk musicians to celebrate the beauty and soulfulness of Rajasthani Folk Music. Join us as we immerse ourselves in resonating sounds of traditional instruments and the stories told by these musical storytellers.`,
       url: "#"
     },
@@ -270,7 +270,7 @@ const getDay1Cards = () => {
         "https://kavisammelanlive.com/wp-content/uploads/2020/05/new-logo.png",
       title: "Kavi Sammelan",
       // timing: "8 PM - 10 PM",
-      price: "₹100",
+      // price: "₹100",
       description: `‘Kavyamaye ho uthega dil, jab sajegi kaviyon ki mehfil’. A poetic event (Kavi Sammelan) is being organized on this Aaftaab. The event will be presenting young and talented poets who will recite their poems and mushairas in front of the audience. Here the participants will get a topic on which they have to present their poetry. also, participants could get a chance to interact with upcoming faces of poetry.`,
       url: "#"
     }
@@ -305,7 +305,7 @@ const getDay2Cards = () => {
         "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       title: "Public Speaking Workshop",
       // timing: "10:00 AM - 11:30 AM",
-      price: "₹50",
+      // price: "₹50",
       description: `Are you someone who prepares the entire night for hosting the next day, and then BAM!: You forget everything when you perform? Well fear not, for we will be hosting a “Public Speaking” workshop where you will be carefully instructed on the subtle art of speaking in front of an audience. Just like how the mirrors of kaleidoscopes mimic the spectrum, we will help you carve all aspects from body language, to speech articulation to persuasive speaking.So, let’s not waste this opportunity because "Good fortune is what happens when opportunity meets planning!!"`,
       url: "#"
     },
@@ -410,7 +410,7 @@ const getDay3Cards = () => {
         "https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlzY3Vzc2lvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
       title: "In Pursuit Of Dispute (English Debate)",
       // timing: "09:30 AM - 11:30 AM",
-      price: "₹50",
+      // price: "₹50",
       description: ``,
       url: "#"
     },

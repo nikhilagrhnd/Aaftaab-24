@@ -4,7 +4,7 @@ import tw from "twin.macro";
 //eslint-disable-next-line
 import { css } from "styled-components/macro";
 import { SectionHeading } from "components/misc/Headings.js";
-
+import kaleidoscopeGif from "../../images/kaleidoscope-1.gif";
 import defaultCardImage from "../../images/shield-icon.svg";
 
 import { ReactComponent as SvgDecoratorBlob3 } from "../../images/svg-decorator-blob-3.svg";
@@ -26,8 +26,8 @@ const Heading = tw(SectionHeading)`w-full`;
 const Column = styled.div`
   ${tw`md:w-1/2 lg:w-1/3 px-6 flex`}
 `;
-//make a card that has an image and description
-//make a tailwind container with fixed dimensions
+//make tw component with a gif background
+const DecoratorKaleidoscope = tw.div`pointer-events-none absolute right-0 bottom-0 w-64  transform translate-x-32 translate-y-48 background-image[url('www.payload.cargocollective.com/1/7/229877/5835271/Kaleidoscope.gif')]`;
 const Card = styled.div`
   ${tw`flex flex-col w-64 h-64 items-center px-6 py-10  rounded-lg mt-12`}
   .imageContainer {
@@ -50,6 +50,8 @@ const Card = styled.div`
 const DecoratorBlob = styled(SvgDecoratorBlob3)`
   ${tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}
 `;
+// make a decorator blob with a gif
+
 
 export default () => {
   /*
