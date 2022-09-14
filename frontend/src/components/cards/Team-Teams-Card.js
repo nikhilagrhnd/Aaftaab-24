@@ -124,7 +124,7 @@ export default ({
                 <span className="name">{card.name}</span>
                 <CardLinks>
                   {card.links.map((link, linkIndex) => (
-                    <a key={linkIndex} className="link" href={link.mail?`mailto:${link.mail}`:link.url}>
+                    <a key={linkIndex} className="link" href={link.mail?`mailto:${link.mail}`:link.url} target={link.mail ? "_self" : "_blank"}>
                       <link.icon className="icon" />
                     </a>
                   ))}
