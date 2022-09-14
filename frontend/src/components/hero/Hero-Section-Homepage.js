@@ -72,7 +72,7 @@ export default ({
   primaryButtonText="Register Now",
   primaryButtonUrl="#",
   watchVideoButtonText="Watch Video",
-  watchVideoYoutubeUrl="https://www.youtube.com/embed/_GuOjXYl5ew",
+  watchVideoYoutubeUrl="https://www.instagram.com/tv/CiLnz8Xg6Zh/?utm_source=ig_web_copy_link",
   imageSrc=DesignIllustration,
   imageCss=null,
   imageDecoratorBlob = false,
@@ -93,7 +93,10 @@ export default ({
               <Link to="/register">
                 <PrimaryButton as="a">{primaryButtonText}</PrimaryButton>
               </Link>
-              <WatchVideoButton onClick={toggleModal}>
+              <WatchVideoButton onClick={()=>{
+                //redirect to youtube
+                window.open(watchVideoYoutubeUrl, '_blank');
+              }}>
                 <span className="playIconContainer">
                   <PlayIcon className="playIcon" />
                 </span>

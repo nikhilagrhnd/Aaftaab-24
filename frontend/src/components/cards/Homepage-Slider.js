@@ -44,6 +44,7 @@ const CardSlider = styled(Slider)`
     ${tw`h-auto flex justify-center mb-1`}
   }
 `;
+//make card such that size remains constant for all cards
 const Card = tw.div`h-full flex! flex-col sm:border max-w-sm sm:rounded-tl-4xl sm:rounded-br-5xl relative focus:outline-none`;
 const CardImage = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
@@ -60,10 +61,12 @@ const RatingsInfo = styled.div`
     ${tw`w-6 h-6 text-yellow-500 fill-current`}
   }
 `;
-const Rating = tw.span`ml-2 font-bold`;
+
 
 const Description = tw.p`text-sm leading-loose mt-2 sm:mt-4`;
 
+const Rating = tw.span`ml-2 font-bold`;
+//const Description = tw.p`text-sm leading-loose mt-2 sm:mt-4`;
 const SecondaryInfoContainer = tw.div`flex flex-col sm:flex-row mt-2 sm:mt-4`;
 const IconWithText = tw.div`flex items-center mr-6 my-2 sm:my-0`;
 const IconContainer = styled.div`
@@ -163,12 +166,7 @@ export default () => {
                   <Title>{card.title}</Title>
                 </TitleReviewContainer>
                 <SecondaryInfoContainer>
-                  <IconWithText>
-                    <IconContainer>
-                      <LocationIcon />
-                    </IconContainer>
-                    <Text>{card.locationText}</Text>
-                  </IconWithText>
+            
                   <IconWithText>
                     <IconContainer>
                       <DateIcon />
