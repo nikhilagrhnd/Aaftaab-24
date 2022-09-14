@@ -5,6 +5,7 @@ import {Container as ContainerBase } from "components/misc/Layouts.js"
 import logo from "../../images/old-logo-symbol.png";
 import { ReactComponent as FacebookIcon } from "../../images/facebook-icon.svg";
 import { ReactComponent as InstagramIcon } from "../../images/instagram-icon.svg";
+import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
 import { Link } from "react-router-dom";
 
@@ -39,25 +40,35 @@ export default () => {
             <LogoText>Aaftaab</LogoText>
           </LogoContainer>
           <LinksContainer>
-            <Link to="/" ><Linktw>Home</Linktw></Link>
-            <Link to="/about"><Linktw>About</Linktw></Link>
-            <a href="mailto:aaftaab@iitj.ac.in" ><Linktw>Contact Us</Linktw></a>
-            <Link to="/team"><Linktw>Team</Linktw></Link>
-            <a href="https://www.iitj.ac.in/"><Linktw>IIT Jodhpur</Linktw></a>
+            <Link to="/" >
+              <Linktw>Home</Linktw>
+            </Link>
+            <Link to="/about">
+              <Linktw>About</Linktw>
+            </Link>
+            <a href="mailto:aaftaab@iitj.ac.in">
+              <Linktw>Contact Us</Linktw>
+            </a>
+            <Link to="/team">
+              <Linktw>Team</Linktw>
+            </Link>
+            <a href="https://www.iitj.ac.in/" target="_blank">
+              <Linktw>IIT Jodhpur</Linktw>
+            </a>
           </LinksContainer>
           <SocialLinksContainer>
-            <SocialLink href="https://www.instagram.com/aaftaab_iitj/">
+            <SocialLink href="https://www.instagram.com/aaftaab_iitj/" target="_blank">
               <InstagramIcon />
             </SocialLink>
-            <SocialLink href="https://facebook.com">
-              <FacebookIcon />
+            <SocialLink href="https://www.linkedin.com/in/aaftaab2022/" target="_blank">
+              <LinkedinIcon />
             </SocialLink>
-            <SocialLink href="https://youtube.com">
+            <SocialLink href="https://youtube.com" target="_blank">
               <YoutubeIcon />
             </SocialLink>
           </SocialLinksContainer>
           <CopyrightText>
-            &copy; Copyright 2022, Devlup Labs, IITJ. All Rights Reserved.
+            &copy; Copyright 2022, IITJ. All Rights Reserved.
           </CopyrightText>
         </Row>
       </Content>
