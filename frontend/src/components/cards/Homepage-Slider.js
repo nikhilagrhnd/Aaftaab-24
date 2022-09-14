@@ -20,6 +20,8 @@ import StandupIMG from "../../images/flagship_events/Standup.jpg";
 import TreasurehuntImg from "../../images/flagship_events/Treasure Hunt.jpg";
 import WorkshopIMG from "../../images/flagship_events/Workshops.jpg";
 
+import "./Homepage-Slider.css"
+
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-16 lg:py-20`;
 
@@ -44,6 +46,7 @@ const CardSlider = styled(Slider)`
     ${tw`h-auto flex justify-center mb-1`}
   }
 `;
+
 const Card = tw.div`h-full flex! flex-col sm:border max-w-sm sm:rounded-tl-4xl sm:rounded-br-5xl relative focus:outline-none`;
 const CardImage = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
@@ -156,19 +159,23 @@ export default () => {
         </HeadingWithControl>
         <CardSlider ref={setSliderRef} {...sliderSettings}>
           {cards.map((card, index) => (
-            <Card key={index}>
+            <div className="Card" key={index}>
+            {/* <Card key={index}> */}
               <CardImage imageSrc={card.imageSrc} />
               <TextInfo>
-                <TitleReviewContainer>
+                <TitleReviewContainer className="CardTitle">
                   <Title>{card.title}</Title>
                 </TitleReviewContainer>
                 <SecondaryInfoContainer>
-                  <IconWithText>
-                    <IconContainer>
-                      <LocationIcon />
-                    </IconContainer>
-                    <Text>{card.locationText}</Text>
-                  </IconWithText>
+                  { card.locationText ?
+                    <IconWithText>
+                      <IconContainer>
+                        <LocationIcon />
+                      </IconContainer>
+                      <Text>{card.locationText}</Text>
+                    </IconWithText>
+                    :null
+                  }
                   <IconWithText>
                     <IconContainer>
                       <DateIcon />
@@ -185,7 +192,8 @@ export default () => {
               }}>
                 <PrimaryButton>Check out now</PrimaryButton>
               </Link>
-            </Card>
+            {/* </Card> */}
+            </div>
           ))}
         </CardSlider>
       </Content>
