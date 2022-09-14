@@ -1,15 +1,22 @@
 from django.shortcuts import render
 from .models import Participant, Team, EmailIds
-# import http response
 from django.http import HttpResponse
 from .serializers import ParticipantSerializer, TeamSerializer, EmailIdsSerializer
 from rest_framework import status
 import random
 import string
-# Create your views here.
-#allow cors
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+#generate token
+def generate_token(email,password):
+    token = ''.join(random.choice(string.ascii_uppercase +
+                     string.digits) for _ in range(6))
+    if Participant.objects.filter(token=token).exists():
+        generate_token(email,password)
+    else:
+        return token
 
 # generate random teamid
 def generate_teamid():
@@ -21,16 +28,15 @@ def generate_teamid():
         return teamid
 
 # send mail
-
-
 def send_participant_creation_confirmation_mail(emailid):
     pass
 
 
 def send_event_registraion_confirmation_mail(emailist, event_registered):
     pass
-# check if the email id string is valid
 
+
+# check if the email id string is valid
 
 def validate_email(emailid):
     if emailid.find('@') == -1 or emailid.find('.') == -1:
@@ -39,11 +45,13 @@ def validate_email(emailid):
         return True
 # create participant view will recieve all the details
 
-@csrf_exempt
 @api_view(['POST'])
 def create_participant(request):
     if request.method == 'POST':
         #serialize request body
+        #check if user already exists
+        if(Participant.objects.filter(email=request.data.get('email')).exists()):
+            return HttpResponse(status=status.HTTP_409_CONFLICT)
         serializer = ParticipantSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -51,10 +59,19 @@ def create_participant(request):
         return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
+@api_view(['POST'])
+def login_participant(request):
+    if request.method == 'POST':
+        email = request.data.get('email')
+        password = request.data.get('password')
+        if Participant.objects.filter( password=password, email=email).exists():
+            return Response({"token":"abcd"},status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+    return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 # create team view will recieve username of who creates it and the list of email ids of the team members4
 
-@csrf_exempt
 @api_view(['POST'])
 def create_team(request):
     if request.method == 'POST':
@@ -80,9 +97,9 @@ def create_team(request):
                     emailid.save()
             return HttpResponse(status=status.HTTP_201_CREATED)
         else:
-            return HttpResponse(status=status.HTTP_401_UNAUTHORIZED)
+            return HttpResponse({"message":"unathurized"},status=status.HTTP_401_UNAUTHORIZED)
 
-    return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    return HttpResponse({"message":"method not allowed"},status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
 def get_all_events_for_a_user(request):
@@ -120,3 +137,4 @@ def get_all_users_for_an_event(request):
         else:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
