@@ -9,10 +9,14 @@ import logo from "images/old-logo-symbol.png";
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "components/footers/Home-Footer";
+import { backendUrl } from "backendUrl";
+//import {backendUrl} from "backendUrl.js";
 
-const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
+const Container = tw(
+  ContainerBase
+)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
@@ -51,37 +55,59 @@ const SubmitButton = styled.button`
 `;
 const IllustrationContainer = tw.div`sm:rounded-r-lg flex-1 bg-purple-100 text-center hidden lg:flex justify-center`;
 const IllustrationImage = styled.div`
-  ${props => `background-image: url("${props.imageSrc}");`}
+  ${(props) => `background-image: url("${props.imageSrc}");`}
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const data = {
+    email: e.target.email.value,
+    name: e.target.name.value,
+    password: e.target.password.value,
+    phone_number: e.target.phone_number.value,
+  };
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  };
+  fetch(`${backendUrl}/api/create_participant/`, requestOptions)
+  .then((response)=>{
+    console.log(response);
+    if (response.status === 201) {
+      window.location.href = "/login";
+    }
+    else if(response.status==409){
+      alert("user already exists");
+    }
+    else{
+      alert("Invalid credentials");
+    }
+    return response.json();
+  })
+  .then((data)=>{
+    console.log(data);
+  })
+  .catch((error)=>{
+    console.log(error);
+  });
+};
 
 export default ({
   logoLinkUrl = "/",
   illustrationImageSrc = illustration,
   headingText = "Sign Up For Aaftaab",
-  socialButtons = [
-    {
-      iconImageSrc: googleIconImageSrc,
-      text: "Sign Up With Google",
-      url: "https://google.com"
-    },
-    {
-      iconImageSrc: twitterIconImageSrc,
-      text: "Sign Up With Twitter",
-      url: "https://twitter.com"
-    }
-  ],
   submitButtonText = "Sign Up",
   SubmitButtonIcon = SignUpIcon,
   tosUrl = "#",
   privacyPolicyUrl = "#",
-  signInUrl = "/login"
+  signInUrl = "/login",
 }) => (
   <AnimationRevealPage>
     <Container>
       <Content>
         <MainContainer>
-        <Link to="/">
+          <Link to="/">
             <LogoLink>
               <LogoImage src={logo} />
             </LogoLink>
@@ -89,40 +115,29 @@ export default ({
           <MainContent>
             <Heading>{headingText}</Heading>
             <FormContainer>
-              <SocialButtonsContainer>
-                {socialButtons.map((socialButton, index) => (
-                  <SocialButton key={index} href={socialButton.url}>
-                    <span className="iconContainer">
-                      <img src={socialButton.iconImageSrc} className="icon" alt="" />
-                    </span>
-                    <span className="text">{socialButton.text}</span>
-                  </SocialButton>
-                ))}
-              </SocialButtonsContainer>
+      
               <DividerTextContainer>
-                <DividerText>Or Sign up with your e-mail</DividerText>
+                <DividerText>Sign up with your email</DividerText>
               </DividerTextContainer>
-              <Form>
-                <Input type="email" placeholder="Email" />
-                <Input type="password" placeholder="Password" />
+              <Form onSubmit={handleSubmit}>
+                <Input type="email" placeholder="Email" name="email" />
+                <Input type="name" placeholder="Name" name="name" />
+                <Input type="password" placeholder="Password" name="password" />
+                <Input
+                  type="phone"
+                  placeholder="Phone Number"
+                  name="phone_number"
+                />
                 <SubmitButton type="submit">
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{submitButtonText}</span>
                 </SubmitButton>
-                <p tw="mt-6 text-xs text-gray-600 text-center">
-                  I agree to abide by Aaftaab's{" "}
-                  <a href={tosUrl} tw="border-b border-gray-500 border-dotted">
-                    Terms of Service
-                  </a>{" "}
-                  and its{" "}
-                  <a href={privacyPolicyUrl} tw="border-b border-gray-500 border-dotted">
-                    Privacy Policy
-                  </a>
-                </p>
-
                 <p tw="mt-8 text-sm text-gray-600 text-center">
                   Already have an account?{" "}
-                  <Link to={signInUrl} tw="border-b border-gray-500 border-dotted">
+                  <Link
+                    to={signInUrl}
+                    tw="border-b border-gray-500 border-dotted"
+                  >
                     Log In
                   </Link>
                 </p>
