@@ -58,7 +58,7 @@ export default () => {
       // subtitle: "what it's all about?",
       // title: "Theme",
       description:
-      "The theme of this year’s Aaftaab is Kaleidoscopes: Limitless Iridescence Telestic.It is a marvellous representation of the limitless reach of the festival, which brings together brilliant minds from all around the country and allows them to express themselves, explore the diverse genres and partake in the magnificent celebration of literature.", 
+      "The theme of this year’s Aaftaab is Kaleidoscopes: Limitless Iridescence Telestic. It is a marvellous representation of the limitless reach of the festival, which brings together brilliant minds from all around the country and allows them to express themselves, explore the diverse genres and partake in the magnificent celebration of literature.", 
       
       // url: "https://timerse.com"
     },
@@ -91,9 +91,9 @@ export default () => {
                 <Subtitle>{card.subtitle}</Subtitle>
                 <Title>{card.title}</Title>
                 <Description>{card.description}</Description>
-                <Link to="/events">
+                {(i === 2) && <Link to="/events">
                   <LinkAbout>See Event Details</LinkAbout>
-                </Link>
+                </Link>}
               </Details>
             </Card>
           ))}
