@@ -131,24 +131,24 @@ export default function App() {
         <Route path = "/events">
           <Events></Events>
         </Route>
-        <Route path = "/sponsors">
+        {/* <Route path = "/sponsors">
           <Sponsors />
-        </Route>
-        <Route path = "/login">
+        </Route> */}
+        {/* <Route path = "/login">
           <LoginPage />
-        </Route>
+        </Route> */}
         <Route path = "/team">
           <Team/>
         </Route>
         <Route path = "/eventDetails">
           <EventDetails />
         </Route>
-        <Route path = "/signup">
+        {/* <Route path = "/signup">
           <SignupPage />
         </Route>
         <Route path = "/register">
           <Register />
-        </Route>
+        </Route> */}
       </Switch>
     </Router>
   );

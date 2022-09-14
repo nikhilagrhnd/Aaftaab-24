@@ -103,9 +103,9 @@ export default ({
                 </Statistic>
               ))}
             </Statistics> */}
-          {primaryButtonText!=""?  <PrimaryButton onClick={handleEventRegistration}>
+          {/* {primaryButtonText!=""?  <PrimaryButton onClick={handleEventRegistration}>
               {primaryButtonText}
-            </PrimaryButton>:null}
+            </PrimaryButton>:null} */}
           </TextContent>
         </TextColumn>
       </TwoColumn>
