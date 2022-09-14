@@ -2,15 +2,16 @@ from django.db import models
 
 
 EVENT_CHOICES = (
-    ('kavi_sammelan', 'Kavi Sammelan'),
-    ('music_concert', 'Music Concert'),
-    ('dance_show', 'Dance Show'),
-    ('theatre_play', 'Theatre Play'),
-    ('other', 'Other'),
-)
-PARTICIPATION_CHOICES = (
-    ('individual', 'Individual'),
-    ('group', 'Group'),
+    ('treasure_hunt','Treasure Hunt'),
+    ('prompt_poetry','Prompt Poetry'),
+    ('noob_quiz','Noob Quiz'),
+    ('word_games','Word Games'),
+    ('just_a_minute_speech','Just A Minute Speech'),
+    ('hindi_debate','Hindi Debate'),
+    ('english_debate','English Debate'),
+    ('netflix_and_quiz','Netflix and Quiz'),
+    ('mela_quiz','Mela Quiz'),
+
 )
 
 class Participant(models.Model):

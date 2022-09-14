@@ -72,7 +72,7 @@ def login_participant(request):
     if request.method == 'POST':
         email = request.data.get('email')
         password = request.data.get('password')
-        print(email, password)
+
         if Participant.objects.filter( password=password, email=email).exists():
             token = generate_token(email)
             return Response({'token':token},status=status.HTTP_200_OK)
@@ -88,7 +88,7 @@ def create_team(request):
         # get username and password from request
         email = request.data.get('email')
         password = request.data.get('password')
-        print(email,password)
+     
         # check if user exists
         if Participant.objects.filter(email=email, password=password).exists():
             #check if password is correct
@@ -111,25 +111,32 @@ def create_team(request):
 
     return HttpResponse({"message":"method not allowed"},status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
-
-def get_all_events_for_a_user(request):
+@api_view(['GET'])
+def get_all_events_for_an_user(request):
     if request.method == 'GET':
-        email = request.data.get('email')
-        password = request.data.get('password')
-        email = request.data.get('email')
-        if Participant.objects.filter( password=password, emailid=email).exists():
+        token = request.headers.get('Authorization')
+        if token is None:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+        try:
+            payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+        email = payload['email']
+        if Participant.objects.filter(email=email).exists():
             event_list = []
+           
             emailIds = EmailIds.objects.filter(emailid=email)
             for emailId in emailIds:
                 teams = Team.objects.filter(teamid=emailId.teamid)
                 for team in teams:
                     event_list.append(team.event_registered)
-            return HttpResponse(event_list, status=status.HTTP_200_OK)
+            return Response(event_list,status=status.HTTP_200_OK)
         else:
-            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
-    return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+            return Response(status=status.HTTP_404_NOT_FOUND)
+    return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
-
+@api_view(['GET'])
 def get_all_users_for_an_event(request):
     if request.method == 'GET':
         event_registered = request.data.get('event_registered')
@@ -147,4 +154,6 @@ def get_all_users_for_an_event(request):
         else:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
 
