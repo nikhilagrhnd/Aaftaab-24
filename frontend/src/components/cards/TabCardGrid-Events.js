@@ -140,6 +140,7 @@ export default ({
         description: `Life is a treasure hunt game. You have to solve the clues from incidents that happened and move further to find the ultimate fortune. So are you into solving the clues and making your way through the wilderness in the pursuit of long lost treasure/ fortune ? We offer you all this thrilling experience in Aaftaab 2022’s very own “ClueMinati”. In “ClueMinati”  you will be given clues which will lead you to the ultimate treasure. Players with the aid of clues will  compete in trying to find the hidden treasure.`,
         // timing: "XX:XX AM - XX:XX PM ",
         // price: "₹50",
+        registrableEvent: true,
         url: "#"
       },
       {
@@ -345,6 +346,7 @@ const getDay2Cards = () => {
       description: `QUIZ? Meh, I'll skip the "nerdy" stuff. 
       Well, NOOB QUIZ is here to break that myth. Show off your quizzing skills by cracking the questions with the most basic knowledge and bag flashy prizes. A proper quiz with teams that'll face each other off in a fierce battle of questions and answers.`,
       // price: "₹50",
+      registrableEvent: true,
       url: "#"
     },
     {
@@ -356,6 +358,7 @@ const getDay2Cards = () => {
 
       Be a part of a series of word games which will test your quick thinking skills, vocabulary and imagination.`,
       // price: "₹50",
+      registrableEvent: true,
       url: "#"
     },
     {
@@ -385,6 +388,7 @@ const getDay2Cards = () => {
       // timing: "06:00 PM - 08:00 PM",
       description: `Life is a treasure hunt game. You have to solve the clues from incidents that happened and move further to find the ultimate fortune. So are you into solving the clues and making your way through the wilderness in the pursuit of long lost treasure/ fortune ? We offer you all this thrilling experience in Aaftaab 2022’s very own “ClueMinati”. In “ClueMinati”  you will be given clues which will lead you to the ultimate treasure. Players with the aid of clues will  compete in trying to find the hidden treasure.`,
       // price: "₹50",
+      registrableEvent: true,
       url: "#"
     },
     {
@@ -429,6 +433,7 @@ const getDay3Cards = () => {
       // timing: "09:30 AM - 11:30 AM",
       // price: "₹50",
       description: ``,
+      registrableEvent: true,
       url: "#"
     },
     {
@@ -457,6 +462,7 @@ const getDay3Cards = () => {
       // timing: "11:30 AM - 01:00 PM",
       description: `Binge watching is lit, but what if there is a quiz for binge watchers!? “Netflix and Quiz” is the perfect arena where all these ‘Binge watchers’ can brag their goldmine of knowledge on shows and can finally put it to good use . Participate in a series of quizzes that will test your knowledge about all things show related, stranger and otherwise :) `,
       // price: "₹50",
+      registrableEvent: true,
       url: "#"
     },
     {
@@ -487,6 +493,7 @@ const getDay3Cards = () => {
       // timing: "04:00 PM - 05:00 PM",
       description: `Quizzes are fun,a themed quiz even more! Here's a chance to flaunt your knowledge about al things entertainment and enjoy the wonders the theme has to show you!  The "MELA Quiz"  is theme based quiz on all things Music, Entertainment, Literature and Arts.`,
       // price: "₹50",
+      registrableEvent: true,
       url: "#"
     }
   ];
