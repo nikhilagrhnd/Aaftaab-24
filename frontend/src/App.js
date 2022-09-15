@@ -113,6 +113,7 @@ import Sponsors from "website/sponsors";
 import Team from "website/team";
 import EventDetails from "website/eventDetails";
 import Register from "website/register"
+import EventRegistration from "website/eventRegistration";
 import Dashboard from "website/dashboard";
 
 export default function App() {
@@ -147,6 +148,9 @@ export default function App() {
         </Route>
         <Route path = "/register">
           <Register />
+        </Route>
+        <Route path = "/eventRegistration">
+          <EventRegistration />
         </Route>
         <Route exact path = "/dashboard">
           <Dashboard></Dashboard>

@@ -1,6 +1,7 @@
 {
-  "name": "treact",
-  "version": "0.1.0",
+  "name": "aaftaab",
+  "homepage": "http://aaftaab.in",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@owaiswiz/use-in-view": "^1.0.16",

@@ -7,24 +7,33 @@ import Feature from "components/features/TwoColSingleFeatureWithStats2-button.js
 import Header from 'components/headers/light.js'
 import Footer from "components/footers/Home-Footer";
 
+// import { createBrowserHistory } from 'history'
+
+// export const history = createBrowserHistory({forceRefresh: true})
+
+function goBackToEvents(history) {
+    history.push("/events")
+    history.go(0)
+}
+
 function Events() {
     const location = useLocation()
     const card = location.state
     const history = useHistory()
-
-    console.log(location, card)
+    
+    if (!card) goBackToEvents(history, card)
 
     const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
     return (
         <AnimationRevealPage>
             <Header />
-            {/* <h1>{card ? card.title : history.push("/events")}</h1> */}
             <Feature 
                 subheading={card.timing}
                 heading={card.title}
                 description={card.description ? card.description : null}
                 imageSrc={card.imageSrc}
                 primaryButtonText="Register Now!"
+                registrableEvent={card.registrableEvent}
             />
             <Footer />
         </AnimationRevealPage>
