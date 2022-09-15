@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.969bd33f.css",
-    "main.js": "/static/js/main.b1d9543d.js",
+    "main.css": "/static/css/main.b53e1d5c.css",
+    "main.js": "/static/js/main.98cf78bf.js",
     "static/media/Suyash Surana.jpg": "/static/media/Suyash Surana.697cca925d70cb744fdf.jpg",
     "static/media/IMG_20220520_204750 - Ankush Gupta (B20CH006).jpg": "/static/media/IMG_20220520_204750 - Ankush Gupta (B20CH006).f808bb4794469fc60108.jpg",
+    "static/media/Yash Bhargava.jpg": "/static/media/Yash Bhargava.ddb8108ace1e61ac74c4.jpg",
     "static/media/IMG_20220130_211252_339 - Vandan Moonat (B20CI046).jpg": "/static/media/IMG_20220130_211252_339 - Vandan Moonat (B20CI046).435c90a79c54b3c2f885.jpg",
     "static/media/IMG_1285 - Karan Thakur (B20CH021).JPG": "/static/media/IMG_1285 - Karan Thakur (B20CH021).562740fc1de8d1c66a33.JPG",
     "static/media/Ayush - Ayush Didel (B20ME019).jpg": "/static/media/Ayush - Ayush Didel (B20ME019).87e5cdad38cfa3ea884e.jpg",
     "static/media/IMG_6632-4 - Mahendra Jakhar (B20CI021).jpg": "/static/media/IMG_6632-4 - Mahendra Jakhar (B20CI021).a38c6dada0a3f038755b.jpg",
     "static/media/1662833916599-01 - Sayan Sanyal (M21DH014).jpeg": "/static/media/1662833916599-01 - Sayan Sanyal (M21DH014).e0bebcde679d81bc63c6.jpeg",
+    "static/media/Stuti Pradeep Aswani.jpg": "/static/media/Stuti Pradeep Aswani.63e97422a236f7feb7e9.jpg",
     "static/media/Kavi samelan.png": "/static/media/Kavi samelan.858a3249438643e02ca0.png",
+    "static/media/Akshat Jain.jpeg": "/static/media/Akshat Jain.d805cecc325b1c008567.jpeg",
     "static/media/MainLandingPageHero.png": "/static/media/MainLandingPageHero.30b380787ef7adb09eb6.png",
     "static/media/1CFD3BE5-A542-4501-BC09-E710A524AAF8 - Shyan Pal (M22SL009).jpeg": "/static/media/1CFD3BE5-A542-4501-BC09-E710A524AAF8 - Shyan Pal (M22SL009).c27302453d4be718c0df.jpeg",
     "static/media/kaleidoscope-1.gif": "/static/media/kaleidoscope-1.95bdd33a6728b600150e.gif",
@@ -24,6 +27,7 @@
     "static/media/Jahnab Dutta.jpeg": "/static/media/Jahnab Dutta.b58af0219d9c6acac8bd.jpeg",
     "static/media/TermsOfServicePage.jpeg": "/static/media/TermsOfServicePage.353b0a2b07abc9f66a90.jpeg",
     "static/media/EventLandingPage.jpeg": "/static/media/EventLandingPage.875a418193e5e3cfbafe.jpeg",
+    "static/media/Shreya Pagaria.jpg": "/static/media/Shreya Pagaria.4c5ee2d6828b48e28989.jpg",
     "static/media/WhatsApp Image 2022-09-11 at 15.45.33 - Prabodh Sharma (M22DH009).jpeg": "/static/media/WhatsApp Image 2022-09-11 at 15.45.33 - Prabodh Sharma (M22DH009).ff66f5838266e114e5ca.jpeg",
     "static/media/HostingCloudLandingPage.jpeg": "/static/media/HostingCloudLandingPage.6b09b2aa8f447502dfc8.jpeg",
     "static/media/Vishal Yadav.jpg": "/static/media/Vishal Yadav.d55824ecd92a0bf0bf4b.jpg",
@@ -43,7 +47,6 @@
     "static/media/old-logo-symbol.png": "/static/media/old-logo-symbol.cf672d319a1239a7f344.png",
     "static/media/old-logo.png": "/static/media/old-logo.734c70f7af3146332148.png",
     "static/media/ContactUsPage.jpeg": "/static/media/ContactUsPage.271456291b98013cc748.jpeg",
-    "static/media/Yash Bhargava.jpeg": "/static/media/Yash Bhargava.9cc9fa63983232ffebd0.jpeg",
     "static/media/Workshops.jpg": "/static/media/Workshops.0215656cd01f7f10d6b9.jpg",
     "static/media/Standup.jpg": "/static/media/Standup.c88bcd1d2f9b66f47138.jpg",
     "static/media/design-illustration-2.svg": "/static/media/design-illustration-2.6da6a00b20c07c4a9b65d1870679e1b8.svg",
@@ -131,11 +134,11 @@
     "static/media/arrow-left-3-icon.svg": "/static/media/arrow-left-3-icon.087294c1fe78c7fd2f37c3a92b1f1dff.svg",
     "static/media/arrow-right-3-icon.svg": "/static/media/arrow-right-3-icon.5bf133930c89abdc6760c3a5dacf085b.svg",
     "static/media/handle-icon.svg": "/static/media/handle-icon.058b1c45d9adf0d47ce03b947bc6ac15.svg",
-    "main.969bd33f.css.map": "/static/css/main.969bd33f.css.map",
-    "main.b1d9543d.js.map": "/static/js/main.b1d9543d.js.map"
+    "main.b53e1d5c.css.map": "/static/css/main.b53e1d5c.css.map",
+    "main.98cf78bf.js.map": "/static/js/main.98cf78bf.js.map"
   },
   "entrypoints": [
-    "static/css/main.969bd33f.css",
-    "static/js/main.b1d9543d.js"
+    "static/css/main.b53e1d5c.css",
+    "static/js/main.98cf78bf.js"
   ]
 }

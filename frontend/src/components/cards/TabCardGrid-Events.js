@@ -12,6 +12,8 @@ import { ReactComponent as StarIcon } from "images/star-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 
+import Maaz from '../../images/flagship_events/Maaz-Bin-Bilal.jpg'
+
 const HeaderRow = tw.div`flex justify-between items-center flex-col xl:flex-row`;
 const Header = tw(SectionHeading)``;
 const TabsControl = tw.div`flex flex-wrap bg-gray-200 px-2 py-2 rounded leading-none mt-12 xl:mt-0`;
@@ -100,11 +102,15 @@ export default ({
         url: "#"
       },
       {
-        imageSrc:
-          "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-        title: "Book Signings",
+        imageSrc: Maaz,
+        // imageSrc: 
+        //   "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        title: "Book Signing by Maaz Bin Bilal",
         // timing: "XX:XX AM - XX:XX PM ",
         // price: "₹50",
+        description: `
+        Aaftaab is here with the book signing event of the book “Temple Lamp- Verses of Banaras”, a Persian to English translation of Mirza Galib's "Chirag-e-Diar" by Mr. Maaz Bin Bilal.
+        Join us and get the chance to envision the colours of Kahi as described by Mirza Galib from the author Mr. Bilal himself.`,
         url: "#"
       },
       {
@@ -113,6 +119,17 @@ export default ({
         title: "Interview with Director",
         description: `Ever wondered whether the Director of such a prestigious institute eats like us, lives like us or enjoys like us? Well, we present a one-on-one interview with the director complete with a set of unique and out-of-the-box questions. Come and see what he has to say! An interview with the director in front of the entire college that help us get to know him from a different perspective.`,
         // timing: "XX:XX AM - XX:XX PM ",
+        // price: "₹50",
+        url: "#"
+      },
+      {
+        imageSrc:
+          "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        title: "Regional Author Colloquium",
+        // timing: "02:30 PM - 04:00 PM",
+        description: `Want to know how an idea is turned into a novel ?
+        We bring to you the joy of hearing an author tell the biography of their book.
+        Join us and get the chance to interact with a big name of the literaly world and get your own signed copy of the book.`,
         // price: "₹50",
         url: "#"
       },
@@ -344,7 +361,7 @@ const getDay2Cards = () => {
     {
       imageSrc:
         "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      title: "Regional Author Book Signing",
+      title: "Regional Author Colloquium",
       // timing: "02:30 PM - 04:00 PM",
       description: `Want to know how an idea is turned into a novel ?
       We bring to you the joy of hearing an author tell the biography of their book.
@@ -452,9 +469,10 @@ const getDay3Cards = () => {
       url: "#"
     },
     {
-      imageSrc:
-        "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      title: "English Author Book Signing ",
+      imageSrc: Maaz,
+      // imageSrc:
+      //   "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      title: "Book Signing by Maaz Bin Bilal ",
       // timing: "04:00 PM - 05:30 PM",
       description: `
       Aaftaab is here with the book signing event of the book “Temple Lamp- Verses of Banaras”, a Persian to English translation of Mirza Galib's "Chirag-e-Diar" by Mr. Maaz Bin Bilal.

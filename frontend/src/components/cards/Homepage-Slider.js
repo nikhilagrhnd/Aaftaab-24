@@ -19,6 +19,7 @@ import InterviewImg from "../../images/flagship_events/Interview with Director.j
 import StandupIMG from "../../images/flagship_events/Standup.jpg";
 import TreasurehuntImg from "../../images/flagship_events/Treasure Hunt.jpg";
 import WorkshopIMG from "../../images/flagship_events/Workshops.jpg";
+import Maaz from '../../images/flagship_events/Maaz-Bin-Bilal.jpg'
 
 import "./Homepage-Slider.css"
 
@@ -40,10 +41,10 @@ const NextButton = tw(ControlButton)``;
 const CardSlider = styled(Slider)`
   ${tw`mt-16`}
   .slick-track { 
-    ${tw`flex`}
+    ${tw`flex w-full h-full`}
   }
   .slick-slide {
-    ${tw`h-auto flex justify-center mb-1`}
+    ${tw`h-full w-full flex justify-center mb-1`}
   }
 `;
 const Card = tw.div`h-full flex! flex-col sm:border max-w-sm sm:rounded-tl-4xl sm:rounded-br-5xl relative focus:outline-none`;
@@ -96,7 +97,7 @@ export default () => {
       },
 
       {
-        breakpoint: 900,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
         }
@@ -109,42 +110,57 @@ export default () => {
     {
       imageSrc: kaviSammelanImg,
       title: "Kavi sammelan",
-      dateText: "29/09/22",
+      description: `‘Kavyamaye ho uthega dil, jab sajegi kaviyon ki mehfil’. A poetic event (Kavi Sammelan) is being organized on this Aaftaab. The event will be presenting young and talented poets who will recite their poems and mushairas in front of the audience. Here the participants will get a topic on which they have to present their poetry. also, participants could get a chance to interact with upcoming faces of poetry.`,
+      dateText: "30/09/22",
     },
     {
       imageSrc: StandupIMG,
       title: "Stand up comedy",
-      dateText: "29/09/22",
+      description: `Come and join us for an evening glimmered with sarcasm and humour, brought to you by one of the finest comics in the country and fill the evening with giggles and hootings.A comedic performance to a live audience, saturated with jokes and sarcasm with one of the best standup comics out there to entertain you.`,
+      dateText: "30/09/22",
     },
     {
       imageSrc: musicshowImg,
       title: "Folk Music + Puppet Show",
-      dateText: "29/09/22",
+      description: `The term folk music and its equivalents in other languages denote many different kinds of music; the meaning of the term varies according to the part of the world, social class, and period of history. Doing justice to this year’s theme, Kaleidoscopes, Aaftaab will organise a Folk Music and Puppet Show, that will host regional folk musicians to celebrate the beauty and soulfulness of Rajasthani Folk Music. Join us as we immerse ourselves in resonating sounds of traditional instruments and the stories told by these musical storytellers.`,
+      dateText: "30/09/22",
     },
     {
       imageSrc: djImg,
       title: "DJ Night",
-      dateText: "29/09/22",
+      dateText: "30/09/22",
     },
     {
       imageSrc: BookImg,
-      title: "Book Signings",
-      dateText: "29/09/22",
+      title: "Regional Author Colloquium",
+      description: `Want to know how an idea is turned into a novel ?
+      We bring to you the joy of hearing an author tell the biography of their book.
+      Join us and get the chance to interact with a big name of the literaly world and get your own signed copy of the book.`,
+      dateText: "30/09/22",
     },
     {
       imageSrc: InterviewImg,
       title: "Interview with Director",
-      dateText: "29/09/22",
+      description: `Ever wondered whether the Director of such a prestigious institute eats like us, lives like us or enjoys like us? Well, we present a one-on-one interview with the director complete with a set of unique and out-of-the-box questions. Come and see what he has to say! An interview with the director in front of the entire college that help us get to know him from a different perspective.`,
+      dateText: "30/09/22",
+    },
+    {
+      imageSrc: Maaz,
+      title: "Book Signing by Maaz Bin Bilal",
+      description: `Aaftaab is here with the book signing event of the book “Temple Lamp- Verses of Banaras”, a Persian to English translation of Mirza Galib's "Chirag-e-Diar" by Mr. Maaz Bin Bilal.
+      Join us and get the chance to envision the colours of Kahi as described by Mirza Galib from the author Mr. Bilal himself.`,
+      dateText: "30/09/22"
     },
     {
       imageSrc: TreasurehuntImg,
       title: "Treasure Hunt",
-      dateText: "29/09/22",
+      description: `Life is a treasure hunt game. You have to solve the clues from incidents that happened and move further to find the ultimate fortune. So are you into solving the clues and making your way through the wilderness in the pursuit of long lost treasure/ fortune ? We offer you all this thrilling experience in Aaftaab 2022’s very own “ClueMinati”. In “ClueMinati”  you will be given clues which will lead you to the ultimate treasure. Players with the aid of clues will  compete in trying to find the hidden treasure.`,
+      dateText: "30/09/22",
     },
     {
       imageSrc: WorkshopIMG,
       title: "Workshops",
-      dateText: "29/09/22",
+      dateText: "30/09/22",
     },
   ]
 
@@ -184,7 +200,7 @@ export default () => {
                     <Text>{card.dateText}</Text>
                   </IconWithText>
                 </SecondaryInfoContainer>
-                <Description>{card.description}</Description>
+                {/* <Description>{card.description}</Description> */}
               </TextInfo>
               <Link to={{
                 pathname: "/eventDetails",
