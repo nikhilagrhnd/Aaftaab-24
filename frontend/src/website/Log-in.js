@@ -69,9 +69,13 @@ const handleSubmit = (e) => {
     body: JSON.stringify(data),
   };
   fetch(`${backendUrl}/api/login_participant/`, requestOptions)
-    .then((response) => response.json())
+    .then((response) =>{
+      if(response.status==200){
+        return response.json();
+      }
+      return {};
+    })
     .then((data) => {
-
       if (data.token) {
         localStorage.setItem("token", data.token);
         //console.log(localStorage.getItem("token"));
