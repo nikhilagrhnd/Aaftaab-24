@@ -60,37 +60,40 @@ const IllustrationImage = styled.div`
 `;
 const handleSubmit = (e) => {
   e.preventDefault();
-  const data = {
-    email: e.target.email.value,
-    name: e.target.name.value,
-    password: e.target.password.value,
-    phone_number: e.target.phone_number.value,
-  };
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  };
-  fetch(`${backendUrl}/api/create_participant/`, requestOptions)
-  .then((response)=>{
-    console.log(response);
-    if (response.status === 201) {
-      window.location.href = "/login";
-    }
-    else if(response.status==409){
-      alert("user already exists");
-    }
-    else{
-      alert("Invalid credentials");
-    }
-    return response.json();
-  })
-  .then((data)=>{
-    console.log(data);
-  })
-  .catch((error)=>{
-    console.log(error);
-  });
+  if (e.target.password.value !== e.target.confirm_password.value) {
+    alert("Passwords do not match");
+  } else {
+    
+    const data = {
+      email: e.target.email.value,
+      name: e.target.name.value,
+      password: e.target.password.value,
+      phone_number: e.target.phone_number.value,
+    };
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    };
+    fetch(`${backendUrl}/api/create_participant/`, requestOptions)
+      .then((response) => {
+        console.log(response);
+        if (response.status === 201) {
+          window.location.href = "/login";
+        } else if (response.status == 409) {
+          alert("user already exists");
+        } else {
+          alert("Invalid credentials");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 };
 
 export default ({
@@ -115,7 +118,6 @@ export default ({
           <MainContent>
             <Heading>{headingText}</Heading>
             <FormContainer>
-      
               <DividerTextContainer>
                 <DividerText>Sign up with your email</DividerText>
               </DividerTextContainer>
@@ -123,6 +125,11 @@ export default ({
                 <Input type="email" placeholder="Email" name="email" />
                 <Input type="name" placeholder="Name" name="name" />
                 <Input type="password" placeholder="Password" name="password" />
+                <Input
+                  type="password"
+                  placeholder="Confirm Password"
+                  name="confirm_password"
+                />
                 <Input
                   type="phone"
                   placeholder="Phone Number"
