@@ -34,6 +34,7 @@ function Events() {
                 imageSrc={card.imageSrc}
                 primaryButtonText="Register Now!"
                 registrableEvent={card.registrableEvent}
+                teamSize={card.teamSize}
             />
             <Footer />
         </AnimationRevealPage>
