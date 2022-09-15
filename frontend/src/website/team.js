@@ -10,7 +10,7 @@ import { ReactComponent as GithubIcon } from "images/github-icon.svg";
 import { ReactComponent as InstagramIcon } from "images/icons8-instagram.svg";
 import Ayush from "../images/team/Ayush - Ayush Didel (B20ME019).jpg"
 import ShyanPal from '../images/team/1CFD3BE5-A542-4501-BC09-E710A524AAF8 - Shyan Pal (M22SL009).jpeg'
-import Yaweer from '../images/team/yxwerabbas-13092022-0001 - Yawer Abbas (B20CI050).webp'
+import Yawer from '../images/team/yxwerabbas-13092022-0001 - Yawer Abbas (B20CI050).webp'
 import SayanSanyal from '../images/team/1662833916599-01 - Sayan Sanyal (M21DH014).jpeg'
 import MahendraJakhar from '../images/team/IMG_6632-4 - Mahendra Jakhar (B20CI021).jpg'
 import VandanMoonat from '../images/team/IMG_20220130_211252_339 - Vandan Moonat (B20CI046).jpg'
@@ -28,19 +28,21 @@ import AnkushGupta from '../images/team/IMG_20220520_204750 - Ankush Gupta (B20C
 import Vikash from '../images/team/Vikas Yadav.jpeg'
 import Vishal from '../images/team/Vishal Yadav.jpg'
 import Jahnab from '../images/team/Jahnab Dutta.jpeg'
-import YashB from '../images/team/Yash Bhargava.jpeg'
+import YashB from '../images/team/Yash Bhargava.jpg'
 import DefaultUser from '../images/team/User.jpg'
+import Stuti from '../images/team/Stuti Pradeep Aswani.jpg'
+import Shreya from '../images/team/Shreya Pagaria.jpg'
+import Akshat from '../images/team/Akshat Jain.jpeg'
 
 
 function Team() {
   const team0 = {
     heading: "Festival Chiefs",
-    subheading: "lorem ipsum",
+    subheading: "Our Team",
     cards: [
       {
-        imageSrc: Yaweer,
-     
-        name: "Yaweer Abbas",
+        imageSrc: Yawer,     
+        name: "Yawer Abbas",
         links: [
           {
             url: "https://instagram.com/Yxwerabbas",
@@ -56,8 +58,7 @@ function Team() {
         ],
       },
       {
-        imageSrc: DefaultUser,
-        position: "Head",
+        imageSrc: Stuti,
         name: "Stuti Aswani",
         links: [
           {
@@ -74,11 +75,10 @@ function Team() {
       },
       {
         imageSrc: SayanSanyal,
-        position: "Head",
         name: "Sayan Sanyal",
         links: [
           {
-            url: "https://instagram.com/_Xcavist_ (Sayan Sanyal)",
+            url: "https://instagram.com/_Xcavist_",
             icon: InstagramIcon,
           },
           {
@@ -92,7 +92,7 @@ function Team() {
   };
   const team8 = {
     heading: "Web Development",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: Vishal,
@@ -100,7 +100,7 @@ function Team() {
         name: "Vishal Kumar Yadav",
         links: [
           {
-            url: "https://instagram.com",
+            url: "https://instagram.com/vishal_yadav._._",
             icon: InstagramIcon,
           },
 
@@ -109,7 +109,7 @@ function Team() {
             icon: EmailIcon
           },
           {
-            url: "https://linkedin.com/in/yashbhargava02",
+            url: "https://linkedin.com/in/vishal-yadav-9871451b0",
             icon: LinkedinIcon,
           },
           
@@ -137,28 +137,8 @@ function Team() {
         ],
       },
       {
-        imageSrc: Vikash,
-        position: "Head",
-        name: "Vikash Yadav",
-        links: [
-          {
-            url: "https://www.instagram.com/__vcos__",
-            icon: InstagramIcon,
-          },
-
-          {
-            mail: "yadav.41@iitj.ac.in",
-            icon: EmailIcon
-          },
-          {
-            url: "https://linkedin.com/in/vikash-rs-yadav",
-            icon: LinkedinIcon,
-          },
-          
-        ],
-      },{
         imageSrc: YashB,
-        position: "Head",
+        position: "Mentor",
         name: "Yash Bhargava",
         links: [
           {
@@ -177,12 +157,32 @@ function Team() {
           
         ],
       },
-      
+      {
+        imageSrc: Vikash,
+        position: "Mentor",
+        name: "Vikash Yadav",
+        links: [
+          {
+            url: "https://www.instagram.com/__vcos__",
+            icon: InstagramIcon,
+          },
+
+          {
+            mail: "yadav.41@iitj.ac.in",
+            icon: EmailIcon
+          },
+          {
+            url: "https://linkedin.com/in/vikash-rs-yadav",
+            icon: LinkedinIcon,
+          },
+          
+        ],
+      },      
     ],
   };
   const team1 = {
     heading: "Accomodation, Travel and Security",
-    subheading: "lorem ipsum",
+    // subheading: "lorem ipsum",
     cards: [
       {
         imageSrc: MahendraJakhar,
@@ -225,7 +225,7 @@ function Team() {
         name: "Karan Thakur",
         links: [
           {
-            url: "https://instagram.com/",
+            url: "https://instagram.com/karan._thakur_",
             icon: InstagramIcon,
           },
 
@@ -240,7 +240,7 @@ function Team() {
   };
   const team2 = {
     heading: "Creativity, Design and Media",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: VandanMoonat,
@@ -275,8 +275,7 @@ function Team() {
         ],
       },
       {
-        imageSrc:
-          "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+        imageSrc: DefaultUser,
         position: "Head",
         name: "Aaryan Dahiya",
         links: [
@@ -295,16 +294,15 @@ function Team() {
   };
   const team3 = {
     heading: "Events and Coordination",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
-        imageSrc:
-          "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+        imageSrc: Shreya,
         position: "Head",
         name: "Shreya Pagaria",
         links: [
           {
-            url: "https://instagram.com",
+            url: "https://instagram.com/shreyapagaria_",
             icon: InstagramIcon,
           },
           {
@@ -315,12 +313,12 @@ function Team() {
         ],
       },
       {
-        imageSrc: DefaultUser,
+        imageSrc: Akshat,
         position: "Head",
         name: "Akshat Jain",
         links: [
           {
-            url: "https://instagram.com",
+            url: "https://instagram.com/akshat_jainxyz",
             icon: InstagramIcon,
           },
           {
@@ -331,13 +329,12 @@ function Team() {
         ],
       },
       {
-        imageSrc:
-          "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+        imageSrc: DefaultUser,
         position: "Head",
         name: "Navlika Singh",
         links: [
           {
-            url: "https://instagram.com",
+            url: "https://instagram.com/navlikasingh",
             icon: InstagramIcon,
           },
           {
@@ -353,7 +350,7 @@ function Team() {
 
   const team4 = {
     heading: "Informals",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: ArunSahu,
@@ -395,14 +392,15 @@ function Team() {
 
   const team5 = {
     heading: "Public Relations",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: Ayush,
+        position: "Head",
         name: "Ayush Didel",
         links: [
           {
-            url: "https://instagram.com",
+            url: "https://instagram.com/didelayush2003",
             icon: InstagramIcon,
           },
           {
@@ -434,8 +432,8 @@ function Team() {
   };
 
   const team6 = {
-    heading: "Publicity and Markeing",
-    subheading: "Our Team",
+    heading: "Publicity and Marketing",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: ShyanPal,
@@ -443,7 +441,7 @@ function Team() {
         name: "Shyan Pal",
         links: [
           {
-            url: "https://instagram.com/",
+            url: "https://instagram.com/shyan.pal",
             icon: InstagramIcon,
           },
           {
@@ -487,7 +485,7 @@ function Team() {
     
   };const team7 = {
     heading: "Resources, Decoration and Management",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: Gaurav,
@@ -512,7 +510,7 @@ function Team() {
         name: "Divyanshi Singh Bora",
         links: [
           {
-            url: "https://instagram.com",
+            url: "https://instagram.com/bora_divyanshi_",
             icon: InstagramIcon,
           },
 

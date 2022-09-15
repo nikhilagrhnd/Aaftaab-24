@@ -43,7 +43,7 @@ const CardLinks = styled.div`
 
 export default ({
   heading = "Meet These Fine Folks.",
-  subheading = "Our Team",
+  subheading = "",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   cards=[]
   // cards = [
@@ -110,6 +110,7 @@ export default ({
     <Container>
       <ContentWithPaddingXl>
         <HeadingContainer>
+          {subheading && <Subheading>{subheading}</Subheading>}
           {heading && <Heading>{heading}</Heading> }
         </HeadingContainer>
         <Cards>
@@ -124,7 +125,7 @@ export default ({
                 <span className="name">{card.name}</span>
                 <CardLinks>
                   {card.links.map((link, linkIndex) => (
-                    <a key={linkIndex} className="link" href={link.mail?`mailto:${link.mail}`:link.url}>
+                    <a key={linkIndex} className="link" href={link.mail?`mailto:${link.mail}`:link.url} target={link.mail ? "_self" : "_blank"}>
                       <link.icon className="icon" />
                     </a>
                   ))}

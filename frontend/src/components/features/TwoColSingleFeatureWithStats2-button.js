@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -47,7 +48,7 @@ export default ({
     </>
   ),
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  primaryButtonText = "",
+  primaryButtonText = "Register Now!",
   primaryButtonUrl = primaryButtonText?"https://timerse.com":"",
   imageSrc = StatsIllustrationSrc,
   imageCss = null,
@@ -58,7 +59,8 @@ export default ({
   statistics = null,
   textOnLeft = false,
   event_registered="",
-
+  registrableEvent = false,
+  teamSize = 1,
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
   //Change the statistics variable as you like, add or delete objects
@@ -83,6 +85,11 @@ export default ({
     
   };
 
+  const card = {
+    title: heading,
+    teamSize: teamSize,
+  }
+
   return (
     <Container>
       <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
@@ -103,9 +110,17 @@ export default ({
                 </Statistic>
               ))}
             </Statistics> */}
-          {primaryButtonText!=""?  <PrimaryButton onClick={handleEventRegistration}>
-              {primaryButtonText}
-            </PrimaryButton>:null}
+            {registrableEvent &&  
+              <Link to={{
+                pathname: "/eventRegistration",
+                search: `?name=${card.title}`,
+                state: card
+              }}>
+                <PrimaryButton>
+                  {primaryButtonText}
+                </PrimaryButton>
+              </Link>
+            }
           </TextContent>
         </TextColumn>
       </TwoColumn>

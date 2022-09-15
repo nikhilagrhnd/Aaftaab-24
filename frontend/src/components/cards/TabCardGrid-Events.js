@@ -12,6 +12,8 @@ import { ReactComponent as StarIcon } from "images/star-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 
+import Maaz from '../../images/flagship_events/Maaz-Bin-Bilal.jpg'
+
 const HeaderRow = tw.div`flex justify-between items-center flex-col xl:flex-row`;
 const Header = tw(SectionHeading)``;
 const TabsControl = tw.div`flex flex-wrap bg-gray-200 px-2 py-2 rounded leading-none mt-12 xl:mt-0`;
@@ -100,11 +102,15 @@ export default ({
         url: "#"
       },
       {
-        imageSrc:
-          "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-        title: "Book Signings",
+        imageSrc: Maaz,
+        // imageSrc: 
+        //   "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        title: "Book Signing by Maaz Bin Bilal",
         // timing: "XX:XX AM - XX:XX PM ",
         // price: "₹50",
+        description: `
+        Aaftaab is here with the book signing event of the book “Temple Lamp- Verses of Banaras”, a Persian to English translation of Mirza Galib's "Chirag-e-Diar" by Mr. Maaz Bin Bilal.
+        Join us and get the chance to envision the colours of Kahi as described by Mirza Galib from the author Mr. Bilal himself.`,
         url: "#"
       },
       {
@@ -118,11 +124,23 @@ export default ({
       },
       {
         imageSrc:
+          "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        title: "Regional Author Colloquium",
+        // timing: "02:30 PM - 04:00 PM",
+        description: `Want to know how an idea is turned into a novel ?
+        We bring to you the joy of hearing an author tell the biography of their book.
+        Join us and get the chance to interact with a big name of the literaly world and get your own signed copy of the book.`,
+        // price: "₹50",
+        url: "#"
+      },
+      {
+        imageSrc:
           "https://thumbs.dreamstime.com/b/old-map-vintage-travel-equipment-expedition-concept-treasure-hunt-holiday-gifts-old-map-vintage-travel-equipment-133932740.jpg",
         title: "Treasure Hunt",
         description: `Life is a treasure hunt game. You have to solve the clues from incidents that happened and move further to find the ultimate fortune. So are you into solving the clues and making your way through the wilderness in the pursuit of long lost treasure/ fortune ? We offer you all this thrilling experience in Aaftaab 2022’s very own “ClueMinati”. In “ClueMinati”  you will be given clues which will lead you to the ultimate treasure. Players with the aid of clues will  compete in trying to find the hidden treasure.`,
         // timing: "XX:XX AM - XX:XX PM ",
         // price: "₹50",
+        registrableEvent: true,
         url: "#"
       },
       {
@@ -328,6 +346,7 @@ const getDay2Cards = () => {
       description: `QUIZ? Meh, I'll skip the "nerdy" stuff. 
       Well, NOOB QUIZ is here to break that myth. Show off your quizzing skills by cracking the questions with the most basic knowledge and bag flashy prizes. A proper quiz with teams that'll face each other off in a fierce battle of questions and answers.`,
       // price: "₹50",
+      registrableEvent: true,
       url: "#"
     },
     {
@@ -339,12 +358,13 @@ const getDay2Cards = () => {
 
       Be a part of a series of word games which will test your quick thinking skills, vocabulary and imagination.`,
       // price: "₹50",
+      registrableEvent: true,
       url: "#"
     },
     {
       imageSrc:
         "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      title: "Regional Author Book Signing",
+      title: "Regional Author Colloquium",
       // timing: "02:30 PM - 04:00 PM",
       description: `Want to know how an idea is turned into a novel ?
       We bring to you the joy of hearing an author tell the biography of their book.
@@ -368,6 +388,7 @@ const getDay2Cards = () => {
       // timing: "06:00 PM - 08:00 PM",
       description: `Life is a treasure hunt game. You have to solve the clues from incidents that happened and move further to find the ultimate fortune. So are you into solving the clues and making your way through the wilderness in the pursuit of long lost treasure/ fortune ? We offer you all this thrilling experience in Aaftaab 2022’s very own “ClueMinati”. In “ClueMinati”  you will be given clues which will lead you to the ultimate treasure. Players with the aid of clues will  compete in trying to find the hidden treasure.`,
       // price: "₹50",
+      registrableEvent: true,
       url: "#"
     },
     {
@@ -412,6 +433,7 @@ const getDay3Cards = () => {
       // timing: "09:30 AM - 11:30 AM",
       // price: "₹50",
       description: ``,
+      registrableEvent: true,
       url: "#"
     },
     {
@@ -440,6 +462,7 @@ const getDay3Cards = () => {
       // timing: "11:30 AM - 01:00 PM",
       description: `Binge watching is lit, but what if there is a quiz for binge watchers!? “Netflix and Quiz” is the perfect arena where all these ‘Binge watchers’ can brag their goldmine of knowledge on shows and can finally put it to good use . Participate in a series of quizzes that will test your knowledge about all things show related, stranger and otherwise :) `,
       // price: "₹50",
+      registrableEvent: true,
       url: "#"
     },
     {
@@ -452,9 +475,10 @@ const getDay3Cards = () => {
       url: "#"
     },
     {
-      imageSrc:
-        "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      title: "English Author Book Signing ",
+      imageSrc: Maaz,
+      // imageSrc:
+      //   "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      title: "Book Signing by Maaz Bin Bilal ",
       // timing: "04:00 PM - 05:30 PM",
       description: `
       Aaftaab is here with the book signing event of the book “Temple Lamp- Verses of Banaras”, a Persian to English translation of Mirza Galib's "Chirag-e-Diar" by Mr. Maaz Bin Bilal.
@@ -469,6 +493,7 @@ const getDay3Cards = () => {
       // timing: "04:00 PM - 05:00 PM",
       description: `Quizzes are fun,a themed quiz even more! Here's a chance to flaunt your knowledge about al things entertainment and enjoy the wonders the theme has to show you!  The "MELA Quiz"  is theme based quiz on all things Music, Entertainment, Literature and Arts.`,
       // price: "₹50",
+      registrableEvent: true,
       url: "#"
     }
   ];
