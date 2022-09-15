@@ -43,7 +43,7 @@ const CardLinks = styled.div`
 
 export default ({
   heading = "Meet These Fine Folks.",
-  subheading = "Our Team",
+  subheading = "",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   cards=[]
   // cards = [
@@ -110,6 +110,7 @@ export default ({
     <Container>
       <ContentWithPaddingXl>
         <HeadingContainer>
+          {subheading && <Subheading>{subheading}</Subheading>}
           {heading && <Heading>{heading}</Heading> }
         </HeadingContainer>
         <Cards>

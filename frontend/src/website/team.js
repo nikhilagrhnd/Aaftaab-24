@@ -28,14 +28,17 @@ import AnkushGupta from '../images/team/IMG_20220520_204750 - Ankush Gupta (B20C
 import Vikash from '../images/team/Vikas Yadav.jpeg'
 import Vishal from '../images/team/Vishal Yadav.jpg'
 import Jahnab from '../images/team/Jahnab Dutta.jpeg'
-import YashB from '../images/team/Yash Bhargava.jpeg'
+import YashB from '../images/team/Yash Bhargava.jpg'
 import DefaultUser from '../images/team/User.jpg'
+import Stuti from '../images/team/Stuti Pradeep Aswani.jpg'
+import Shreya from '../images/team/Shreya Pagaria.jpg'
+import Akshat from '../images/team/Akshat Jain.jpeg'
 
 
 function Team() {
   const team0 = {
     heading: "Festival Chiefs",
-    subheading: "lorem ipsum",
+    subheading: "Our Team",
     cards: [
       {
         imageSrc: Yawer,     
@@ -55,7 +58,7 @@ function Team() {
         ],
       },
       {
-        imageSrc: DefaultUser,
+        imageSrc: Stuti,
         name: "Stuti Aswani",
         links: [
           {
@@ -89,7 +92,7 @@ function Team() {
   };
   const team8 = {
     heading: "Web Development",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: Vishal,
@@ -179,7 +182,7 @@ function Team() {
   };
   const team1 = {
     heading: "Accomodation, Travel and Security",
-    subheading: "lorem ipsum",
+    // subheading: "lorem ipsum",
     cards: [
       {
         imageSrc: MahendraJakhar,
@@ -237,7 +240,7 @@ function Team() {
   };
   const team2 = {
     heading: "Creativity, Design and Media",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: VandanMoonat,
@@ -291,10 +294,10 @@ function Team() {
   };
   const team3 = {
     heading: "Events and Coordination",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
-        imageSrc: DefaultUser,
+        imageSrc: Shreya,
         position: "Head",
         name: "Shreya Pagaria",
         links: [
@@ -310,7 +313,7 @@ function Team() {
         ],
       },
       {
-        imageSrc: DefaultUser,
+        imageSrc: Akshat,
         position: "Head",
         name: "Akshat Jain",
         links: [
@@ -347,7 +350,7 @@ function Team() {
 
   const team4 = {
     heading: "Informals",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: ArunSahu,
@@ -389,7 +392,7 @@ function Team() {
 
   const team5 = {
     heading: "Public Relations",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: Ayush,
@@ -429,8 +432,8 @@ function Team() {
   };
 
   const team6 = {
-    heading: "Publicity and Markeing",
-    subheading: "Our Team",
+    heading: "Publicity and Marketing",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: ShyanPal,
@@ -482,7 +485,7 @@ function Team() {
     
   };const team7 = {
     heading: "Resources, Decoration and Management",
-    subheading: "Our Team",
+    // subheading: "Our Team",
     cards: [
       {
         imageSrc: Gaurav,

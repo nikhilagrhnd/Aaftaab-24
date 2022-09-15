@@ -1,6 +1,6 @@
 {
   "short_name": "Aaftaab",
-  "name": "Aaftaab- The largest literary fest of North West India",
+  "name": "Aaftaab- The literary festival of IIT Jodhpur",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#156c84",
+  "background_color": "#b3748a"
 }
