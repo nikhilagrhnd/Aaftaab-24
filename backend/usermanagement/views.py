@@ -86,30 +86,35 @@ def login_participant(request):
 def create_team(request):
     if request.method == 'POST':
         # get username and password from request
-        email = request.data.get('email')
-        password = request.data.get('password')
-     
+        token = request.headers.get('Authorization')
+        if token is None:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+        try:
+            payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+        leader_email = payload['email']
         # check if user exists
-        if Participant.objects.filter(email=email, password=password).exists():
-            #check if password is correct
-            user = Participant.objects.filter(email=email).first()
+        if Participant.objects.filter(email=leader_email).exists():
+            user = Participant.objects.filter(email=leader_email).first()
             teamid = generate_teamid()
             teamname = request.data.get('teamname') 
             event_registered = request.data.get('event_registered')
             if(Team.objects.filter(team_leader=user, event_registered=event_registered).exists()):
-                return HttpResponse(status=status.HTTP_409_CONFLICT)
+                return Response({"message":"already created"},status=status.HTTP_409_CONFLICT)
             team = Team(teamid=teamid, teamname=teamname, event_registered=event_registered, team_leader=user)
             team.save()
             email_list = request.data.get('email_list')
+            email_list.append(leader_email)
             for email in email_list:
                 emailid = EmailIds(emailid=email, teamid=team)
                 if(validate_email(email)):
                     emailid.save()
-            return HttpResponse(status=status.HTTP_201_CREATED)
+            return Response(status=status.HTTP_201_CREATED)
         else:
-            return HttpResponse({"message":"unathurized"},status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"message":"unathurized"},status=status.HTTP_401_UNAUTHORIZED)
 
-    return HttpResponse({"message":"method not allowed"},status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    return Response({"message":"method not allowed"},status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 @api_view(['GET'])
 def get_all_events_for_an_user(request):
