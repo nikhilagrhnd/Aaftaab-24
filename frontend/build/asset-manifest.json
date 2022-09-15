@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b53e1d5c.css",
-    "main.js": "/static/js/main.98cf78bf.js",
+    "main.css": "/static/css/main.e9284a28.css",
+    "main.js": "/static/js/main.f4e84e67.js",
     "static/media/Suyash Surana.jpg": "/static/media/Suyash Surana.697cca925d70cb744fdf.jpg",
     "static/media/IMG_20220520_204750 - Ankush Gupta (B20CH006).jpg": "/static/media/IMG_20220520_204750 - Ankush Gupta (B20CH006).f808bb4794469fc60108.jpg",
     "static/media/Yash Bhargava.jpg": "/static/media/Yash Bhargava.ddb8108ace1e61ac74c4.jpg",
@@ -134,11 +134,11 @@
     "static/media/arrow-left-3-icon.svg": "/static/media/arrow-left-3-icon.087294c1fe78c7fd2f37c3a92b1f1dff.svg",
     "static/media/arrow-right-3-icon.svg": "/static/media/arrow-right-3-icon.5bf133930c89abdc6760c3a5dacf085b.svg",
     "static/media/handle-icon.svg": "/static/media/handle-icon.058b1c45d9adf0d47ce03b947bc6ac15.svg",
-    "main.b53e1d5c.css.map": "/static/css/main.b53e1d5c.css.map",
-    "main.98cf78bf.js.map": "/static/js/main.98cf78bf.js.map"
+    "main.e9284a28.css.map": "/static/css/main.e9284a28.css.map",
+    "main.f4e84e67.js.map": "/static/js/main.f4e84e67.js.map"
   },
   "entrypoints": [
-    "static/css/main.b53e1d5c.css",
-    "static/js/main.98cf78bf.js"
+    "static/css/main.e9284a28.css",
+    "static/js/main.f4e84e67.js"
   ]
 }

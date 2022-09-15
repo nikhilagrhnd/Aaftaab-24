@@ -16,28 +16,23 @@ function goBackToEvents(history) {
     history.go(0)
 }
 
-function Events() {
+function EventRegistration() {
     const location = useLocation()
     const card = location.state
     const history = useHistory()
     
     if (!card) goBackToEvents(history, card)
+    
+    // console.log(card.registrableEvent)
 
     const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
     return (
         <AnimationRevealPage>
             <Header />
-            <Feature 
-                subheading={card.timing}
-                heading={card.title}
-                description={card.description ? card.description : null}
-                imageSrc={card.imageSrc}
-                primaryButtonText="Register Now!"
-                registrableEvent={card.registrableEvent}
-            />
+            <h1>{card.title}</h1>
             <Footer />
         </AnimationRevealPage>
     );
 }
 
-export default Events;
+export default EventRegistration;

@@ -155,6 +155,7 @@ export default () => {
       imageSrc: TreasurehuntImg,
       title: "Treasure Hunt",
       description: `Life is a treasure hunt game. You have to solve the clues from incidents that happened and move further to find the ultimate fortune. So are you into solving the clues and making your way through the wilderness in the pursuit of long lost treasure/ fortune ? We offer you all this thrilling experience in Aaftaab 2022’s very own “ClueMinati”. In “ClueMinati”  you will be given clues which will lead you to the ultimate treasure. Players with the aid of clues will  compete in trying to find the hidden treasure.`,
+      registrableEvent: true,
       dateText: "30/09/22",
     },
     {

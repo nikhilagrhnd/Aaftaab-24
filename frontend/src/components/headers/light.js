@@ -84,21 +84,21 @@ export default ({
       <Link to="/events">
         <NavLink>Events</NavLink>
       </Link>
-      {/* <Link to="/sponsors">
+      <Link to="/sponsors">
         <NavLink>Sponsors</NavLink>
-      </Link> */}
+      </Link>
       <Link to="/team">
         <NavLink>Team</NavLink>
       </Link>
-      {/* <Link to="/register">
+      <Link to="/register">
         <NavLink>Register</NavLink>
-      </Link> */}
+      </Link>
 
-      {/* <Link to="/login">
+      <Link to="/login">
         <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}>
           Login
         </PrimaryLink>
-      </Link> */}
+      </Link>
     </NavLinks>
   ];
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
