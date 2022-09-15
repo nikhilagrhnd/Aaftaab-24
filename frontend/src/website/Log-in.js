@@ -63,42 +63,31 @@ const handleSubmit = (e) => {
     email: e.target.email.value,
     password: e.target.password.value,
   };
-  console.log(data);
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   };
   fetch(`${backendUrl}/api/login_participant/`, requestOptions)
-    .then((response) => {
-      if (response.status === 200) {
-        const data = response.json();
-        console.log(data);
-        const token = data.token;
-        localStorage.setItem("token", token);
-        window.location.href = "/";
+    .then((response) => response.json())
+    .then((data) => {
+
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        //console.log(localStorage.getItem("token"));
+        window.location.href = "/dashboard";
       } else {
-        alert("Invalid email or password");
+        alert("Invalid Credentials");
       }
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 export default ({
   illustrationImageSrc = illustration,
   headingText = "Log In To Aaftaab",
-  socialButtons = [
-    {
-      iconImageSrc: googleIconImageSrc,
-      text: "Log In With Google",
-      url: "https://google.com",
-    },
-    {
-      iconImageSrc: twitterIconImageSrc,
-      text: "Log In With Twitter",
-      url: "https://twitter.com",
-    },
-  ],
   submitButtonText = "Log In",
   SubmitButtonIcon = LoginIcon,
   forgotPasswordUrl = "#",
