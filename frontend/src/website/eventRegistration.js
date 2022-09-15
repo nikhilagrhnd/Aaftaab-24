@@ -25,8 +25,8 @@ import { backendUrl } from "backendUrl";
 
 const Container = tw(
   ContainerBase
-)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
-const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
+)`min-h-screen text-white font-medium flex justify-center my-2 -mx-8`;
+const Content = tw.div`max-w-screen-xl my-0 mx-10 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
 const LogoImage = tw.img`h-32 mx-auto`;
@@ -49,7 +49,7 @@ const SocialButton = styled.a`
 `;
 
 const DividerTextContainer = tw.div`my-12 border-b text-center relative`;
-const DividerText = tw.div`leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
+const DividerText = tw.div`leading-none p-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
 
 const Form = tw.form`mx-auto max-w-xs`;
 const Input = tw.input`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
@@ -114,54 +114,54 @@ function EventRegistration() {
     
     if (!card) goBackToEvents(history, card)
     
-    console.log(card.teamSize)
+    console.log(card)
     const SubmitButtonIcon = SignUpIcon
     const submitButtonText = "Submit"
 
     const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
     return (
         <AnimationRevealPage>
-            {/* <Header /> */}
-          <Container>
-            <Content>
-              <MainContainer>
-                <Link to="/">
-                  <LogoLink>
-                    <LogoImage src={logo} />
-                  </LogoLink>
-                </Link>
-                <MainContent>
-                  <Heading>{card.title}</Heading>
-                  <FormContainer>
-                    <Form onSubmit={handleSubmit}>
-                        <Input type="name" placeholder="Team Name" name="teamName" />
-                        {Array.from({length: card.teamSize - 1}, (_, i) => i + 2).map((val, index) => (
-                            <div>
-                                <DividerTextContainer>
-                                <DividerText>Team Member: {val}</DividerText>
-                                </DividerTextContainer>
-                                <Input type="email" placeholder="Email" name="email" />
-                                <Input type="name" placeholder="Name" name="name" />
-                                <Input
-                                    type="phone"
-                                    placeholder="Phone Number"
-                                    name="phone_number"
-                                />
-                            </div>
-                        ))}
-                        <SubmitButton type="submit">
-                            <SubmitButtonIcon className="icon" />
-                            <span className="text">{submitButtonText}</span>
-                        </SubmitButton>
-                    </Form>
-                  </FormContainer>
-                </MainContent>
-              </MainContainer>
-              {/* <IllustrationContainer>
-                <IllustrationImage imageSrc={illustrationImageSrc} />
-              </IllustrationContainer> */}
-            </Content>
-          </Container>
+            <Header />
+            <Container>
+                <Content>
+                <MainContainer>
+                    <Link to="/">
+                    <LogoLink>
+                        <LogoImage src={card.imageSrc} />
+                    </LogoLink>
+                    </Link>
+                    <MainContent>
+                    <Heading>{card.title}</Heading>
+                    <FormContainer>
+                        <Form onSubmit={handleSubmit}>
+                            <Input type="name" placeholder="Team Name" name="teamName" />
+                            {Array.from({length: card.teamSize - 1}, (_, i) => i + 2).map((val, index) => (
+                                <div>
+                                    <DividerTextContainer>
+                                    <DividerText>Team Member: {val}</DividerText>
+                                    </DividerTextContainer>
+                                    <Input type="email" placeholder="Email" name="email" />
+                                    <Input type="name" placeholder="Name" name="name" />
+                                    <Input
+                                        type="phone"
+                                        placeholder="Phone Number"
+                                        name="phone_number"
+                                    />
+                                </div>
+                            ))}
+                            <SubmitButton type="submit">
+                                {/* <SubmitButtonIcon className="icon" /> */}
+                                <span className="text" style={{"margin": 0}}>{submitButtonText}</span>
+                            </SubmitButton>
+                        </Form>
+                    </FormContainer>
+                    </MainContent>
+                </MainContainer>
+                {/* <IllustrationContainer>
+                    <IllustrationImage imageSrc={illustrationImageSrc} />
+                </IllustrationContainer> */}
+                </Content>
+            </Container>
             <Footer />
         </AnimationRevealPage>
     );
