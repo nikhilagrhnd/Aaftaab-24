@@ -434,6 +434,7 @@ const getDay3Cards = () => {
       // price: "₹50",
       description: ``,
       registrableEvent: true,
+      teamSize: 3,
       url: "#"
     },
     {
