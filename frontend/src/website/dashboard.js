@@ -1,7 +1,11 @@
 import React, { Component, useEffect, useState } from "react";
 import { backendUrl } from "backendUrl";
 import AnimationRevealPage from "helpers/AnimationRevealPage";
+
 import Header from "components/headers/light.js";
+import Footer from "components/footers/Home-Footer.js"
+import EventDetailSection from "components/blogs/PopularAndRecentBlogPosts-Dashboard.js"
+
 function Dashboard() {
   const [events, setEvents] = useState([]);
   useEffect(() => {
@@ -26,7 +30,9 @@ function Dashboard() {
 
   return (
     <AnimationRevealPage>
-      <Header/>
+      <Header />
+      <EventDetailSection />
+      <Footer />
     </AnimationRevealPage>
   );
 }
