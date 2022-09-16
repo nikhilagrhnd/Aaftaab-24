@@ -88,6 +88,7 @@ export default ({
   const card = {
     title: heading,
     teamSize: teamSize,
+    imageSrc: imageSrc,
   }
 
   return (

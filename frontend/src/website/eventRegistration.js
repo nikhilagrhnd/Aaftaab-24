@@ -25,12 +25,12 @@ import { backendUrl } from "backendUrl";
 
 const Container = tw(
   ContainerBase
-)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
-const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
+)`min-h-screen text-white font-medium flex justify-center my-2 -mx-8`;
+const Content = tw.div`max-w-screen-xl my-0 mx-10 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
 const LogoImage = tw.img`h-32 mx-auto`;
-const MainContent = tw.div`mt-12 flex flex-col items-center`;
+const MainContent = tw.div`mt-12 flex flex-col items-center text-center`;
 const Heading = tw.h1`text-2xl xl:text-3xl font-extrabold`;
 const FormContainer = tw.div`w-full flex-1 mt-8`;
 
@@ -49,7 +49,7 @@ const SocialButton = styled.a`
 `;
 
 const DividerTextContainer = tw.div`my-12 border-b text-center relative`;
-const DividerText = tw.div`leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
+const DividerText = tw.div`leading-none p-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
 
 const Form = tw.form`mx-auto max-w-xs`;
 const Input = tw.input`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
@@ -128,13 +128,13 @@ function EventRegistration() {
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
   return (
     <AnimationRevealPage>
-      {/* <Header /> */}
+      <Header />
       <Container>
         <Content>
           <MainContainer>
-            <Link to="/">
+            <Link onClick={history.goBack}>
               <LogoLink>
-                <LogoImage src={logo} />
+                <LogoImage src={card.imageSrc} />
               </LogoLink>
             </Link>
             <MainContent>
@@ -165,7 +165,7 @@ function EventRegistration() {
                   ))}
                   <SubmitButton type="submit">
                     <SubmitButtonIcon className="icon" />
-                    <span className="text">{submitButtonText}</span>
+                    <span className="text" style={{"margin": 0}}>{submitButtonText}</span>
                   </SubmitButton>
                 </Form>
               </FormContainer>
