@@ -1,12 +1,12 @@
-import AnimationRevealPage from 'helpers/AnimationRevealPage';
-import React, { Component } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import AnimationRevealPage from "helpers/AnimationRevealPage";
+import React, { Component } from "react";
+import { useLocation, useHistory } from "react-router-dom";
 import tw from "twin.macro";
 
 import Feature from "components/features/TwoColSingleFeatureWithStats2-button.js";
-import Header from 'components/headers/light.js'
+import Header from "components/headers/light.js";
 import Footer from "components/footers/Home-Footer";
-
+import { eventMap } from "../eventMap";
 // import { createBrowserHistory } from 'history'
 
 // export const history = createBrowserHistory({forceRefresh: true})
@@ -67,104 +67,118 @@ const IllustrationImage = styled.div`
   ${(props) => `background-image: url("${props.imageSrc}");`}
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const data = {
-    email: e.target.email.value,
-    name: e.target.name.value,
-    password: e.target.password.value,
-    phone_number: e.target.phone_number.value,
-  };
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  };
-  fetch(`${backendUrl}/api/create_participant/`, requestOptions)
-  .then((response)=>{
-    console.log(response);
-    if (response.status === 201) {
-      window.location.href = "/login";
-    }
-    else if(response.status==409){
-      alert("user already exists");
-    }
-    else{
-      alert("Invalid credentials");
-    }
-    return response.json();
-  })
-  .then((data)=>{
-    console.log(data);
-  })
-  .catch((error)=>{
-    console.log(error);
-  });
-};
 
 function goBackToEvents(history) {
-    history.push("/events")
-    history.go(0)
+  history.push("/events");
+  history.go(0);
 }
 
 function EventRegistration() {
-    const location = useLocation()
-    const card = location.state
-    const history = useHistory()
-    
-    if (!card) goBackToEvents(history, card)
-    
-    console.log(card)
-    const SubmitButtonIcon = SignUpIcon
-    const submitButtonText = "Submit"
+  const location = useLocation();
+  const card = location.state;
+  const history = useHistory();
 
-    const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
-    return (
-        <AnimationRevealPage>
-            <Header />
-            <Container>
-                <Content>
-                <MainContainer>
-                    <Link to="/">
-                    <LogoLink>
-                        <LogoImage src={card.imageSrc} />
-                    </LogoLink>
-                    </Link>
-                    <MainContent>
-                    <Heading>{card.title}</Heading>
-                    <FormContainer>
-                        <Form onSubmit={handleSubmit}>
-                            <Input type="name" placeholder="Team Name" name="teamName" />
-                            {Array.from({length: card.teamSize - 1}, (_, i) => i + 2).map((val, index) => (
-                                <div>
-                                    <DividerTextContainer>
-                                    <DividerText>Team Member: {val}</DividerText>
-                                    </DividerTextContainer>
-                                    <Input type="email" placeholder="Email" name="email" />
-                                    <Input type="name" placeholder="Name" name="name" />
-                                    <Input
-                                        type="phone"
-                                        placeholder="Phone Number"
-                                        name="phone_number"
-                                    />
-                                </div>
-                            ))}
-                            <SubmitButton type="submit">
-                                {/* <SubmitButtonIcon className="icon" /> */}
-                                <span className="text" style={{"margin": 0}}>{submitButtonText}</span>
-                            </SubmitButton>
-                        </Form>
-                    </FormContainer>
-                    </MainContent>
-                </MainContainer>
-                {/* <IllustrationContainer>
-                    <IllustrationImage imageSrc={illustrationImageSrc} />
-                </IllustrationContainer> */}
-                </Content>
-            </Container>
-            <Footer />
-        </AnimationRevealPage>
-    );
+  if (!card) goBackToEvents(history, card);
+
+  console.log(card.teamSize);
+  const SubmitButtonIcon = SignUpIcon;
+  const submitButtonText = "Submit";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email_list = [];
+    for (let i = 0; i < card.teamSize-1; i++) {
+      const num = i+2;
+      const search = "email" + num;
+      const email = e.target[search].value;
+      if(email !== ""){
+        email_list.push(email);
+      }
+    }
+    console.log(email_list);
+
+    const data = {
+      teamname: e.target.elements.teamname.value,
+      email_list: email_list,
+      event_registered: eventMap[card.title],
+    };
+    const token = localStorage.getItem("token");
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: token },
+      body: JSON.stringify(data),
+    };
+    fetch(backendUrl + "/api/create_team/", requestOptions)
+      .then((response) => {
+        if (response.status === 201) {
+          alert("Successfully Registered");
+          goBackToEvents(history, card);
+        } 
+        else if(response.status==409){
+          alert("Team Already Exists");
+        }else {
+          alert("Error in registering");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
+  return (
+    <AnimationRevealPage>
+      {/* <Header /> */}
+      <Container>
+        <Content>
+          <MainContainer>
+            <Link to="/">
+              <LogoLink>
+                <LogoImage src={logo} />
+              </LogoLink>
+            </Link>
+            <MainContent>
+              <Heading>{card.title}</Heading>
+              <FormContainer>
+                <Form id="myForm" onSubmit={handleSubmit}>
+                  <Input type="name" placeholder="Team Name" name="teamname" />
+                  {Array.from(
+                    { length: card.teamSize - 1 },
+                    (_, i) => i + 2
+                  ).map((val, index) => (
+                    <div>
+                      <DividerTextContainer>
+                        <DividerText>Team Member: {val}</DividerText>
+                      </DividerTextContainer>
+                      <Input
+                        type="email"
+                        placeholder="Email"
+                        name={`email${val}`}
+                      />
+                      <Input type="name" placeholder="Name" name="name" />
+                      <Input
+                        type="phone"
+                        placeholder="Phone Number"
+                        name="phone_number"
+                      />
+                    </div>
+                  ))}
+                  <SubmitButton type="submit">
+                    <SubmitButtonIcon className="icon" />
+                    <span className="text" style={{"margin": 0}}>{submitButtonText}</span>
+                  </SubmitButton>
+                </Form>
+              </FormContainer>
+            </MainContent>
+          </MainContainer>
+          {/* <IllustrationContainer>
+                <IllustrationImage imageSrc={illustrationImageSrc} />
+              </IllustrationContainer> */}
+        </Content>
+      </Container>
+      <Footer />
+    </AnimationRevealPage>
+  );
 }
 
 export default EventRegistration;

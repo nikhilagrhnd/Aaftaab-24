@@ -1,5 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
 import { backendUrl } from "backendUrl";
+import AnimationRevealPage from "helpers/AnimationRevealPage";
+import Header from "components/headers/light.js";
 function Dashboard() {
   const [events, setEvents] = useState([]);
   useEffect(() => {
@@ -21,16 +23,11 @@ function Dashboard() {
             console.log(error);
         });
     }, []);
+
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <h2>Events Registered</h2>
-      <ul>
-        {events.map((event) => {
-          return <li>{event}</li>;
-        })}
-      </ul>
-    </div>
+    <AnimationRevealPage>
+      <Header/>
+    </AnimationRevealPage>
   );
 }
 
