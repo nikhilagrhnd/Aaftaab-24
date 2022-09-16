@@ -82,6 +82,17 @@ def login_participant(request):
 
 # create team view will recieve username of who creates it and the list of email ids of the team members4
 
+@api_view(['GET'])
+def check_login(request):
+    if request.method == 'GET':
+        token = request.headers['Authorization']
+        try:
+            decoded = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+            return Response(status=status.HTTP_200_OK)
+        except:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+    return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
 @api_view(['POST'])
 def create_team(request):
     if request.method == 'POST':
@@ -159,6 +170,5 @@ def get_all_users_for_an_event(request):
         else:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
-
 
 

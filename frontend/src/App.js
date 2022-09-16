@@ -155,7 +155,7 @@ export default function App() {
         <Route exact path = "/dashboard">
           <Dashboard></Dashboard>
         </Route>
-        <Route exact path = "/">
+        <Route  path = "/">
           <Home></Home>
         </Route>
       </Switch>
