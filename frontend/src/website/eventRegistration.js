@@ -30,7 +30,7 @@ const Content = tw.div`max-w-screen-xl my-0 mx-10 sm:mx-20 sm:my-16 bg-white tex
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
 const LogoImage = tw.img`h-32 mx-auto`;
-const MainContent = tw.div`mt-12 flex flex-col items-center`;
+const MainContent = tw.div`mt-12 flex flex-col items-center text-center`;
 const Heading = tw.h1`text-2xl xl:text-3xl font-extrabold`;
 const FormContainer = tw.div`w-full flex-1 mt-8`;
 
@@ -128,13 +128,13 @@ function EventRegistration() {
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
   return (
     <AnimationRevealPage>
-      {/* <Header /> */}
+      <Header />
       <Container>
         <Content>
           <MainContainer>
-            <Link to="/">
+            <Link onClick={history.goBack}>
               <LogoLink>
-                <LogoImage src={logo} />
+                <LogoImage src={card.imageSrc} />
               </LogoLink>
             </Link>
             <MainContent>
