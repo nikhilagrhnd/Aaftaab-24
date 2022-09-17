@@ -46,6 +46,7 @@ function Dashboard() {
         })
         .then((data) => {
           // console.log(data.event_list);
+          setUserName(data.user_name);
           setEvents(data.event_list);
         })
 

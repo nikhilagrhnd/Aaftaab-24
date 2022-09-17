@@ -12,18 +12,26 @@ import requests
 from rest_framework.permissions import IsAuthenticated
 import jwt
 import datetime
+from django.contrib.auth.hashers import make_password, check_password
+import dotenv
+import os
+dotenv.load_dotenv()
+SECRET_KEY = os.getenv('SECRET_JWT_KEY')
 
-SECRET_KEY='secret'
-#generate token
+# generate token
+
+
 def generate_token(email):
-    payload={
-        'email':email,
-        'exp':datetime.datetime.utcnow()+datetime.timedelta(minutes=60)
+    payload = {
+        'email': email,
+        'exp': datetime.datetime.utcnow()+datetime.timedelta(minutes=60)
     }
-    token=jwt.encode(payload,SECRET_KEY,algorithm='HS256')
+    token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
     return token
 
 # generate random teamid
+
+
 def generate_teamid():
     teamid = ''.join(random.choice(string.ascii_uppercase +
                      string.digits) for _ in range(6))
@@ -33,6 +41,8 @@ def generate_teamid():
         return teamid
 
 # send mail
+
+
 def send_participant_creation_confirmation_mail(emailid):
     pass
 
@@ -54,10 +64,12 @@ def validate_email(emailid):
 @api_view(['POST'])
 def create_participant(request):
     if request.method == 'POST':
-        #serialize request body
-        #check if user already exists
+        # serialize request body
+        # check if user already exists
         if(Participant.objects.filter(email=request.data.get('email')).exists()):
             return HttpResponse(status=status.HTTP_409_CONFLICT)
+            #hash the password
+        request.data['password'] = make_password(request.data.get('password'))
         serializer = ParticipantSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -66,21 +78,25 @@ def create_participant(request):
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
-
 @api_view(['POST'])
 def login_participant(request):
     if request.method == 'POST':
         email = request.data.get('email')
         password = request.data.get('password')
 
-        if Participant.objects.filter( password=password, email=email).exists():
-            token = generate_token(email)
-            return Response({'token':token},status=status.HTTP_200_OK)
+        if Participant.objects.filter(email=email).exists():
+            participant = Participant.objects.get(email=email)
+            if check_password(password, participant.password):
+                token = generate_token(email)
+                return Response({'token': token}, status=status.HTTP_200_OK)
+            else:
+                return HttpResponse(status=status.HTTP_401_UNAUTHORIZED)
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
     return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 # create team view will recieve username of who creates it and the list of email ids of the team members4
+
 
 @api_view(['GET'])
 def check_login(request):
@@ -92,6 +108,7 @@ def check_login(request):
         except:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
     return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
 
 @api_view(['POST'])
 def create_team(request):
@@ -109,11 +126,12 @@ def create_team(request):
         if Participant.objects.filter(email=leader_email).exists():
             user = Participant.objects.filter(email=leader_email).first()
             teamid = generate_teamid()
-            teamname = request.data.get('teamname') 
+            teamname = request.data.get('teamname')
             event_registered = request.data.get('event_registered')
             if(Team.objects.filter(team_leader=user, event_registered=event_registered).exists()):
-                return Response({"message":"already created"},status=status.HTTP_409_CONFLICT)
-            team = Team(teamid=teamid, teamname=teamname, event_registered=event_registered, team_leader=user)
+                return Response({"message": "already created"}, status=status.HTTP_409_CONFLICT)
+            team = Team(teamid=teamid, teamname=teamname,
+                        event_registered=event_registered, team_leader=user)
             team.save()
             email_list = request.data.get('email_list')
             email_list.append(leader_email)
@@ -123,9 +141,10 @@ def create_team(request):
                     emailid.save()
             return Response(status=status.HTTP_201_CREATED)
         else:
-            return Response({"message":"unathurized"},status=status.HTTP_401_UNAUTHORIZED)
+            return Response({"message": "unathurized"}, status=status.HTTP_401_UNAUTHORIZED)
 
-    return Response({"message":"method not allowed"},status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    return Response({"message": "method not allowed"}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
 
 @api_view(['GET'])
 def get_all_events_for_an_user(request):
@@ -140,17 +159,19 @@ def get_all_events_for_an_user(request):
 
         email = payload['email']
         if Participant.objects.filter(email=email).exists():
+            user_name = Participant.objects.filter(email=email).first().name
             event_list = []
-           
+
             emailIds = EmailIds.objects.filter(emailid=email)
             for emailId in emailIds:
                 teams = Team.objects.filter(teamid=emailId.teamid)
                 for team in teams:
                     event_list.append(team.event_registered)
-            return Response({"event_list":event_list},status=status.HTTP_200_OK)
+            return Response({"event_list": event_list, "user_name": user_name}, status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
     return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
 
 @api_view(['GET'])
 def get_all_users_for_an_event(request):
@@ -170,5 +191,3 @@ def get_all_users_for_an_event(request):
         else:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
-
-
