@@ -3,62 +3,19 @@ from .models import Participant, Team, EmailIds
 from django.http import HttpResponse
 from .serializers import ParticipantSerializer, TeamSerializer, EmailIdsSerializer
 from rest_framework import status
-import random
-import string
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import requests
 from rest_framework.permissions import IsAuthenticated
 import jwt
-import datetime
 from django.contrib.auth.hashers import make_password, check_password
 import dotenv
 import os
+import asyncio
 dotenv.load_dotenv()
+from .utils import send_participant_creation_confirmation_mail,generate_token,generate_teamid,validate_email
 SECRET_KEY = os.getenv('SECRET_JWT_KEY')
 
-# generate token
-
-
-def generate_token(email):
-    payload = {
-        'email': email,
-        'exp': datetime.datetime.utcnow()+datetime.timedelta(minutes=60)
-    }
-    token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
-    return token
-
-# generate random teamid
-
-
-def generate_teamid():
-    teamid = ''.join(random.choice(string.ascii_uppercase +
-                     string.digits) for _ in range(6))
-    if Team.objects.filter(teamid=teamid).exists():
-        generate_teamid()
-    else:
-        return teamid
-
-# send mail
-
-
-def send_participant_creation_confirmation_mail(emailid):
-    pass
-
-
-def send_event_registraion_confirmation_mail(emailist, event_registered):
-    pass
-
-
-# check if the email id string is valid
-
-def validate_email(emailid):
-    if emailid.find('@') == -1 or emailid.find('.') == -1:
-        return False
-    else:
-        return True
-# create participant view will recieve all the details
 
 
 @api_view(['POST'])
@@ -73,10 +30,17 @@ def create_participant(request):
         serializer = ParticipantSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            send_participant_creation_confirmation_mail(request.data.get('email'))
             return HttpResponse(status=status.HTTP_201_CREATED)
         return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
+@api_view(['POST'])
+def send_success_mail(request):
+    if request.method == 'POST':
+        send_participant_creation_confirmation_mail(request.data.get('email'))
+        return HttpResponse(status=status.HTTP_200_OK)
+    return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 @api_view(['POST'])
 def login_participant(request):
@@ -161,7 +125,6 @@ def get_all_events_for_an_user(request):
         if Participant.objects.filter(email=email).exists():
             user_name = Participant.objects.filter(email=email).first().name
             event_list = []
-
             emailIds = EmailIds.objects.filter(emailid=email)
             for emailId in emailIds:
                 teams = Team.objects.filter(teamid=emailId.teamid)
