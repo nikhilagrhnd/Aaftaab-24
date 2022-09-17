@@ -16,7 +16,7 @@ import { backendUrl } from "backendUrl";
 
 const Container = tw(
   ContainerBase
-)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
+)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -mx-8 -mt-8 sm:-my-8`;
 const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
@@ -131,9 +131,11 @@ export default ({
                   name="confirm_password"
                 />
                 <Input
-                  type="phone"
-                  placeholder="Phone Number"
+                  type="tel"
+                  placeholder="Phone Number (e.g. 9876543210)"
                   name="phone_number"
+                  pattern="[6-9]{1}[0-9]{9}"
+                  title="The phone number must be 10 digits long and should begin with [5-9]"
                 />
                 <SubmitButton type="submit">
                   <SubmitButtonIcon className="icon" />
