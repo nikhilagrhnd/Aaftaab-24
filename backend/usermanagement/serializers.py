@@ -1,10 +1,13 @@
 from rest_framework import serializers
-from .models import Participant,Team,EmailIds
+from .models import Participant, Team, EmailIds
+from django.contrib.auth.hashers import make_password, check_password
 
 class ParticipantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Participant
         fields = '__all__'
+
+
 
 
 class TeamSerializer(serializers.ModelSerializer):
