@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -116,10 +116,23 @@ export default ({
     }
   };
 
+  useEffect(() => {
+    if (loading == false) {
+      document.getElementById("signUpContainer").style.opacity = 0.5;
+      document.getElementById("signUpContainer").style.pointerEvents = "none";
+      document.getElementById("signUpContainer").style.keyPress = "none";
+    }
+    else {
+      document.getElementById("signUpContainer").style.opacity = 1;
+      document.getElementById("signUpContainer").style.pointerEvents = "all";
+      document.getElementById("signUpContainer").style.keyPress = "all";
+    }
+  }, [loading]);
+
   return(
   <AnimationRevealPage>
     <Loader loaded={loading} />
-    <Container>
+    <Container id="signUpContainer">
       <Content>
         <MainContainer>
           <Link to="/">
