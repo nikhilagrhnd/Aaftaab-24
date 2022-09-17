@@ -1,7 +1,8 @@
 import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
-import React from "react";
+import React, {useEffect,createContext,useState} from "react";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import { backendUrl } from "backendUrl";
 
 /*
  * This is the entry point component of this project. You can change the below exported default App component to any of
@@ -115,51 +116,81 @@ import EventDetails from "website/eventDetails";
 import Register from "website/register"
 import EventRegistration from "website/eventRegistration";
 import Dashboard from "website/dashboard";
-
+export const userContext =createContext();
 export default function App() {
+
+  const [loggedIn,SetLoggedIn]=useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:token,
+    }
+    };
+    fetch(`${backendUrl}/api/check_login/`, requestOptions)
+    .then((response)=>{
+      if(response.status===200){
+        SetLoggedIn(true);
+      }
+      else{
+        SetLoggedIn(false);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    }
+    );
+  }, []);
+
+  const toggleLoggedIn=()=>{
+    SetLoggedIn(!loggedIn);
+  }
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
   // return <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
 
-
   return (
+    <userContext.Provider value={{loggedIn,toggleLoggedIn}}>
     <Router>
       <Switch>
-        
-       <Route path = "/about">
+        <Route path="/about">
           <About></About>
         </Route>
-        <Route path = "/events">
+        <Route path="/events">
           <Events></Events>
         </Route>
-        <Route path = "/sponsors">
+        <Route path="/sponsors">
           <Sponsors />
         </Route>
-        <Route path = "/login">
+        <Route path="/login">
           <LoginPage />
         </Route>
-        <Route path = "/team">
-          <Team/>
+        <Route path="/team">
+          <Team />
         </Route>
-        <Route path = "/eventDetails">
+        <Route path="/eventDetails">
           <EventDetails />
         </Route>
-        <Route path = "/signup">
+        <Route path="/signup">
           <SignupPage />
         </Route>
-        <Route path = "/register">
+        <Route path="/register">
           <Register />
         </Route>
-        <Route path = "/eventRegistration">
+        <Route path="/eventRegistration">
           <EventRegistration />
         </Route>
-        <Route exact path = "/dashboard">
+        <Route exact path="/dashboard">
           <Dashboard></Dashboard>
         </Route>
-        <Route  path = "/">
+        <Route path="/">
           <Home></Home>
         </Route>
       </Switch>
     </Router>
+    </userContext.Provider>
   );
 }
 

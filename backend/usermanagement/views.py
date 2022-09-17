@@ -147,7 +147,7 @@ def get_all_events_for_an_user(request):
                 teams = Team.objects.filter(teamid=emailId.teamid)
                 for team in teams:
                     event_list.append(team.event_registered)
-            return Response(event_list,status=status.HTTP_200_OK)
+            return Response({"event_list":event_list},status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
     return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
