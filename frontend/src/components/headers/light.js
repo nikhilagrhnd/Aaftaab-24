@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -9,12 +9,11 @@ import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "../../images/old-logo-symbol.png";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
-
+import { userContext } from "App.js";
 const Header = tw.header`
   flex justify-between items-center
   max-w-screen-xl mx-auto
 `;
-
 export const NavLinks = tw.div`inline-block`;
 
 /* hocus: stands for "on hover or focus"
@@ -76,6 +75,7 @@ export default ({
    * changing the defaultLinks variable below below.
    * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
    */
+  const loggedIn = useContext(userContext).loggedIn;
   const defaultLinks = [
     <NavLinks key={1}>
       <Link to="/about">
@@ -94,11 +94,17 @@ export default ({
         <NavLink>Register</NavLink>
       </Link>
 
-      <Link to="/login">
+     {!loggedIn?<Link to="/login">
         <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}>
           Login
         </PrimaryLink>
-      </Link>
+      </Link>:
+      <Link to="/dashboard">
+      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}>
+        Profile
+      </PrimaryLink>
+    </Link>
+      }
     </NavLinks>
   ];
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
