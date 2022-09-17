@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -12,7 +12,7 @@ import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus
 import { Link } from "react-router-dom";
 import Footer from "components/footers/Home-Footer";
 import { backendUrl } from "backendUrl";
-//import {backendUrl} from "backendUrl.js";
+var Loader = require("react-loader");
 
 const Container = tw(
   ContainerBase
@@ -58,43 +58,7 @@ const IllustrationImage = styled.div`
   ${(props) => `background-image: url("${props.imageSrc}");`}
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
-const handleSubmit = (e) => {
-  e.preventDefault();
-  if (e.target.password.value !== e.target.confirm_password.value) {
-    alert("Passwords do not match");
-  } else {
-    
-    const data = {
-      email: e.target.email.value,
-      name: e.target.name.value,
-      password: e.target.password.value,
-      phone_number: e.target.phone_number.value,
-    };
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-    fetch(`${backendUrl}/api/create_participant/`, requestOptions)
-      .then((response) => {
-        console.log(response);
-        if (response.status === 201) {
-          window.location.href = "/login";
-        } else if (response.status == 409) {
-          alert("user already exists");
-        } else {
-          alert("Invalid credentials");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-};
+
 
 export default ({
   logoLinkUrl = "/",
@@ -105,9 +69,70 @@ export default ({
   tosUrl = "#",
   privacyPolicyUrl = "#",
   signInUrl = "/login",
-}) => (
+}
+) => {
+
+  const [loading, setLoading] = useState(true);
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (e.target.password.value !== e.target.confirm_password.value) {
+      alert("Passwords do not match");
+    } else {
+      
+      const data = {
+        email: e.target.email.value,
+        name: e.target.name.value,
+        password: e.target.password.value,
+        phone_number: e.target.phone_number.value,
+      };
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      };
+      setLoading(!loading);
+      fetch(`${backendUrl}/api/create_participant/`, requestOptions)
+        .then((response) => {
+          console.log(response);
+          if (response.status === 201) {
+            //sendSuccessMail(data.email);
+            window.location.href = "/login";
+          } else if (response.status == 409) {
+            alert("user already exists");
+          } else {
+            alert("Invalid credentials");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+        setLoading(!loading);
+       
+    }
+  };
+
+  useEffect(() => {
+    if (loading == false) {
+      document.getElementById("signUpContainer").style.opacity = 0.5;
+      document.getElementById("signUpContainer").style.pointerEvents = "none";
+      document.getElementById("signUpContainer").style.keyPress = "none";
+    }
+    else {
+      document.getElementById("signUpContainer").style.opacity = 1;
+      document.getElementById("signUpContainer").style.pointerEvents = "all";
+      document.getElementById("signUpContainer").style.keyPress = "all";
+    }
+  }, [loading]);
+
+  return(
   <AnimationRevealPage>
-    <Container>
+    <Loader loaded={loading} />
+    <Container id="signUpContainer">
       <Content>
         <MainContainer>
           <Link to="/">
@@ -184,5 +209,7 @@ export default ({
       </Content>
     </Container>
     <Footer />
+
   </AnimationRevealPage>
 );
+}
