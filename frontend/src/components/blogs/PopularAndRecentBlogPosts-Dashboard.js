@@ -1,5 +1,6 @@
 import React from "react";
 import tw from "twin.macro";
+import { Link } from "react-router-dom"
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -44,8 +45,11 @@ const RecentPostsContainer = styled.div`
 `;
 const PostTextContainer = tw.div``
 
-export default () => {
-  // This setting is for animating the post background image on hover
+export default ({
+  eventsRegistered_Name = [],
+  passId = "",
+}) => {
+  // This setting is for animating the event background image on hover
   const postBackgroundSizeAnimation = {
     rest: {
       backgroundSize: "100%"
@@ -83,83 +87,102 @@ export default () => {
     }
   ];
 
-  const recentPosts = [
-    {
-      postImageSrc:
-        "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-      title: "Getting the most out of your vacation",
-      authorName: "Aaron Patterson",
-      url: "https://reddit.com"
-    },
-    {
-      postImageSrc:
-        "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-      title: "Choosing the perfect Safaris in Africa",
-      authorName: "Sam Phipphen",
-      url: "https://reddit.com"
-    },
-    {
-      postImageSrc:
-        "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-      title: "Hiking during the monsoon in Asia",
-      authorName: "Tony Hawk",
-      url: "https://timerse.com"
-    },
-    {
-      postImageSrc:
-        "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-      title: "Must carry items while travelling to Thailand",
-      authorName: "Himali Turn",
-      url: "https://timerse.com"
-    },
-    {
-      postImageSrc:
-        "https://images.unsplash.com/photo-1546971587-02375cbbdade?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=641&q=80",
-      title: "An extremely funny trip to the Swiss Alps",
-      authorName: "Naomi Watts",
-      url: "https://timerse.com"
-    },
-  ]
+  // const eventsRegistered = [
+  //   {
+  //     postImageSrc:
+  //       "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
+  //     title: "Getting the most out of your vacation",
+  //     authorName: "Aaron Patterson",
+  //     url: "https://reddit.com"
+  //   },
+  //   {
+  //     postImageSrc:
+  //       "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
+  //     title: "Choosing the perfect Safaris in Africa",
+  //     authorName: "Sam Phipphen",
+  //     url: "https://reddit.com"
+  //   },
+  //   {
+  //     postImageSrc:
+  //       "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
+  //     title: "Hiking during the monsoon in Asia",
+  //     authorName: "Tony Hawk",
+  //     url: "https://timerse.com"
+  //   },
+  //   {
+  //     postImageSrc:
+  //       "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
+  //     title: "Must carry items while travelling to Thailand",
+  //     authorName: "Himali Turn",
+  //     url: "https://timerse.com"
+  //   },
+  //   {
+  //     postImageSrc:
+  //       "https://images.unsplash.com/photo-1546971587-02375cbbdade?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=641&q=80",
+  //     title: "An extremely funny trip to the Swiss Alps",
+  //     authorName: "Naomi Watts",
+  //     url: "https://timerse.com"
+  //   },
+  // ]
+
+  const eventsRegistered = []
+  eventsRegistered_Name.map((event) => (
+    eventsRegistered.push({title: event})
+  ))
+  console.log(eventsRegistered)
+
+  const passDetails = {
+    title: passId.slice(0, 4),
+  }
 
   return (
     <Container>
       <ContentWithPaddingXl>
         <Row>
           <PopularPostsContainer>
-            <Heading>Pass</Heading>
+            <Heading>Pass Purchased</Heading>
             <PostsContainer>
-              {popularPosts.map((post, index) => (
-                <Post key={index} href={post.url} className="group" initial="rest" whileHover="hover" animate="rest">
-                  <Image
+              {
+                (passId != "") ?
+                <Post className="group" initial="rest" whileHover="hover" animate="rest">
+                  {passDetails.imageSrc && <Image
                     transition={{ duration: 0.3 }}
                     variants={postBackgroundSizeAnimation}
-                    imageSrc={post.postImageSrc}
-                  />
-                  <Title>{post.title}</Title>
-                  <Description>{post.description}</Description>
-                  <AuthorInfo>
-                    <AuthorImage src={post.authorImageSrc} />
-                    <AuthorNameAndProfession>
-                      <AuthorName>{post.authorName}</AuthorName>
-                      <AuthorProfile>{post.authorProfile}</AuthorProfile>
-                    </AuthorNameAndProfession>
-                  </AuthorInfo>
+                    imageSrc={passDetails.postImageSrc}
+                  />}
+                  {passDetails.title && <Title>{passDetails.title}</Title>}
+                  {passDetails.description && <Description>{passDetails.description}</Description>}
+                </Post> :
+                <Post>
+                  <Title>You have not purchased any fest pass</Title>
+                  {/* <Link to="/register">
+                    <Description className="dashboardBuyNow">Buy Now!</Description>
+                  </Link> */}
                 </Post>
-              ))}
+
+              }
             </PostsContainer>
           </PopularPostsContainer>
           <RecentPostsContainer>
             <Heading>Events Registered</Heading>
             <PostsContainer>
-              {recentPosts.map((post, index) => (
-              <Post key={index} href={post.url} className="group">
-                <PostTextContainer>
-                  <Title>{post.title}</Title>
-                  <AuthorName>{post.authorName}</AuthorName>
-                </PostTextContainer>
-                <Image imageSrc={post.postImageSrc} />
-              </Post>
-              ))}
+              {
+                (eventsRegistered.length != 0) ? 
+                eventsRegistered.map((event, index) => (
+                  <Post key={index} className="group">
+                    <PostTextContainer>
+                      {event.title && <Title>{event.title}</Title>}
+                      {event.authorName && <AuthorName>{event.authorName}</AuthorName>}
+                    </PostTextContainer>
+                    {event.postImageSrc && <Image imageSrc={event.postImageSrc} />}
+                  </Post>
+                )) :
+                <Post>
+                  <PostTextContainer>
+                    <Title>You have not registered for any event.</Title>
+                  </PostTextContainer>
+                </Post>
+              }
             </PostsContainer>
           </RecentPostsContainer>
         </Row>
