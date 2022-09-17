@@ -13,7 +13,7 @@ import { ReactComponent as ChevronLeftIcon } from "feather-icons/dist/icons/chev
 import { ReactComponent as ChevronRightIcon } from "feather-icons/dist/icons/chevron-right.svg";
 import kaviSammelanImg from "../../images/flagship_events/Kavi samelan.png";
 import djImg from "../../images/flagship_events/DJ Night.jpg";
-import musicshowImg from "../../images/flagship_events/Folk Music + Puppet show.jpg";
+import musicshowImg from "../../images/flagship_events/folk_music.jfif";
 import BookImg from "../../images/flagship_events/Book Signings.jpg";
 import InterviewImg from "../../images/flagship_events/Interview with Director.jpg";
 import StandupIMG from "../../images/flagship_events/Standup.jpg";
@@ -44,7 +44,7 @@ const CardSlider = styled(Slider)`
     ${tw`flex w-full h-full`}
   }
   .slick-slide {
-    ${tw`h-full w-full flex justify-center mb-1`}
+    ${tw`w-full h-auto flex justify-center mb-1`}
   }
 `;
 const Card = tw.div`h-full flex! flex-col sm:border max-w-sm sm:rounded-tl-4xl sm:rounded-br-5xl relative focus:outline-none`;
@@ -53,7 +53,7 @@ const CardImage = styled.div(props => [
   tw`w-full h-56 sm:h-64 bg-cover bg-center rounded sm:rounded-none sm:rounded-tl-4xl`
 ]);
 
-const TextInfo = tw.div`py-6 sm:px-10 sm:py-6`;
+const TextInfo = tw.div`py-6 flex-1 flex flex-col justify-between sm:px-10 sm:py-6`;
 const TitleReviewContainer = tw.div`flex flex-col sm:flex-row sm:justify-between sm:items-center`;
 const Title = tw.h5`text-2xl font-bold`;
 
