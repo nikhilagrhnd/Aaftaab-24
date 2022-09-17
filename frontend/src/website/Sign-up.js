@@ -124,11 +124,35 @@ export default ({
               <Form onSubmit={handleSubmit}>
                 <Input type="email" placeholder="Email" name="email" />
                 <Input type="name" placeholder="Name" name="name" />
-                <Input type="password" placeholder="Password" name="password" />
+                <Input type="password" id="passwd" placeholder="Password" name="password"
+                  onKeyUp={() => {
+                    let passEle = document.getElementById('passwd');
+                    let confPassEle = document.getElementById('confirmPasswd');
+                    if (confPassEle.value != "") {
+                      if (passEle.value == confPassEle.value) {
+                        confPassEle.style.borderColor = 'green';
+                      } else {
+                        confPassEle.style.borderColor = 'red';
+                      }
+                    }
+                  }} 
+                />
                 <Input
                   type="password"
+                  id="confirmPasswd"
                   placeholder="Confirm Password"
                   name="confirm_password"
+                  onKeyUp={() => {
+                    let passEle = document.getElementById('passwd');
+                    let confPassEle = document.getElementById('confirmPasswd');
+                    if (passEle.value != "") {
+                      if (passEle.value == confPassEle.value) {
+                        confPassEle.style.borderColor = 'green';
+                      } else {
+                        confPassEle.style.borderColor = 'red';
+                      }
+                    }
+                  }}
                 />
                 <Input
                   type="tel"
