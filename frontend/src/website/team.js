@@ -33,7 +33,7 @@ import DefaultUser from '../images/team/User.jpg'
 import Stuti from '../images/team/Stuti Pradeep Aswani.jpg'
 import Shreya from '../images/team/Shreya Pagaria.jpg'
 import Akshat from '../images/team/Akshat Jain.jpeg'
-
+import UdayBhanu from '../images/team/Uday Bhanu.jpg'
 
 function Team() {
   const team0 = {
@@ -105,7 +105,7 @@ function Team() {
           },
 
           {
-            mail: "yadav.49@iitj.ac.in",
+            mail: "yadav.40@iitj.ac.in",
             icon: EmailIcon
           },
           {
@@ -369,7 +369,7 @@ function Team() {
         ],
       },
       {
-        imageSrc: DefaultUser,
+        imageSrc: UdayBhanu,
         position: "Head",
         name: "Uday Bhanu",
         links: [
