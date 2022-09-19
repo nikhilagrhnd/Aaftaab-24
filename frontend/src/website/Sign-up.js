@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React,{useEffect, useState, useContext} from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -9,9 +9,11 @@ import logo from "images/old-logo-symbol.png";
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import Footer from "components/footers/Home-Footer";
 import { backendUrl } from "backendUrl";
+import { userContext } from "App";
+
 var Loader = require("react-loader");
 
 const Container = tw(
@@ -71,6 +73,10 @@ export default ({
   signInUrl = "/login",
 }
 ) => {
+  const loggedIn = useContext(userContext).loggedIn;
+  if (loggedIn) {
+    return <Redirect to="/" />
+  }
 
   const [loading, setLoading] = useState(true);
   
