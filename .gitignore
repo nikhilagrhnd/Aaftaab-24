@@ -7,3 +7,7 @@ venv
 usermanagement/__pycache__
 usermanagement/migrations
 .env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
