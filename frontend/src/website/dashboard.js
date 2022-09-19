@@ -59,7 +59,7 @@ function Dashboard() {
 
   const logoutButtonPressed=()=>{
     localStorage.removeItem("token");
-    window.location.href = "/";
+    window.location.replace("/");
   }
 
   const loggedIn = useContext(userContext).loggedIn;
