@@ -28,6 +28,7 @@ class Participant(models.Model):
     name = models.CharField(max_length=255,blank=False,default='name')
     password = models.CharField(max_length=255,blank=False,default='password')
     phone_number = models.CharField(max_length=10,blank=True)
+    user_interest = models.CharField(max_length=255,blank = True)
     def __str__(self):
         return self.email
 

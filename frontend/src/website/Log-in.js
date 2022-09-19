@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -10,8 +10,10 @@ import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
 import Footer from "components/footers/Home-Footer";
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import { backendUrl } from "backendUrl";
+import { userContext } from "App.js";
+
 const Container = tw(
   ContainerBase
 )`min-h-screen bg-primary-900 text-white font-medium flex justify-center -mx-8 -mt-8 sm:-my-8`;
@@ -96,7 +98,13 @@ export default ({
   SubmitButtonIcon = LoginIcon,
   forgotPasswordUrl = "#",
   signupUrl = "/signup",
-}) => (
+}) => {
+  const loggedIn = useContext(userContext).loggedIn;
+  if (loggedIn) {
+    return <Redirect to="/" />
+  } 
+
+  return (
   <AnimationRevealPage>
     <Container>
       <Content>
@@ -139,4 +147,4 @@ export default ({
     </Container>
     <Footer />
   </AnimationRevealPage>
-);
+)};

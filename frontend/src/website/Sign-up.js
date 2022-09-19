@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React,{useEffect, useState, useContext} from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -9,9 +9,12 @@ import logo from "images/old-logo-symbol.png";
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import Footer from "components/footers/Home-Footer";
 import { backendUrl } from "backendUrl";
+import { userContext } from "App";
+import "./Sign-up.css";
+
 var Loader = require("react-loader");
 
 const Container = tw(
@@ -71,6 +74,10 @@ export default ({
   signInUrl = "/login",
 }
 ) => {
+  const loggedIn = useContext(userContext).loggedIn;
+  if (loggedIn) {
+    return <Redirect to="/" />
+  }
 
   const [loading, setLoading] = useState(true);
   
@@ -85,6 +92,7 @@ export default ({
         name: e.target.name.value,
         password: e.target.password.value,
         phone_number: e.target.phone_number.value,
+        user_interest: e.target.user_interest.value,
       };
       const requestOptions = {
         method: "POST",
@@ -186,6 +194,14 @@ export default ({
                   pattern="[6-9]{1}[0-9]{9}"
                   title="The phone number must be 10 digits long and should begin with [5-9]"
                 />
+                <div className="interestDropDown">
+                  <label for="user_interest" id="userInterestLabel">What part of the fest are you most excited about:</label>
+                  <select name="user_interest" id="userInterestOptions">
+                    <option className="userInterestOption" value="events">Events Only</option>
+                    <option className="userInterestOption" value="flagship">Flagship Only</option>
+                    <option className="userInterestOption" value="events_and_flagship">Both flagship and events</option>
+                  </select>
+                </div>
                 <SubmitButton type="submit">
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{submitButtonText}</span>
