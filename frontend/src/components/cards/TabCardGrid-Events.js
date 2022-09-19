@@ -127,7 +127,7 @@ export default ({
       {
         imageSrc:
           "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-        title: "Regional Author Colloquium",
+        title: "Regional Literature Colloquim",
         // timing: "02:30 PM - 04:00 PM",
         description: `Want to know how an idea is turned into a novel ?
         We bring to you the joy of hearing an author tell the biography of their book.
@@ -271,21 +271,21 @@ const getDay1Cards = () => {
       imageSrc: musicshowImg,
       // imageSrc:
       //   "https://images.unsplash.com/photo-1528143358888-6d3c7f67bd5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=441&q=80",
-      title: "Folk Music",
+      title: "Folk Music + Puppet Show",
       // timing: "6 PM - 7 PM",
       // price: "₹50",
       description: `The term folk music and its equivalents in other languages denote many different kinds of music; the meaning of the term varies according to the part of the world, social class, and period of history. Doing justice to this year’s theme, Kaleidoscopes, Aaftaab will organise a Folk Music and Puppet Show, that will host regional folk musicians to celebrate the beauty and soulfulness of Rajasthani Folk Music. Join us as we immerse ourselves in resonating sounds of traditional instruments and the stories told by these musical storytellers.`,
       url: "#"
     },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1432639020363-5632f7f04e0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1236&q=80",
-      title: "Puppet Show",
-      // timing: "6 PM - 7 PM",
-      // price: "₹50",
-      description: `The term folk music and its equivalents in other languages denote many different kinds of music; the meaning of the term varies according to the part of the world, social class, and period of history. Doing justice to this year’s theme, Kaleidoscopes, Aaftaab will organise a Folk Music and Puppet Show, that will host regional folk musicians to celebrate the beauty and soulfulness of Rajasthani Folk Music. Join us as we immerse ourselves in resonating sounds of traditional instruments and the stories told by these musical storytellers.`,
-      url: "#"
-    },
+    // {
+    //   imageSrc:
+    //     "https://images.unsplash.com/photo-1432639020363-5632f7f04e0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1236&q=80",
+    //   title: "Puppet Show",
+    //   // timing: "6 PM - 7 PM",
+    //   // price: "₹50",
+    //   description: `The term folk music and its equivalents in other languages denote many different kinds of music; the meaning of the term varies according to the part of the world, social class, and period of history. Doing justice to this year’s theme, Kaleidoscopes, Aaftaab will organise a Folk Music and Puppet Show, that will host regional folk musicians to celebrate the beauty and soulfulness of Rajasthani Folk Music. Join us as we immerse ourselves in resonating sounds of traditional instruments and the stories told by these musical storytellers.`,
+    //   url: "#"
+    // },
     {
       imageSrc:
         "https://kavisammelanlive.com/wp-content/uploads/2020/05/new-logo.png",
@@ -310,6 +310,8 @@ const getDay2Cards = () => {
       // timing: "10:00 AM - 11:30 AM",
       // price: "₹50",
       description:`Christian Bale – or Batman once said: “I only sound intelligent when there’s a good script writer around." Always wanted to visualize your words? This is your chance. IIT Jodhpur will be organizing a video-making workshop this Aaftaab. Here we will be hosting a ‘Script to Video’ event where you will be guided by highly experienced mentors on how to convert your own script to videos. Join us to learn the nuances of video production and gain exclusive, behind the scenes information from some of the biggest names in the film and video industry.`,
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -319,6 +321,8 @@ const getDay2Cards = () => {
       // timing: "10:00 AM - 11:30 AM",
       description: `Have you always had a “Creative Knack” but felt like you were unable to express yourself? This is your chance! Welcome to “Spill the Ink”: A creative writing workshop where you will be guided to pen down your thoughts in a lucrative way, to help do justice to the author within. `,
       // price: "₹50",
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -339,6 +343,8 @@ const getDay2Cards = () => {
       But! But! But! Aaftaab is here with “Verse Come Verse Serve”, an on-the-spot poem writing competition.
       Come and showcase your creativity and poetic skills but this time with less time.`,
       // price: "₹50",
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -350,6 +356,7 @@ const getDay2Cards = () => {
       Well, NOOB QUIZ is here to break that myth. Show off your quizzing skills by cracking the questions with the most basic knowledge and bag flashy prizes. A proper quiz with teams that'll face each other off in a fierce battle of questions and answers.`,
       // price: "₹50",
       registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -362,17 +369,20 @@ const getDay2Cards = () => {
       Be a part of a series of word games which will test your quick thinking skills, vocabulary and imagination.`,
       // price: "₹50",
       registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
       imageSrc:
         "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      title: "Regional Author Colloquium",
+      title: "Regional Literature Colloquim",
       // timing: "02:30 PM - 04:00 PM",
       description: `Want to know how an idea is turned into a novel ?
       We bring to you the joy of hearing an author tell the biography of their book.
       Join us and get the chance to interact with a big name of the literaly world and get your own signed copy of the book.`,
       // price: "₹50",
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -392,6 +402,7 @@ const getDay2Cards = () => {
       description: `Life is a treasure hunt game. You have to solve the clues from incidents that happened and move further to find the ultimate fortune. So are you into solving the clues and making your way through the wilderness in the pursuit of long lost treasure/ fortune ? We offer you all this thrilling experience in Aaftaab 2022’s very own “ClueMinati”. In “ClueMinati”  you will be given clues which will lead you to the ultimate treasure. Players with the aid of clues will  compete in trying to find the hidden treasure.`,
       // price: "₹50",
       registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -402,6 +413,8 @@ const getDay2Cards = () => {
       description: `Come and join us for an evening glimmered with sarcasm and humour, brought to you by one of the finest comics in the country and fill the evening with giggles and hootings.
       A comedic performance to a live audience, saturated with jokes and sarcasm with one of the best standup comics out there to entertain you.`,
       // price: "₹50",
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     }
   ];
@@ -418,6 +431,8 @@ const getDay3Cards = () => {
       // timing: "09:30 AM - 11:30 AM",
       // price: "₹50",
       description: `Imagine "One minute" deciding your fate. Appalling, isnt it? Everyone can give a speech, but who can give a speech under a minute? Let's find out in "Just A Minute Speech" where people will scrabble for their words when the clock is ticking. Here the topic is not your opponent, time is. Come beat the time and prove your worth!!  -- A one minute time limiting speech in which one has to begin, prove the point and conclude the speech.`,
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -427,17 +442,20 @@ const getDay3Cards = () => {
       // timing: "09:30 AM - 11:30 AM",
       description: `"Tu-Tu Mai-Mai": Bring out the debater in you and flaunt your speaking skills in a parliamentary setup but this time with all the feels because the debate's in Hindi! A parliamentary format debate in Hindi where teams will be given a topic and they will have to present arguments, in hindi, for or against the topic and they will be judged on a fixed set of parameters.`,
       // price: "₹50",
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
       imageSrc:
         "https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlzY3Vzc2lvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
       title: "In Pursuit Of Dispute (English Debate)",
+      description: `It is better to debate a question without settling it than to settle a question without debating it. This aaftaab, unveil the debater inside you by pitching your matter, method and manner in the “English Debate” competition! Do participate and win exciting prizes!!`,
       // timing: "09:30 AM - 11:30 AM",
       // price: "₹50",
-      description: ``,
+      // description: ``,
       registrableEvent: true,
-      teamSize: 3,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -447,6 +465,8 @@ const getDay3Cards = () => {
       // timing: "10:00 AM - 11:30 AM",
       description: `Are you someone who has always wanted to act and perform? Well this is the perfect opportunity for you to hone your skills.Aaftaab will be hosting “Nautanki Saala”, an acting workshop for all those who want to learn the art of acting. Workshops are ideal for stage beginners of every age who want to take a sip before diving in deep."Nautanki Saala" allows students to participate in a short training workshop that demands full immersion into learning the craft of acting.No significant prior experience or knowledge is required/assumed.`,
       // price: "₹50",
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -457,16 +477,19 @@ const getDay3Cards = () => {
       description: `What if Hermione meets Bella? What if Frodo meets SpiderMan? Let your imagination run wild! “What If They Met” is not only a place where characters come to life but also where two characters from different dimensions meet and converse. How will the story unfold? Will it change our perception of the entire universe? Come, participate and witness!
       Each participant will have to re-enact the character assigned to him/her on stage along with one other participant who will have been assigned a character completely unrelated to the first character. Let us witness how this act unfolds!`,
       // price: "₹50",
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
       imageSrc:
-        "https://rukminim1.flixcart.com/image/416/416/l47cu4w0/table-lamp/v/s/c/netflix-and-chill-neon-lights-201-as-glowsigns-original-imagf5t85szkxggz.jpeg?q=70",
-      title: "Netflix and Quiz",
+        "https://wallpaperaccess.com/full/6793384.jpg",
+      title: "Mythology quiz",
       // timing: "11:30 AM - 01:00 PM",
-      description: `Binge watching is lit, but what if there is a quiz for binge watchers!? “Netflix and Quiz” is the perfect arena where all these ‘Binge watchers’ can brag their goldmine of knowledge on shows and can finally put it to good use . Participate in a series of quizzes that will test your knowledge about all things show related, stranger and otherwise :) `,
+      description: `How much do you know when it comes to mythology? There are myths which are believed to tend to become true, defining mythology as the sacred history of humanity… Let’s come together to participate in the mythology quiz and explore a world full of myths.`,
       // price: "₹50",
       registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -476,6 +499,8 @@ const getDay3Cards = () => {
       // timing: "02:30 PM - 04:00 PM",
       description: `Movies will make you famous; Television will make you rich;  but Theater will make you expressive! Theater is akin to a kaleidoscope of patterns filled with characters, voices, emotions, movements, languages, metaphors and much more!!! Aaftaab'22 will therefore be hosting a theater performance to enrich the audience. We will have a performance that entails acting, singing, dance and music, dialogues, narration, recitation with a touch of puppetry or pantomime, and we are certain that it will leave you absolutely spellbound! So what are you waiting for? Grab a seat, because the show is about to begin...`,
       // price: "₹50",
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -488,6 +513,8 @@ const getDay3Cards = () => {
       Aaftaab is here with the book signing event of the book “Temple Lamp- Verses of Banaras”, a Persian to English translation of Mirza Galib's "Chirag-e-Diar" by Mr. Maaz Bin Bilal.
       Join us and get the chance to envision the colours of Kahi as described by Mirza Galib from the author Mr. Bilal himself.`,
       // price: "₹50",
+      registrableEvent: true,
+      teamSize: 1,
       url: "#"
     },
     {
@@ -498,6 +525,7 @@ const getDay3Cards = () => {
       description: `Quizzes are fun,a themed quiz even more! Here's a chance to flaunt your knowledge about al things entertainment and enjoy the wonders the theme has to show you!  The "MELA Quiz"  is theme based quiz on all things Music, Entertainment, Literature and Arts.`,
       // price: "₹50",
       registrableEvent: true,
+      teamSize: 1,
       url: "#"
     }
   ];
