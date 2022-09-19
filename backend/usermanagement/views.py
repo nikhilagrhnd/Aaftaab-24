@@ -14,6 +14,8 @@ import os
 import asyncio
 dotenv.load_dotenv()
 from .utils import send_participant_creation_confirmation_mail,generate_token,generate_teamid,validate_email
+from .mailing import gmail_send_message
+
 SECRET_KEY = os.getenv('SECRET_JWT_KEY')
 
 
@@ -30,7 +32,8 @@ def create_participant(request):
         serializer = ParticipantSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            send_participant_creation_confirmation_mail(request.data.get('email'))
+            # send_participant_creation_confirmation_mail(request.data.get('email'))
+            # gmail_send_message(request.data.get('email'))
             return HttpResponse(status=status.HTTP_201_CREATED)
         return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
@@ -38,7 +41,8 @@ def create_participant(request):
 @api_view(['POST'])
 def send_success_mail(request):
     if request.method == 'POST':
-        send_participant_creation_confirmation_mail(request.data.get('email'))
+        # send_participant_creation_confirmation_mail(request.data.get('email'))
+        # gmail_send_message(request.data.get('email'))
         return HttpResponse(status=status.HTTP_200_OK)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
