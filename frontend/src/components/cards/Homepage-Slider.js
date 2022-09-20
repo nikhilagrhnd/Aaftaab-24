@@ -109,60 +109,145 @@ export default () => {
   const cards = [
     {
       imageSrc: kaviSammelanImg,
-      title: "Kavi sammelan",
+      title: "Kavi Sammelan",
       description: `‘Kavyamaye ho uthega dil, jab sajegi kaviyon ki mehfil’. A poetic event (Kavi Sammelan) is being organized on this Aaftaab. The event will be presenting young and talented poets who will recite their poems and mushairas in front of the audience. Here the participants will get a topic on which they have to present their poetry. also, participants could get a chance to interact with upcoming faces of poetry.`,
-      dateText: "30/09/22",
+      date: "30/09/22",
+      timing: "08:00 PM - 10:00 PM",
+      // price: "₹50",
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
     },
     {
       imageSrc: StandupIMG,
-      title: "Stand up comedy",
+      title: "Comedy Central (Standup/Satirical Comedy)",
       description: `Come and join us for an evening glimmered with sarcasm and humour, brought to you by one of the finest comics in the country and fill the evening with giggles and hootings.A comedic performance to a live audience, saturated with jokes and sarcasm with one of the best standup comics out there to entertain you.`,
-      dateText: "30/09/22",
+      date: "01/10/22",
+      timing: "09:00 PM - 10:30 PM",
+      // price: "₹50",
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
     },
     {
       imageSrc: musicshowImg,
       title: "Folk Music + Puppet Show",
       description: `The term folk music and its equivalents in other languages denote many different kinds of music; the meaning of the term varies according to the part of the world, social class, and period of history. Doing justice to this year’s theme, Kaleidoscopes, Aaftaab will organise a Folk Music and Puppet Show, that will host regional folk musicians to celebrate the beauty and soulfulness of Rajasthani Folk Music. Join us as we immerse ourselves in resonating sounds of traditional instruments and the stories told by these musical storytellers.`,
-      dateText: "30/09/22",
+      date: "30/09/22",
+      timing: "06:00 PM - 07:00 PM",
+      // price: "₹50",
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
     },
     {
       imageSrc: djImg,
       title: "DJ Night",
-      dateText: "30/09/22",
+      description: `As we reach the end of the festivities, join us, for one last celebration , as we embrace EDM and Hip Hop music, and dance to our hearts content!`,
+      date: "02/10/22",
+      timing: "08:30 PM - 11:00 PM",
+      // price: "₹50",
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
     },
     {
       imageSrc: BookImg,
-      title: "Regional Author Colloquium",
+      title: "Regional Literature Colloquim",
+      date: "02/10/22",
+      timing: "02:30 PM - 04:00 PM",
       description: `Want to know how an idea is turned into a novel ?
       We bring to you the joy of hearing an author tell the biography of their book.
       Join us and get the chance to interact with a big name of the literaly world and get your own signed copy of the book.`,
-      dateText: "30/09/22",
+      // price: "₹50",
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
     },
     {
       imageSrc: InterviewImg,
       title: "Interview with Director",
       description: `Ever wondered whether the Director of such a prestigious institute eats like us, lives like us or enjoys like us? Well, we present a one-on-one interview with the director complete with a set of unique and out-of-the-box questions. Come and see what he has to say! An interview with the director in front of the entire college that help us get to know him from a different perspective.`,
-      dateText: "30/09/22",
+      date: "01/10/22",
+      timing: "04:30 PM - 05:30 PM",
+      // price: "₹50",
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
     },
     {
       imageSrc: Maaz,
       title: "Book Signing by Maaz Bin Bilal",
-      description: `Aaftaab is here with the book signing event of the book “Temple Lamp- Verses of Banaras”, a Persian to English translation of Mirza Galib's "Chirag-e-Diar" by Mr. Maaz Bin Bilal.
+      date: "01/10/22",
+      timing: "02:30 PM - 04:00 PM",
+      // price: "₹50",
+      description: `
+      Aaftaab is here with the book signing event of the book “Temple Lamp- Verses of Banaras”, a Persian to English translation of Mirza Galib's "Chirag-e-Diar" by Mr. Maaz Bin Bilal.
       Join us and get the chance to envision the colours of Kahi as described by Mirza Galib from the author Mr. Bilal himself.`,
-      dateText: "30/09/22"
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
     },
     {
       imageSrc: TreasurehuntImg,
       title: "Treasure Hunt",
       description: `Life is a treasure hunt game. You have to solve the clues from incidents that happened and move further to find the ultimate fortune. So are you into solving the clues and making your way through the wilderness in the pursuit of long lost treasure/ fortune ? We offer you all this thrilling experience in Aaftaab 2022’s very own “ClueMinati”. In “ClueMinati”  you will be given clues which will lead you to the ultimate treasure. Players with the aid of clues will  compete in trying to find the hidden treasure.`,
+      date: "01/10/22",
+      timing: "06:00 PM - 08:00 PM",
+      // price: "₹50",
       registrableEvent: true,
-      dateText: "30/09/22",
+      minTeamSize: 1,
+      maxTeamSize: 3,
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
     },
     {
-      imageSrc: WorkshopIMG,
-      title: "Workshops",
-      dateText: "30/09/22",
+      imageSrc:
+        "https://images.unsplash.com/photo-1524230659092-07f99a75c013?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      title: "Unplug Night",
+      description: `Tune in to watch Sangam, the music club of IIT Jodhpur, fill the air with magical, melodious music.`,
+      date: "30/09/22",
+      timing: "10:00 PM - 11:00 PM",
+      // price: "₹50",
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
+      url: "#"
     },
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1485814837398-ed2048f57499?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      title: "Open Mic",
+      description: `This is your chance to grab the mic and showcase your talent to a wide audience! So what are you waiting for? The stage is set, and it is all yours...`,
+      date: "02/10/22",
+      timing: "05:30 PM - 07:30 PM",
+      // price: "₹50",
+      registrableEvent: true,
+      minTeamSize: 1,
+      maxTeamSize: 1,
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
+      url: "#"
+    },
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1583318432730-a19c89692612?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80",
+      title: "Prom Night",
+      description: `The perfect opportunity for you and your significant other, to spend some time together, and live the ultimate teenage romance dream.`,
+      // timing: "XX:XX AM - XX:XX PM ",
+      // price: "₹50",
+      isFlagship: true,
+      prize: "",
+      ruleBookLink: "",
+      url: "#"
+    },
+    // {
+    //   imageSrc: WorkshopIMG,
+    //   title: "Workshops",
+    //   date: "30/09/22",
+    // },
   ]
 
   return (
@@ -194,20 +279,25 @@ export default () => {
                     </IconWithText>
                     :null
                   }
-                  <IconWithText>
-                    <IconContainer>
-                      <DateIcon />
-                    </IconContainer>
-                    <Text>{card.dateText}</Text>
-                  </IconWithText>
+                  { card.date ?
+                    <IconWithText>
+                      <IconContainer>
+                        <DateIcon />
+                      </IconContainer>
+                      <Text>{card.date}</Text>
+                    </IconWithText>
+                    : null
+                  }
                 </SecondaryInfoContainer>
                 {/* <Description>{card.description}</Description> */}
               </TextInfo>
-              <Link to={{
-                pathname: "/eventDetails",
-                search: `?name=${card.title}`,
-                state: card
-              }}>
+              <Link 
+                to={{
+                  pathname: "/eventDetails",
+                  search: `?name=${card.title}`,
+                  state: card
+                }}
+              >
                 <PrimaryButton>Check out now</PrimaryButton>
               </Link>
             {/* </Card> */}

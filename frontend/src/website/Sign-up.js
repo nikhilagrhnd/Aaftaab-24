@@ -43,7 +43,7 @@ const SocialButton = styled.a`
 `;
 
 const DividerTextContainer = tw.div`my-12 border-b text-center relative`;
-const DividerText = tw.div`leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
+const DividerText = tw.div`leading-none py-2 px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
 
 const Form = tw.form`mx-auto max-w-xs`;
 const Input = tw.input`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
@@ -93,6 +93,7 @@ export default ({
         password: e.target.password.value,
         phone_number: e.target.phone_number.value,
         user_interest: e.target.user_interest.value,
+        college_name: e.target.college_name.value,
       };
       const requestOptions = {
         method: "POST",
@@ -108,8 +109,10 @@ export default ({
             window.location.href = "/login";
           } else if (response.status == 409) {
             alert("user already exists");
+            window.location.href="/login";
           } else {
             alert("Invalid credentials");
+            window.location.href="/signup";
           }
           return response.json();
         })
@@ -157,7 +160,7 @@ export default ({
               <Form onSubmit={handleSubmit}>
                 <Input type="email" placeholder="Email" name="email" />
                 <Input type="name" placeholder="Name" name="name" />
-                <Input type="password" id="passwd" placeholder="Password" name="password"
+                <Input type="password" id="passwd" placeholder="Password" required name="password"
                   onKeyUp={() => {
                     let passEle = document.getElementById('passwd');
                     let confPassEle = document.getElementById('confirmPasswd');
@@ -175,6 +178,7 @@ export default ({
                   id="confirmPasswd"
                   placeholder="Confirm Password"
                   name="confirm_password"
+                  required
                   onKeyUp={() => {
                     let passEle = document.getElementById('passwd');
                     let confPassEle = document.getElementById('confirmPasswd');
@@ -194,6 +198,8 @@ export default ({
                   pattern="[6-9]{1}[0-9]{9}"
                   title="The phone number must be 10 digits long and should begin with [5-9]"
                 />
+                 <Input type="name" placeholder="College Name" name="college_name" />
+               
                 <div className="interestDropDown">
                   <label for="user_interest" id="userInterestLabel">What part of the fest are you most excited about:</label>
                   <select name="user_interest" id="userInterestOptions">

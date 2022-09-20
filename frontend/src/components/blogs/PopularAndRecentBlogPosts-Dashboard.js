@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
+import { eventNameToDescMap } from "eventNameToDescMap";
 
 const Row = tw.div`flex flex-col lg:flex-row -mb-10`;
 const Heading = tw(SectionHeading)`text-left lg:text-4xl xl:text-5xl`;
@@ -127,7 +128,7 @@ export default ({
 
   const eventsRegistered = []
   eventsRegistered_Name.map((event) => (
-    eventsRegistered.push({title: event})
+    eventsRegistered.push(eventNameToDescMap[event])
   ))
   console.log(eventsRegistered)
 
@@ -169,13 +170,19 @@ export default ({
               {
                 (eventsRegistered.length != 0) ? 
                 eventsRegistered.map((event, index) => (
-                  <Post key={index} className="group">
-                    <PostTextContainer>
-                      {event.title && <Title>{event.title}</Title>}
-                      {event.authorName && <AuthorName>{event.authorName}</AuthorName>}
-                    </PostTextContainer>
-                    {event.postImageSrc && <Image imageSrc={event.postImageSrc} />}
-                  </Post>
+                  <Link to={{
+                    pathname: "/eventDetails",
+                    search: `?name=${event.title}`,
+                    state: event
+                  }}>
+                    <Post key={index} className="group">
+                      <PostTextContainer>
+                        {event.title && <Title>{event.title}</Title>}
+                        {event.date && <AuthorName>{event.date}</AuthorName>}
+                      </PostTextContainer>
+                      {event.imageSrc && <Image imageSrc={event.imageSrc} />}
+                    </Post>
+                  </Link>
                 )) :
                 <Post>
                   {/* <PostTextContainer> */}

@@ -1,5 +1,5 @@
 import AnimationRevealPage from "helpers/AnimationRevealPage";
-import React, { Component } from "react";
+import React, { Component,useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import tw from "twin.macro";
 
@@ -74,24 +74,48 @@ function goBackToEvents(history) {
 }
 
 function EventRegistration() {
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:token,
+    }
+    };
+    fetch(`${backendUrl}/api/check_login/`, requestOptions)
+    .then((response)=>{
+      if(response.status===200){
+      }
+      else{
+        alert("session expired");
+        window.location.replace("/");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    }
+    );
+  }, []);
   const location = useLocation();
   const card = location.state;
   const history = useHistory();
 
   if (!card) goBackToEvents(history, card);
 
-  console.log(card.teamSize);
+  // console.log(card.teamSize);
   const SubmitButtonIcon = SignUpIcon;
   const submitButtonText = "Submit";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const email_list = [];
-    for (let i = 0; i < card.teamSize-1; i++) {
+    for (let i = 0; i < card.maxTeamSize-1; i++) {
       const num = i+2;
       const search = "email" + num;
       const email = e.target[search].value;
-      if(email !== ""){
+      if(email !== "" && email !=null){
         email_list.push(email);
       }
     }
@@ -112,10 +136,12 @@ function EventRegistration() {
       .then((response) => {
         if (response.status === 201) {
           alert("Successfully Registered");
-          goBackToEvents(history, card);
+          history.push("/dashboard");
+          history.go(0);
         } 
         else if(response.status==409){
-          alert("Team Already Exists");
+          alert("You've already registered for this event");
+          window.location.replace("/dashboard")
         }else {
           alert("Error in registering");
         }
@@ -126,6 +152,13 @@ function EventRegistration() {
   };
 
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
+
+  function isFieldRequired(index, minTeamSize) {
+    if (index < minTeamSize - 1) {
+      return true;
+    }
+    return false;
+  }
   return (
     <AnimationRevealPage>
       <Header />
@@ -143,7 +176,7 @@ function EventRegistration() {
                 <Form id="myForm" onSubmit={handleSubmit}>
                   <Input type="name" placeholder="Team Name" name="teamname" />
                   {Array.from(
-                    { length: card.teamSize - 1 },
+                    { length: card.maxTeamSize - 1 },
                     (_, i) => i + 2
                   ).map((val, index) => (
                     <div>
@@ -154,6 +187,7 @@ function EventRegistration() {
                         type="email"
                         placeholder="Email"
                         name={`email${val}`}
+                        required={val < card.minTeamSize + 1 ? true : false}
                       />
                       <Input type="name" placeholder="Name" name="name" />
                       <Input

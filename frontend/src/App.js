@@ -116,6 +116,9 @@ import EventDetails from "website/eventDetails";
 import Register from "website/register"
 import EventRegistration from "website/eventRegistration";
 import Dashboard from "website/dashboard";
+
+import ScrollToTop from "website/scrollToTop";
+
 export const userContext =createContext();
 export default function App() {
 
@@ -154,41 +157,43 @@ export default function App() {
   return (
     <userContext.Provider value={{loggedIn,toggleLoggedIn}}>
     <Router>
-      <Switch>
-        <Route path="/about">
-          <About></About>
-        </Route>
-        <Route path="/events">
-          <Events></Events>
-        </Route>
-        <Route path="/sponsors">
-          <Sponsors />
-        </Route>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/team">
-          <Team />
-        </Route>
-        <Route path="/eventDetails">
-          <EventDetails />
-        </Route>
-        <Route path="/signup">
-          <SignupPage />
-        </Route>
-        <Route path="/register">
-          <Register />
-        </Route>
-        <Route path="/eventRegistration">
-          <EventRegistration />
-        </Route>
-        <Route exact path="/dashboard">
-          <Dashboard></Dashboard>
-        </Route>
-        <Route path="/">
-          <Home></Home>
-        </Route>
-      </Switch>
+      <ScrollToTop>
+        <Switch>
+          <Route path="/about">
+            <About></About>
+          </Route>
+          <Route path="/events">
+            <Events></Events>
+          </Route>
+          <Route path="/sponsors">
+            <Sponsors />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/team">
+            <Team />
+          </Route>
+          <Route path="/eventDetails">
+            <EventDetails />
+          </Route>
+          <Route path="/signup">
+            <SignupPage />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/eventRegistration">
+            <EventRegistration />
+          </Route>
+          <Route exact path="/dashboard">
+            <Dashboard></Dashboard>
+          </Route>
+          <Route path="/">
+            <Home></Home>
+          </Route>
+        </Switch>
+      </ScrollToTop>
     </Router>
     </userContext.Provider>
   );
