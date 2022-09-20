@@ -55,7 +55,7 @@ def gmail_send_message(receiver_address):
 
     try:
         msg = MIMEMultipart('alternative')
-        msg['Subject'] = "Welcome to Aaftab"
+        msg['Subject'] = "Welcome to Aaftaab"
         msg['From'] = EMAIL_ADDRESS
         msg['To'] = receiver_address
 

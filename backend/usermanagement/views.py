@@ -87,7 +87,7 @@ def create_team(request):
             return Response(status=status.HTTP_401_UNAUTHORIZED)
         try:
             payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
-        except jwt.ExpiredSignatureError:
+        except :
             return Response(status=status.HTTP_401_UNAUTHORIZED)
         leader_email = payload['email']
         # check if user exists
@@ -122,7 +122,7 @@ def get_all_events_for_an_user(request):
             return Response(status=status.HTTP_401_UNAUTHORIZED)
         try:
             payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
-        except jwt.ExpiredSignatureError:
+        except:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
 
         email = payload['email']

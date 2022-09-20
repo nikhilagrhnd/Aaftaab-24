@@ -28,13 +28,53 @@ function Events() {
         <AnimationRevealPage>
             <Header />
             <Feature 
-                subheading={card.timing}
+                subheading={card.date}
                 heading={card.title}
                 description={card.description ? card.description : null}
                 imageSrc={card.imageSrc}
                 primaryButtonText="Register Now!"
-                registrableEvent={card.registrableEvent}
-                teamSize={card.teamSize}
+                registrableEvent={card.registrableEvent ? card.registrableEvent : false}
+                minTeamSize={card.minTeamSize ? card.minTeamSize : 1}
+                maxTeamSize={card.maxTeamSize ? card.maxTeamSize : 1}
+                prize={card.prize ? card.prize : ""}
+                isFlagship={card.isFlagship ? card.isFlagship : false}
+                rulebookLink={card.rulebookLink ? card.rulebookLink : ""}
+                statistics={
+                    (card.maxTeamSize > 1) ? 
+                    [   
+                        {
+                            key: "Time",
+                            value: `${card.timing}`
+                        },
+                        {
+                            key: "Group size",
+                            value: `${card.minTeamSize}-${card.maxTeamSize}`
+                        }
+                    ] : 
+                    (
+                        (card.registrableEvent) ?
+                        [
+                            {
+                                key: "Time",
+                                value: `${card.timing}`
+                            },
+                            {
+                                key: "Event type",
+                                value: "Individual"
+                            }
+                        ] :
+                        (
+                            (card.timing) ?
+                            [
+                                {
+                                    key: "Time",
+                                    value: `${card.timing}`
+                                }
+                            ] :
+                            null
+                        )
+                    )
+                }
             />
             <Footer />
         </AnimationRevealPage>

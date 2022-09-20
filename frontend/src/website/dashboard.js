@@ -40,8 +40,9 @@ function Dashboard() {
             return response.json();
           }
           else{
+           
+            window.location.replace("/");
             alert("please login properly");
-            // window.location.replace("/");
             return {};
           }
         })
@@ -63,9 +64,9 @@ function Dashboard() {
   }
 
   const loggedIn = useContext(userContext).loggedIn;
-  if (!loggedIn) {
-    return <Redirect to="/" />
-  }
+  // if (!loggedIn) {
+  //   return <Redirect to="/" />
+  // }
 
   return (
     <AnimationRevealPage>
