@@ -345,6 +345,8 @@ const getDay2Cards = () => {
       // price: "₹50",
       registrableEvent: true,
       teamSize: 1,
+      prize: "1st:6000 2nd:3000 3rd:1500",
+      rulebooklink: "https://docs.google.com/document/d/1f9WbPTuBP9imQrxAJ1uLR4zPse5JQvSZCCajldAuJC4/edit?usp=drivesdk",
       url: "#"
     },
     {
@@ -357,6 +359,8 @@ const getDay2Cards = () => {
       // price: "₹50",
       registrableEvent: true,
       teamSize: 1,
+      prize: "1st:6000 2nd:3000 3rd:1500",
+      rulebooklink: "https://docs.google.com/document/d/1JDWIPBhzvkEHS_VfBQ6XHT8sYmuuycfgdeYijoVpPP8/edit",
       url: "#"
     },
     {
@@ -370,6 +374,7 @@ const getDay2Cards = () => {
       // price: "₹50",
       registrableEvent: true,
       teamSize: 1,
+      rulebooklink: "https://docs.google.com/document/d/1F4s_w9P9_8VPVF9tI9iqDj-kezyIHWO0CorzNuG3FdU/edit?usp=sharing",
       url: "#"
     },
     {
@@ -383,6 +388,7 @@ const getDay2Cards = () => {
       // price: "₹50",
       registrableEvent: true,
       teamSize: 1,
+      prize: "1st:6000 2nd:3000 3rd:1500",
       url: "#"
     },
     {
@@ -433,6 +439,8 @@ const getDay3Cards = () => {
       description: `Imagine "One minute" deciding your fate. Appalling, isnt it? Everyone can give a speech, but who can give a speech under a minute? Let's find out in "Just A Minute Speech" where people will scrabble for their words when the clock is ticking. Here the topic is not your opponent, time is. Come beat the time and prove your worth!!  -- A one minute time limiting speech in which one has to begin, prove the point and conclude the speech.`,
       registrableEvent: true,
       teamSize: 1,
+      prize: "1st:6000 2nd:3000 3rd:1500",
+      rulebooklink: "https://docs.google.com/document/d/1ueVJdmJSABE0L5v9tD3ej51n6AnRjtOhyaqwhS6KTBQ/edit",
       url: "#"
     },
     {
@@ -444,6 +452,8 @@ const getDay3Cards = () => {
       // price: "₹50",
       registrableEvent: true,
       teamSize: 1,
+      prize: "1st:6000 2nd:3000 3rd:1500",
+      rulebooklink: "https://docs.google.com/document/d/17sDLAXgd6rGfqWAnvotCnOOIwbqsh6xXGyg3l4OufWI/edit?usp=sharing",
       url: "#"
     },
     {
@@ -456,6 +466,8 @@ const getDay3Cards = () => {
       // description: ``,
       registrableEvent: true,
       teamSize: 1,
+      prize: "1st:3000 2nd:2000 3rd:1000",
+      rulebooklink: "https://docs.google.com/document/d/1WLY2lJkYvNRFKc1BsoLyLEiLj8-n8SnoqUDeInVr3KA/edit?usp=sharing",
       url: "#"
     },
     {
@@ -467,6 +479,7 @@ const getDay3Cards = () => {
       // price: "₹50",
       registrableEvent: true,
       teamSize: 1,
+      prize: "1st:3000 2nd:2000 3rd:1000",
       url: "#"
     },
     {
@@ -479,6 +492,8 @@ const getDay3Cards = () => {
       // price: "₹50",
       registrableEvent: true,
       teamSize: 1,
+      prize: "1st:6000 2nd:3000 3rd:1500",
+      rulebooklink: "https://docs.google.com/document/d/19IQhQGfQjWhjV6KFS-PxbtYASSSUGfDzLDfrszVRnJc/edit?usp=drivesdk",
       url: "#"
     },
     {
@@ -490,6 +505,7 @@ const getDay3Cards = () => {
       // price: "₹50",
       registrableEvent: true,
       teamSize: 1,
+      rulebooklink: "https://docs.google.com/document/d/1WA69HY5pfC7zgEOx8XGTLX7slZOB2dTJcMZLfzdpDMY/edit?usp=sharing",
       url: "#"
     },
     {
@@ -526,6 +542,7 @@ const getDay3Cards = () => {
       // price: "₹50",
       registrableEvent: true,
       teamSize: 1,
+      rulebooklink: "https://docs.google.com/document/d/14F3vtdIii99zCn5dOiy1pMn731ARBWEu5ZuWvmcdCfY/edit",
       url: "#"
     }
   ];
