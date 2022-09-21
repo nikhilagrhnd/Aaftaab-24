@@ -154,7 +154,7 @@ export default ({
           "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
         title: "Regional Literature Colloquim",
         date: "02/10/22",
-        timing: "02:30 PM - 04:00 PM",
+        timing: "04:00 PM - 05:30 PM",
         description: `Want to know how an idea is turned into a novel ?
         We bring to you the joy of hearing an author tell the biography of their book.
         Join us and get the chance to interact with a big name of the literaly world and get your own signed copy of the book.`,
@@ -678,7 +678,7 @@ const getDay3Cards = () => {
         "https://images.unsplash.com/photo-1491309055486-24ae511c15c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTR8fGJvb2slMjBzaWduaW5nc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
       title: "Regional Literature Colloquim",
       date: "02/10/22",
-      timing: "02:30 PM - 04:00 PM",
+      timing: "04:00 PM - 05:30 PM",
       description: `Want to know how an idea is turned into a novel ?
       We bring to you the joy of hearing an author tell the biography of their book.
       Join us and get the chance to interact with a big name of the literaly world and get your own signed copy of the book.`,
