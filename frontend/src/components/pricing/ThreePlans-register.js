@@ -157,7 +157,7 @@ export default ({
                 ))}
               </PlanFeatures>
               <PlanAction>
-                <BuyNowButton css={!plan.featured && highlightGradientsCss[index]}>{primaryButtonText}</BuyNowButton>
+                <BuyNowButton css={!plan.featured && highlightGradientsCss[index]} onClick={() => {window.location.href = "https://unstop.com/o/sB5KQyZ?lb=HkDM9ZX"}}>{primaryButtonText}</BuyNowButton>
               </PlanAction>
             </Plan>
           ))}
