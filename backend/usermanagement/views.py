@@ -33,7 +33,7 @@ def create_participant(request):
         if serializer.is_valid():
             serializer.save()
             # send_participant_creation_confirmation_mail(request.data.get('email'))
-            # gmail_send_message(request.data.get('email'))
+            gmail_send_message(request.data.get('email'))
             return HttpResponse(status=status.HTTP_201_CREATED)
         return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
