@@ -1,4 +1,5 @@
 import React, { Component, useEffect, useState,useContext } from "react";
+import { Redirect } from "react-router-dom";
 import tw from "twin.macro";
 import { backendUrl } from "backendUrl";
 import AnimationRevealPage from "helpers/AnimationRevealPage";
@@ -39,8 +40,9 @@ function Dashboard() {
             return response.json();
           }
           else{
+           
+            window.location.replace("/");
             alert("please login properly");
-            window.location.href = "/";
             return {};
           }
         })
@@ -53,13 +55,18 @@ function Dashboard() {
         .catch((error)=>{
           console.log(error);
         })
-    }, []);
+  }, []);
 
 
-    const logoutButtonPressed=()=>{
-      localStorage.removeItem("token");
-      window.location.href = "/";
-    }
+  const logoutButtonPressed=()=>{
+    localStorage.removeItem("token");
+    window.location.replace("/");
+  }
+
+  const loggedIn = useContext(userContext).loggedIn;
+  // if (!loggedIn) {
+  //   return <Redirect to="/" />
+  // }
 
   return (
     <AnimationRevealPage>

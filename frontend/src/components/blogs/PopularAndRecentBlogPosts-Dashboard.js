@@ -6,13 +6,14 @@ import { motion } from "framer-motion";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
+import { eventNameToDescMap } from "eventNameToDescMap";
 
 const Row = tw.div`flex flex-col lg:flex-row -mb-10`;
 const Heading = tw(SectionHeading)`text-left lg:text-4xl xl:text-5xl`;
 
-const PopularPostsContainer = tw.div`lg:w-2/3`;
+const PopularPostsContainer = tw.div`lg:w-1/2`;
 const PostsContainer = tw.div`mt-12 flex flex-col sm:flex-row sm:justify-between lg:justify-start`;
-const Post = tw(motion.a)`block sm:max-w-sm cursor-pointer mb-16 last:mb-0 sm:mb-0 sm:odd:mr-8 lg:mr-8 xl:mr-16`;
+const Post = tw(motion.a)`block sm:max-w-sm mb-16 last:mb-0 sm:mb-0 sm:odd:mr-8 lg:mr-8 xl:mr-16`;
 const Image = styled(motion.div)(props => [
   `background-image: url("${props.imageSrc}");`,
   tw`h-64 bg-cover bg-center rounded`
@@ -26,7 +27,7 @@ const AuthorName = tw.h6`font-semibold text-lg`;
 const AuthorProfile = tw.p`text-secondary-100 text-sm`;
 
 const RecentPostsContainer = styled.div`
-  ${tw`mt-24 lg:mt-0 lg:w-1/3`}
+  ${tw`mt-24 lg:mt-0 lg:w-1/2`}
   ${PostsContainer} {
     ${tw`flex flex-wrap lg:flex-col`}
   }
@@ -127,7 +128,7 @@ export default ({
 
   const eventsRegistered = []
   eventsRegistered_Name.map((event) => (
-    eventsRegistered.push({title: event})
+    eventsRegistered.push(eventNameToDescMap[event])
   ))
   console.log(eventsRegistered)
 
@@ -140,7 +141,7 @@ export default ({
       <ContentWithPaddingXl>
         <Row>
           <PopularPostsContainer>
-            <Heading>Pass Purchased</Heading>
+            <Heading>Pass Status</Heading>
             <PostsContainer>
               {
                 (passId != "") ?
@@ -169,18 +170,24 @@ export default ({
               {
                 (eventsRegistered.length != 0) ? 
                 eventsRegistered.map((event, index) => (
-                  <Post key={index} className="group">
-                    <PostTextContainer>
-                      {event.title && <Title>{event.title}</Title>}
-                      {event.authorName && <AuthorName>{event.authorName}</AuthorName>}
-                    </PostTextContainer>
-                    {event.postImageSrc && <Image imageSrc={event.postImageSrc} />}
-                  </Post>
+                  <Link to={{
+                    pathname: "/eventDetails",
+                    search: `?name=${event.title}`,
+                    state: event
+                  }}>
+                    <Post key={index} className="group">
+                      <PostTextContainer>
+                        {event.title && <Title>{event.title}</Title>}
+                        {event.date && <AuthorName>{event.date}</AuthorName>}
+                      </PostTextContainer>
+                      {event.imageSrc && <Image imageSrc={event.imageSrc} />}
+                    </Post>
+                  </Link>
                 )) :
                 <Post>
-                  <PostTextContainer>
+                  {/* <PostTextContainer> */}
                     <Title>You have not registered for any event.</Title>
-                  </PostTextContainer>
+                  {/* </PostTextContainer> */}
                 </Post>
               }
             </PostsContainer>

@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React,{useEffect, useState, useContext} from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -9,14 +9,17 @@ import logo from "images/old-logo-symbol.png";
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import Footer from "components/footers/Home-Footer";
 import { backendUrl } from "backendUrl";
+import { userContext } from "App";
+import "./Sign-up.css";
+
 var Loader = require("react-loader");
 
 const Container = tw(
   ContainerBase
-)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
+)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -mx-8 -mt-8 sm:-my-8`;
 const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
@@ -40,7 +43,7 @@ const SocialButton = styled.a`
 `;
 
 const DividerTextContainer = tw.div`my-12 border-b text-center relative`;
-const DividerText = tw.div`leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
+const DividerText = tw.div`leading-none py-2 px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
 
 const Form = tw.form`mx-auto max-w-xs`;
 const Input = tw.input`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
@@ -71,6 +74,10 @@ export default ({
   signInUrl = "/login",
 }
 ) => {
+  const loggedIn = useContext(userContext).loggedIn;
+  if (loggedIn) {
+    return <Redirect to="/" />
+  }
 
   const [loading, setLoading] = useState(true);
   
@@ -85,6 +92,8 @@ export default ({
         name: e.target.name.value,
         password: e.target.password.value,
         phone_number: e.target.phone_number.value,
+        user_interest: e.target.user_interest.value,
+        college_name: e.target.college_name.value,
       };
       const requestOptions = {
         method: "POST",
@@ -100,8 +109,10 @@ export default ({
             window.location.href = "/login";
           } else if (response.status == 409) {
             alert("user already exists");
+            window.location.href="/login";
           } else {
             alert("Invalid credentials");
+            window.location.href="/signup";
           }
           return response.json();
         })
@@ -149,17 +160,54 @@ export default ({
               <Form onSubmit={handleSubmit}>
                 <Input type="email" placeholder="Email" name="email" />
                 <Input type="name" placeholder="Name" name="name" />
-                <Input type="password" placeholder="Password" name="password" />
+                <Input type="password" id="passwd" placeholder="Password" required name="password"
+                  onKeyUp={() => {
+                    let passEle = document.getElementById('passwd');
+                    let confPassEle = document.getElementById('confirmPasswd');
+                    if (confPassEle.value != "") {
+                      if (passEle.value == confPassEle.value) {
+                        confPassEle.style.borderColor = 'green';
+                      } else {
+                        confPassEle.style.borderColor = 'red';
+                      }
+                    }
+                  }} 
+                />
                 <Input
                   type="password"
+                  id="confirmPasswd"
                   placeholder="Confirm Password"
                   name="confirm_password"
+                  required
+                  onKeyUp={() => {
+                    let passEle = document.getElementById('passwd');
+                    let confPassEle = document.getElementById('confirmPasswd');
+                    if (passEle.value != "") {
+                      if (passEle.value == confPassEle.value) {
+                        confPassEle.style.borderColor = 'green';
+                      } else {
+                        confPassEle.style.borderColor = 'red';
+                      }
+                    }
+                  }}
                 />
                 <Input
-                  type="phone"
-                  placeholder="Phone Number"
+                  type="tel"
+                  placeholder="Phone Number (e.g. 9876543210)"
                   name="phone_number"
+                  pattern="[6-9]{1}[0-9]{9}"
+                  title="The phone number must be 10 digits long and should begin with [5-9]"
                 />
+                 <Input type="name" placeholder="College Name" name="college_name" />
+               
+                <div className="interestDropDown">
+                  <label for="user_interest" id="userInterestLabel">What part of the fest are you most excited about:</label>
+                  <select name="user_interest" id="userInterestOptions">
+                    <option className="userInterestOption" value="events">Events Only</option>
+                    <option className="userInterestOption" value="flagship">Flagship Only</option>
+                    <option className="userInterestOption" value="events_and_flagship">Both flagship and events</option>
+                  </select>
+                </div>
                 <SubmitButton type="submit">
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{submitButtonText}</span>

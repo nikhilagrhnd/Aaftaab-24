@@ -2,23 +2,20 @@ from django.db import models
 
 
 EVENT_CHOICES = (
-    ('prompt_poetry','Prompt Poetry'),
-    ('noob_quiz','Noob Quiz'),
-    ('word_games','Word Games'),
-    ('hindi_debate','Hindi Debate'),
-    ('english_debate','English Debate'),
     ('video_making_workshop','Video Making Workshop'),
     ('creative_writing_workshop','Creative Writing Workshop'),
     ('acting_workshop','Acting Workshop'),
-    ('regional_literature_colloquium','Regional Literature Colloquium'),
+    ('prompt_poetry','Prompt Poetry'),
+    ('noob_quiz','Noob Quiz'),
+    ('word_games','Word Games'),
     ('treasure_hunt','Treasure Hunt'),
-    ('standup_comedy','Standup Comedy'),
     ('just_a_minute_speech','Just A Minute Speech'),
-    ('prompt_based_character_re_enactment','Prompt Based Character Re-enactment'),
-    ('mythology_quiz','Mythology Quiz'),
-    ('theatre_performance','Theatre Performance'),
-    ('english_author_book_signing','English Author Book Signing'),
-    ('mela_quiz','Mela Quiz'),
+    ('hindi_debate','Hindi Debate'),
+    ('english_debate','English Debate'),
+    ('character_reenactment','Prompt based character re-enactment'),
+    ('mythology_quiz','Mythology quiz'),
+    ('mela_quiz','MELA Quiz'),
+    ('open_mic','Open Mic'),
 
 
 )
@@ -26,8 +23,10 @@ EVENT_CHOICES = (
 class Participant(models.Model):
     email = models.EmailField(max_length=255,unique=True,primary_key=True)
     name = models.CharField(max_length=255,blank=False,default='name')
-    password = models.CharField(max_length=255,blank=False,default='password')
+    password = models.CharField(max_length=255,blank=False)
     phone_number = models.CharField(max_length=10,blank=True)
+    user_interest = models.CharField(max_length=255,blank = True)
+    college_name=models.CharField(max_length=255,blank=True)
     def __str__(self):
         return self.email
 
