@@ -23,7 +23,7 @@ const ContentWithPaddingXl = tw(ContentWithPaddingXlBase)`py-6 lg:py-10`
 function Dashboard() {
   const [userName, setUserName] = useState("");
   const [events, setEvents] = useState([]);
-  const [passId, setPassId] = useState("");
+  const [passType, setPassType] = useState("none");
 
   useEffect(async () => {
     const token = localStorage.getItem("token");
@@ -50,6 +50,7 @@ function Dashboard() {
           // console.log(data.event_list);
           setUserName(data.user_name);
           setEvents(data.event_list);
+          setPassType(data.pass_type);
         })
 
         .catch((error)=>{
@@ -82,7 +83,7 @@ function Dashboard() {
         </ContentWithPaddingXl>
       </Container>
 
-      <EventDetailSection eventsRegistered_Name={events}/>
+      <EventDetailSection eventsRegistered_Name={events} passType={passType}/>
       
       <Footer />
     </AnimationRevealPage>

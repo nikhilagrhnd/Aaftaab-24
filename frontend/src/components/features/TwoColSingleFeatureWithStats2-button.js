@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect,useState} from "react";
 import { Link,useHistory } from "react-router-dom";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -69,7 +69,42 @@ export default ({
   prize = "",
 }) => {
   const loggedIn = useContext(userContext).loggedIn;
+  const [passType,setPassType] = useState("none");
   console.log(loggedIn);
+  useEffect(async ()=>{
+
+    if(loggedIn){
+      const token = localStorage.getItem("token");
+      const requestOptions = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      };
+      await fetch(`${backendUrl}/api/get_user_pass_type/`, requestOptions)
+      .then((response)=>{
+        if(response.status===200){
+          return response.json();
+        }
+        else{
+          return {pass_type:"none"};
+        }
+      }
+      )
+      .then((data)=>{
+        setPassType(data.pass_type);
+        console.log(passType);
+      })
+      .catch((err)=>{
+        console.log(err);
+      }
+      );
+    }
+
+
+  },[])
+
 
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
   //Change the statistics variable as you like, add or delete objects
@@ -95,11 +130,22 @@ export default ({
     
   };
 
+  function validPassType(isFlagship, passType) {
+    if (isFlagship) {
+      if (passType == "flagship" || passType == "events_and_flagship") return true;
+      else return false;
+    } else {
+      if (passType == "events" || passType == "events_and_flagship") return true;
+      else return false;
+    }
+  }
+
   const card = {
     title: heading,
     imageSrc: imageSrc,
     minTeamSize: minTeamSize,
     maxTeamSize: maxTeamSize,
+    isFlagship: isFlagship,
   }
 
   
@@ -119,12 +165,21 @@ export default ({
             {
               statistics && 
               <Statistics>
-                {statistics.map((statistic, index) => (
-                  <Statistic key={index}>
-                    <Value>{statistic.value}</Value>
-                    <Key>{statistic.key}</Key>
-                  </Statistic>
-                ))}
+                {statistics.map((statistic, index) =>{
+                  if(statistic.value != ""){
+                    console.log(statistic.key);
+                    return (
+                      <Statistic key={index}>
+                        <Value>{statistic.value}</Value>
+                        <Key>{statistic.key}</Key>
+                      </Statistic>
+                    );
+                  }
+                  else{
+                    return null;
+                  }
+                }
+                )}
               </Statistics>
             }
             {
@@ -135,21 +190,39 @@ export default ({
                 </PrimaryButton>
               ) :
               (
-                (registrableEvent && loggedIn) ? 
+                (registrableEvent && loggedIn && (passType == "none")) ? 
                 (
-                  
-                    <Link to={{
-                      pathname: "/eventRegistration",
-                      search: `?name=${card.title}`,
-                      state: card
-                    }}>
-                      <PrimaryButton>
-                        {primaryButtonText}
-                      </PrimaryButton>
-                    </Link>
-                  )
+                  <PrimaryButton disabled className="disabledEventRegisterBtn">
+                    Buy a pass to register
+                  </PrimaryButton>
+                )
                 :
-                null
+                (
+                  (registrableEvent && loggedIn && (!validPassType(isFlagship, passType))) ? 
+                  (
+                    <PrimaryButton disabled className="disabledEventRegisterBtn">
+                      You don't have a valid pass!
+                    </PrimaryButton>
+                  )
+                  :
+                  (
+                    (registrableEvent && loggedIn && validPassType(isFlagship, passType)) ? 
+                    (                     
+                        <Link to={{
+                          pathname: "/eventRegistration",
+                          search: `?name=${card.title}`,
+                          state: card
+                        }}>
+                          <PrimaryButton>
+                            {primaryButtonText}
+                          </PrimaryButton>
+                        </Link>
+                    )
+                    :
+                    null
+                  )
+                    
+                )
               )
             }
           </TextContent>

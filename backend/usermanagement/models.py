@@ -19,6 +19,12 @@ EVENT_CHOICES = (
 
 
 )
+REGISTRATION_TYPES=(
+    ('none','None'),
+    ('events','Events Only'),
+    ('flagship','Flagship only'),
+    ('events_and_flagship','Events and Flagship'),
+)
 
 class Participant(models.Model):
     email = models.EmailField(max_length=255,unique=True,primary_key=True)
@@ -27,6 +33,7 @@ class Participant(models.Model):
     phone_number = models.CharField(max_length=10,blank=True)
     user_interest = models.CharField(max_length=255,blank = True)
     college_name=models.CharField(max_length=255,blank=True)
+    pass_type = models.CharField(max_length=255,default ='none',choices = REGISTRATION_TYPES,blank=False)
     def __str__(self):
         return self.email
 

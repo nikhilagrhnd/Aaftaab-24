@@ -176,7 +176,7 @@ export default ({
         minTeamSize: 3,
         maxTeamSize: 5,
         isFlagship: true,
-        prize: "1st: 6000 2nd: 3000 3rd: 1500",
+        prize: "1st: ₹6000, 2nd: ₹3000, 3rd: ₹1500",
         ruleBookLink: "",
         url: "#"
       },
@@ -425,7 +425,7 @@ const getDay2Cards = () => {
       minTeamSize: 2,
       maxTeamSize: 3,
       isFlagship: false,
-      prize: "1st: 6000 2nd: 3000 3rd: 1500",
+      prize: "1st: ₹6000, 2nd: ₹3000, 3rd: ₹1500",
       ruleBookLink: "",
       url: "#"
     },
@@ -488,7 +488,7 @@ const getDay2Cards = () => {
       minTeamSize: 1,
       maxTeamSize: 1,
       isFlagship: false,
-      prize: "1st: 3000 2nd: 2000 3rd: 1000",
+      prize: "1st: ₹3000, 2nd: ₹2000, 3rd: ₹1000",
       ruleBookLink: "",
       url: "#"
     },
@@ -505,7 +505,7 @@ const getDay2Cards = () => {
       minTeamSize: 3,
       maxTeamSize: 5,
       isFlagship: false,
-      prize: "1st: 6000 2nd: 3000 3rd: 1500",
+      prize: "1st: ₹6000, 2nd: ₹3000, 3rd: ₹1500",
       ruleBookLink: "",
       url: "#"
     },
@@ -522,7 +522,7 @@ const getDay2Cards = () => {
       minTeamSize: 3,
       maxTeamSize: 5,
       isFlagship: false,
-      prize: "1st: 6000 2nd: 3000 3rd: 1500",
+      prize: "1st: ₹6000, 2nd: ₹3000, 3rd: ₹1500",
       ruleBookLink: "",
       url: "#"
     },
@@ -567,7 +567,7 @@ const getDay2Cards = () => {
       minTeamSize: 3,
       maxTeamSize: 5,
       isFlagship: true,
-      prize: "1st: 6000 2nd: 3000 3rd: 1500",
+      prize: "1st: ₹6000, 2nd: ₹3000, 3rd: ₹1500",
       ruleBookLink: "",
       url: "#"
     },
@@ -616,7 +616,7 @@ const getDay3Cards = () => {
       minTeamSize: 3,
       maxTeamSize: 5,
       isFlagship: false,
-      prize: "1st: 3000 2nd: 2000 3rd: 1000",
+      prize: "1st: ₹3000, 2nd: ₹2000, 3rd: ₹1000",
       ruleBookLink: "",
       url: "#"
     },
@@ -633,7 +633,7 @@ const getDay3Cards = () => {
       minTeamSize: 2,
       maxTeamSize: 3,
       isFlagship: false,
-      prize: "1st: 6000 2nd: 3000 3rd: 1500",
+      prize: "1st: ₹6000, 2nd: ₹3000, 3rd: ₹1500",
       ruleBookLink: "",
       url: "#"
     },
@@ -666,7 +666,7 @@ const getDay3Cards = () => {
       minTeamSize: 3,
       maxTeamSize: 5,
       isFlagship: false,
-      prize: "1st: 6000 2nd: 3000 3rd: 1500",
+      prize: "1st: ₹6000, 2nd: ₹3000, 3rd: ₹1500",
       ruleBookLink: "",
       url: "#"
     },
@@ -682,7 +682,7 @@ const getDay3Cards = () => {
       minTeamSize: 3,
       maxTeamSize: 5,
       isFlagship: false,
-      prize: "1st: 6000 2nd: 3000 3rd: 1500",
+      prize: "1st: ₹6000, 2nd: ₹3000, 3rd: ₹1500",
       ruleBookLink: "",
       url: "#"
     },
