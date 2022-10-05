@@ -85,7 +85,8 @@ const DecoratorBlob = styled(SvgDecoratorBlob)`
 export default ({
   subheading = "Pricing",
   heading = "Registration Plans.",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  description = "These passes will enable you to access some or all the events planned throughout the fest. It is mandatory to buy a pass to gain entry to the fest.",
+  subdescription = "Note: The purchase will be reflected on the website within 24 hours. For any query, reach us at aaftaab@iitj.ac.in",
   plans = null,
   primaryButtonText = "Buy Now"
 }) => {
@@ -94,23 +95,23 @@ export default ({
       name: "Events Only",
       price: "₹100",
       // duration: "Monthly",
-      mainFeature: "Suited for Personal Blogs",
-      features: ["30 Templates", "7 Landing Pages", "12 Internal Pages", "Basic Assistance"],
+      mainFeature: "Access to all daytime events",
+      features: ["Award-winning Writers Seminars", "All workshops", "All competitions"],
     },
     {
       name: "Events + Flagship",
       price: "₹200",
       // duration: "Monthly",
-      mainFeature: "Suited for Production Websites",
-      features: ["60 Templates", "8 Landing Pages", "22 Internal Pages", "Priority Assistance"],
+      mainFeature: "Access to all events",
+      features: ["All daytime events", "All informal events"],
       featured: true,
     },
     {
       name: "Flagship Only",
       price: "₹150",
       // duration: "Monthly",
-      mainFeature: "Suited for Big Companies",
-      features: ["90 Templates", "9 Landing Pages", "37 Internal Pages", "Personal Assistance"],
+      mainFeature: "Access to all informal events",
+      features: ["Standup comedy", "Kavi sammelan", "Hip-hop Night", "and many more..."],
     },
   ];
 
@@ -138,6 +139,7 @@ export default ({
           {subheading && <Subheading>{subheading}</Subheading>}
           <Heading>{heading}</Heading>
           {description && <Description>{description}</Description>}
+          {subdescription && <Description>{subdescription}</Description>}
         </HeaderContainer>
         <PlansContainer>
           {plans.map((plan, index) => (
