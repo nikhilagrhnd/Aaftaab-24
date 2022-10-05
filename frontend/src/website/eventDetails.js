@@ -49,6 +49,10 @@ function Events() {
                         {
                             key: "Group size",
                             value: `${card.minTeamSize}-${card.maxTeamSize}`
+                        },
+                        {
+                            key: "Prize",
+                            value: `${card.prize}`
                         }
                     ] : 
                     (
@@ -61,6 +65,10 @@ function Events() {
                             {
                                 key: "Event type",
                                 value: "Individual"
+                            },
+                            {
+                                key: "Prize",
+                                value: `${card.prize}`
                             }
                         ] :
                         (
@@ -69,6 +77,10 @@ function Events() {
                                 {
                                     key: "Time",
                                     value: `${card.timing}`
+                                },
+                                {
+                                    key: "Prize",
+                                    value: `${card.prize}`
                                 }
                             ] :
                             null

@@ -128,13 +128,14 @@ def get_all_events_for_an_user(request):
         email = payload['email']
         if Participant.objects.filter(email=email).exists():
             user_name = Participant.objects.filter(email=email).first().name
+            pass_type = Participant.objects.filter(email=email).first().pass_type
             event_list = []
             emailIds = EmailIds.objects.filter(emailid=email)
             for emailId in emailIds:
                 teams = Team.objects.filter(teamid=emailId.teamid)
                 for team in teams:
                     event_list.append(team.event_registered)
-            return Response({"event_list": event_list, "user_name": user_name}, status=status.HTTP_200_OK)
+            return Response({"event_list": event_list, "user_name": user_name,"pass_type":pass_type}, status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_404_NOT_FOUND)
     return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
@@ -158,3 +159,46 @@ def get_all_users_for_an_event(request):
         else:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
     return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['GET'])
+def get_user_pass_type(request):
+    if request.method == 'GET':
+        token = request.headers.get('Authorization')
+        if token is None:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+        try:
+            payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+        except:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+        email = payload['email']
+        if Participant.objects.filter(email=email).exists():
+            user = Participant.objects.filter(email=email).first()
+            return Response({"pass_type": user.pass_type}, status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+    return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+@api_view(['POST'])
+def check_if_team_registrable(request):
+    if request.method=="POST":
+        email_list = request.data.get('email_list')
+        #print(email_list)
+        status_dict = {}
+        for email in email_list:
+            emailObj = {
+                "registered":False,
+                "pass_type":"none",
+            }
+            if Participant.objects.filter(email=email).exists():
+                user = Participant.objects.filter(email=email).first()
+                emailObj["registered"]=True
+                emailObj["pass_type"]=user.pass_type
+            status_dict[email]=emailObj
+        #print(status_dict)
+        return Response(status_dict,status=status.HTTP_200_OK)
+    return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+        
+

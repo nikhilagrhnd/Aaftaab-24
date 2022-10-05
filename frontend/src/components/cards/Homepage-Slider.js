@@ -199,7 +199,7 @@ export default () => {
       minTeamSize: 1,
       maxTeamSize: 3,
       isFlagship: true,
-      prize: "1st: 6000 2nd: 3000 3rd: 1500",
+      prize: "1st: ₹6000, 2nd: ₹3000, 3rd: ₹1500",
       ruleBookLink: "",
     },
     {

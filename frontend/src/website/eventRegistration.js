@@ -1,5 +1,5 @@
 import AnimationRevealPage from "helpers/AnimationRevealPage";
-import React, { Component,useEffect } from "react";
+import React, { Component,useEffect,useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import tw from "twin.macro";
 
@@ -75,6 +75,8 @@ function goBackToEvents(history) {
 
 function EventRegistration() {
 
+  const [statusDict,setStatusDict] = useState({});
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     const requestOptions = {
@@ -108,7 +110,18 @@ function EventRegistration() {
   const SubmitButtonIcon = SignUpIcon;
   const submitButtonText = "Submit";
 
-  const handleSubmit = (e) => {
+  function validPassType(isFlagship, passType) {
+    if (isFlagship) {
+      if (passType == "flagship" || passType == "events_and_flagship") return true;
+      else return false;
+    } 
+    else {
+      if (passType == "events" || passType == "events_and_flagship") return true;
+      else return false;
+    }
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const email_list = [];
     for (let i = 0; i < card.maxTeamSize-1; i++) {
@@ -119,7 +132,64 @@ function EventRegistration() {
         email_list.push(email);
       }
     }
-    console.log(email_list);
+    console.log("Email List:", email_list);
+
+
+    //check if all users have registered and are valid
+    const tempRequestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        email_list: email_list,
+      }),
+    };
+    
+    var isTeamRegistrable = true;
+    let al = "";
+
+    await fetch(`${backendUrl}/api/check_if_team_registrable/`, tempRequestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        //console.log(data);
+        setStatusDict(data);
+
+        for (let email in data) {
+          //console.log(email);
+          if (data[email]["registered"] === false) {
+            isTeamRegistrable = false;
+            al += "User " + email + " has not signed up.\n";
+          }
+          else {
+            if (data[email]["pass_type"] === "none") {
+              isTeamRegistrable = false;
+              al += "User " + email + " has not bought any pass.\n"; 
+            }
+            else {
+              if (!validPassType(card.isFlagship, data[email]["pass_type"])) {
+                // console.log(card.isFlagship, email["pass_type"]);
+                isTeamRegistrable = false;
+                al += "User " + email + " does not have a valid pass.\n";
+              }
+            }
+          }
+        }
+        
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      // return;
+
+    if (isTeamRegistrable === false) {
+      alert(al);    
+      return;  
+    }
+    
+
 
     const data = {
       teamname: e.target.elements.teamname.value,
@@ -132,7 +202,8 @@ function EventRegistration() {
       headers: { "Content-Type": "application/json", Authorization: token },
       body: JSON.stringify(data),
     };
-    fetch(backendUrl + "/api/create_team/", requestOptions)
+    
+    await fetch(backendUrl + "/api/create_team/", requestOptions)
       .then((response) => {
         if (response.status === 201) {
           alert("Successfully Registered");
