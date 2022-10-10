@@ -110,7 +110,7 @@ export default () => {
     {
       imageSrc: kaviSammelanImg,
       title: "Kavi Sammelan",
-      description: `‘Kavyamaye ho uthega dil, jab sajegi kaviyon ki mehfil’. A poetic event (Kavi Sammelan) is being organized on this Aaftaab. The event will be presenting young and talented poets who will recite their poems and mushairas in front of the audience. Here the participants will get a topic on which they have to present their poetry. also, participants could get a chance to interact with upcoming faces of poetry.`,
+      description: `‘Kavyamaye ho uthega dil, jab sajegi kaviyon ki mehfil’. A poetic event (Kavi Sammelan) is being organized on this Aaftaab. The event will be presenting young and talented poets who will recite their poems and mushairas in front of the audience. Here the participants will get a topic on which they have to present their poetry. Also, participants could get a chance to interact with upcoming faces of poetry.`,
       date: "TBD",
       timing: "08:00 PM - 10:00 PM",
       // price: "₹50",
