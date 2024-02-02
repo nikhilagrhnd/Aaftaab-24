@@ -1,2 +1,2 @@
-# Aaftaab-22
-Official website of Aaftaab 2022
+# Aaftaab-24
+Official website of Aaftaab 2024
